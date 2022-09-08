@@ -4,10 +4,10 @@ import './Navbar.css';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-color navbar-shade">
-      <div className="container-fluid " id="navbar-container">
+    <nav className="navbar navbar-expand-lg color-Navbar shade-Navbar">
+      <div className="container-fluid " id="container-Navbar">
         <div className="logo-Navbar">
-          <NavLink to="/" className="logo-color-Navbar"><img className="navbar-logo" src="Images/DogsWalk.png" width="40px" alt="logo" /></NavLink>
+          <NavLink to="/" className="logo-color-Navbar"><img className="logo-circle-Navbar" src="Images/DogsWalk.png" width="40px" alt="logo" /></NavLink>
           <NavLink to="/" className="logo-color-Navbar">DogsMeeting</NavLink>
         </div>
         <div>
@@ -16,7 +16,7 @@ export default function Navbar() {
             <button className="btn  text-color-Navbar" type="submit">Поиск</button>
           </form>
         </div>
-        <div className="collapse navbar-collapse" id="navbarScroll">
+        <div id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
             <li className="nav-item">
               <a className="nav-link text-color-Navbar" aria-current="page" href="#">Главная</a>
