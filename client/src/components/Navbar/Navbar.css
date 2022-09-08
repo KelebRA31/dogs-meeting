@@ -10,7 +10,24 @@
 color: white;
 }
 
+.logo-Navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-color-Navbar {
+    color: black;
+    text-decoration: none;
+    }
+
+.logo-color-Navbar:hover {
+    color: black;
+    text-decoration: underline;
+    }
+
 #navbar-container {
+    gap: 10px;
     display: flex;
     flex-direction: row;
     width: 100%;

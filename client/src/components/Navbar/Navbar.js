@@ -1,12 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-color navbar-shade">
       <div className="container-fluid " id="navbar-container">
-        <div>
-          <a className="navbar-brand text-color-Navbar" href="#"><img className="navbar-logo" src="Images/DogsWalk.png" width="40px" alt="logo" /></a>
+        <div className="logo-Navbar">
+          <NavLink to="/" className="logo-color-Navbar"><img className="navbar-logo" src="Images/DogsWalk.png" width="40px" alt="logo" /></NavLink>
+          <NavLink to="/" className="logo-color-Navbar">DogsMeeting</NavLink>
         </div>
         <div>
           <form className="d-flex" role="search">
