@@ -16,16 +16,19 @@ route.get('/logout', async (req, res) => {
 
 route.post('/register', async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const {
+      email, password, name, nickName,
+    } = req.body;
     console.log(process.env.CRYPT_ROUNDS);
 
     const result = await User.create({
       email,
       password: await bcrypt.hash(password, Number(process.env.CRYPT_ROUNDS)),
       name,
+      nickName,
     });
     if (result.id) {
-      req.session.userName = result.name;
+      req.session.userName = result.nickName;
       req.session.userId = result.id;
       return res.json(result);
     }
