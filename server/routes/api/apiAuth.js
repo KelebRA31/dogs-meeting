@@ -5,6 +5,15 @@ const { User } = require('../../db/models');
 
 const route = express.Router();
 
+route.get('/check', async (req, res) => {
+  try {
+    const result = await User.findByPk(req.session.userId);
+    res.json(result);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 route.get('/logout', async (req, res) => {
   try {
     req.session.destroy();
@@ -25,15 +34,16 @@ route.post('/register', [
       return res.status(400).json({ message: 'Некорректный запрос', errors });
     }
     const {
-      email, password, name, nickName,
+      email, password, name, nickName, gender_id,
     } = req.body;
+    console.log(typeof (gender_id));
     console.log(process.env.CRYPT_ROUNDS);
 
-    const candidateByEmail = await User.findOne({ email });
+    const candidateByEmail = await User.findOne({ where: { email } });
     if (candidateByEmail) {
       return res.status(400).json({ message: `Пользоаватель с email ${email} уже существует` });
     }
-    const candidateByNick = await User.findOne({ nickName });
+    const candidateByNick = await User.findOne({ where: { nickName } });
     if (candidateByNick) {
       return res.status(400).json({ message: `Пользоаватель с nick ${nickName} уже существует` });
     }
@@ -43,12 +53,15 @@ route.post('/register', [
       password: await bcrypt.hash(password, Number(process.env.CRYPT_ROUNDS)),
       name,
       nickName,
+      gender_id,
     });
-    if (result.id) {
+    if (result.id && result.name !== 'SequelizeDatabaseError') {
       req.session.userName = result.nickName;
       req.session.userId = result.id;
       return res.json(result);
     }
+    res.sendStatus(404);
+
     throw Error(result);
   } catch (error) {
     console.log(error);
