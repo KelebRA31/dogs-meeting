@@ -5,11 +5,13 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-color navbar-shade">
       <div className="container-fluid " id="navbar-container">
-        <div><a className="navbar-brand text-color-Navbar" href="#">ЛОГО</a></div>
+        <div>
+          <a className="navbar-brand text-color-Navbar" href="#"><img className="navbar-logo" src="Images/DogsWalk.png" width="40px" alt="logo" /></a>
+        </div>
         <div>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Ник пользователя..." aria-label="Search" />
-            <button className="btn btn-outline-success text-color-Navbar" type="submit">Поиск</button>
+            <button className="btn  text-color-Navbar" type="submit">Поиск</button>
           </form>
         </div>
         <div className="collapse navbar-collapse" id="navbarScroll">
