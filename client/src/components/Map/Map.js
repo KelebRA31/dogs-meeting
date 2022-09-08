@@ -14,8 +14,8 @@ export default function Map() {
     });
 
     const placemark = new ymaps.Placemark(center, {}, {
-      hintContent: 'Собственный значок метки',
-      balloonContent: 'Это красивая метка',
+      // hintContent: 'Собственный значок метки',
+      // balloonContent: 'Это красивая метка',
 
       iconLayout: 'default#image',
       iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
@@ -31,6 +31,9 @@ export default function Map() {
   }, []);
 
   return (
-    <div id="map" className="mapContainer" />
+    <div>
+
+      <div id="map" className="mapContainer" />
+    </div>
   );
 }
