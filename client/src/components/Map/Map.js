@@ -3,6 +3,6 @@ import './Map.css';
 
 export default function Map() {
   return (
-    <div>Map</div>
+    <div id="map" style={{ width: '600px', height: '400px' }} />
   );
 }
