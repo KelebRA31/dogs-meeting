@@ -22,7 +22,7 @@ export default function Navbar() {
               <a className="nav-link text-color-Navbar" aria-current="page" href="#">Главная</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-color-Navbar" href="#">О Приложении</a>
+              <a className="nav-link text-color-Navbar" href="/about">О Приложении</a>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle text-color-Navbar" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
