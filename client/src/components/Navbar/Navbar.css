@@ -1,0 +1,18 @@
+.navbar-shade {
+    box-shadow: inset -3px -1em 3em rgb(0 0 0 / 10%), -1px -3px 0 2px rgb(255 255 255), 0em 0em 1em 5px rgb(0 0 0 / 30%);
+}
+
+.navbar-color {
+    background-color: #fb9518;
+}
+
+.text-color-Navbar {
+color: white;
+}
+
+#navbar-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
