@@ -1,27 +1,27 @@
 import React from 'react';
+import './Navbar.css';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">ЛОГО</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
-        </button>
+    <nav className="navbar navbar-expand-lg navbar-color navbar-shade">
+      <div className="container-fluid " id="navbar-container">
+        <div><a className="navbar-brand text-color-Navbar" href="#">ЛОГО</a></div>
+        <div>
+          <form className="d-flex" role="search">
+            <input className="form-control me-2" type="search" placeholder="Ник пользователя..." aria-label="Search" />
+            <button className="btn btn-outline-success text-color-Navbar" type="submit">Поиск</button>
+          </form>
+        </div>
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-            <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Введите " aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Поиск</button>
-            </form>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Главная</a>
+              <a className="nav-link text-color-Navbar" aria-current="page" href="#">Главная</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">О Приложении</a>
+              <a className="nav-link text-color-Navbar" href="#">О Приложении</a>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className="nav-link dropdown-toggle text-color-Navbar" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Личный кабинет
               </a>
               <ul className="dropdown-menu">
