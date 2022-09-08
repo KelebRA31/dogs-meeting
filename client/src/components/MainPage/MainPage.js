@@ -1,8 +1,13 @@
 import React from 'react';
 import './MainPage.css';
+import Map from '../Map/Map';
 
 export default function MainPage() {
   return (
-    <div>Приветствуем, пользователь</div>
+
+    <div>
+      <Map />
+    </div>
+
   );
 }
