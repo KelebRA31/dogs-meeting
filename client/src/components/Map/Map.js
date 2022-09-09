@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './Map.css';
+import { createPortal } from 'react-dom';
 
 const { ymaps } = window;
 
 export default function Map() {
-  // const center = [55.752010565380814, 37.61879118379485];
-  // const [map, setMap] = useState(null);
-
   // function init() {
   //   setMap(new ymaps.Map('map', {
   //     center,
@@ -44,6 +43,13 @@ export default function Map() {
   //   );
   // }
 
+  const center = [55.752010565380814, 37.61879118379485];
+  const [map, setMap] = useState(null);
+  const navigate = useNavigate();
+
+  // const submitHandler = () => {
+  //   navigate('/event');
+  // };
   function init() {
     let myPlacemark;
     const myMap = new ymaps.Map('map', {
@@ -52,6 +58,13 @@ export default function Map() {
     }, {
       searchControlProvider: 'yandex#search',
     });
+
+    // setMap(new ymaps.Map('map', {
+    //   center,
+    //   zoom: 10,
+    // }, {
+    //   searchControlProvider: 'yandex#search',
+    // }));
 
     // Слушаем клик на карте.
     myMap.events.add('click', (e) => {
@@ -86,7 +99,7 @@ export default function Map() {
                   firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
                 ].filter(Boolean).join(', '),
                 // В качестве контента балуна задаем строку с адресом объекта.
-                balloonContent: '<div id="driver-2" class="driver-card"><button onClick={submitHandler}>click</button></div>',
+                balloonContent: '<div dangerouslySetInnerHTML={{ __html: \'<Link to="/event">click</Link>\' }} id="driver-2" className="driver-card" />',
               },
             );
         });
@@ -107,13 +120,13 @@ export default function Map() {
       getAddress(coords);
     });
   }
+
   useEffect(() => {
     ymaps.ready(init);
   }, []);
 
   return (
     <div>
-
       <div id="map" className="mapContainer" />
     </div>
   );

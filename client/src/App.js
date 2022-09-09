@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import About from './components/About/About';
 import './App.css';
+import CreateEvent from './components/CreateEvent/CreateEvent';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
+        <Route path="/event" element={<CreateEvent />} />
+
       </Routes>
     </div>
   );
