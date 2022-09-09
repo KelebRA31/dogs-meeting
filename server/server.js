@@ -1,5 +1,5 @@
-import express from 'express';
-import serverConfig from './config/serverConfig';
+const express = require('express');
+const serverConfig = require('./config/serverConfig');
 
 // npm i express-session session-file-store
 const app = express();
