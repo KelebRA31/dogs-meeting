@@ -56,6 +56,10 @@ export const setRegistrationTHUNK = (inputs, gender_id) => (dispatch) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      dispatch(setAuth(res));
+      if (res.status === 200) {
+        dispatch(setAuth(res));
+      } else {
+        dispatch(setAuth({ err: 'Данные для регистрации неверны' }));
+      }
     });
 };

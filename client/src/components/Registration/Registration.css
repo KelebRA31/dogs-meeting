@@ -34,7 +34,7 @@
   }
   .label-txt {
     position: absolute;
-    top: -1.6em;
+    top: -1.8em;
     padding: 10px;
     font-family: sans-serif;
     font-size: 1.2em;
@@ -74,4 +74,13 @@
   
   .label-active {
     top: -3em;
+  }
+  .error {
+    position: absolute;
+    top: -0.9em;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    transition: ease .3s;
   }
