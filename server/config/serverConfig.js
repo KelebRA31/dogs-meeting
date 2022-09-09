@@ -24,4 +24,4 @@ const serverConfig = (app) => {
   app.use('/api', apiRoute);
 };
 
-export default serverConfig;
+module.exports = serverConfig;

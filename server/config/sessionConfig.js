@@ -3,7 +3,7 @@ const session = require('express-session');
 
 const FileStore = store(session);
 
-export default {
+module.exports = {
   name: 'mega-cookie',
   secret: process.env.SECRET || 'thisisnotsecure',
   store: new FileStore(),
