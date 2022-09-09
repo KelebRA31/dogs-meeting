@@ -6,6 +6,7 @@ const session = require('express-session');
 const sessionConf = require('./sessionConfig');
 const apiAuthRoute = require('../routes/api/apiAuth');
 const apiRoute = require('../routes/api/apiRoute');
+const apiUserImg = require('../routes/api/apiUserImg');
 
 const serverConfig = (app) => {
   const sessionConfig = sessionConf;
@@ -16,12 +17,13 @@ const serverConfig = (app) => {
   }));
 
   app.use(express.static(path.join(process.env.PWD, 'public')));
-  app.use(express.json());
+  app.use(express.json({ extended: true }));
   app.use(morgan('dev'));
   app.use(session(sessionConfig));
 
   app.use('/api/auth', apiAuthRoute);
   app.use('/api', apiRoute);
+  app.use('/api/setuserimg', apiUserImg);
 };
 
 module.exports = serverConfig;

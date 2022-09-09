@@ -21,3 +21,7 @@
 
 export const SET_AUTH = 'SET_AUTH';
 export const LOGOUT = 'LOGOUT';
+
+// USER
+
+export const SET_USER_IMG = 'SET_USER_IMG';

@@ -1,24 +1,18 @@
-// Example
+import {
+  SET_USER_IMG,
+} from '../types/types';
 
-// import {
-//   GET_USERS,
-//   SEARCH_USERS,
-// } from '../types/types';
+export default (state = {}, action) => {
+  const { type, payload } = action;
 
-// export default (state = [], action) => {
-//   const { type, payload } = action;
+  switch (type) {
+    case SET_USER_IMG:
+      return payload;
 
-//   console.log('reducer', action);
+      // case SEARCH_USERS:
+      //   return payload;
 
-//   switch (type) {
-//     case GET_USERS:
-//       console.log('switch case');
-//       return payload;
-
-//     case SEARCH_USERS:
-//       return payload;
-
-//     default:
-//       return state;
-//   }
-// };
+    default:
+      return state;
+  }
+};
