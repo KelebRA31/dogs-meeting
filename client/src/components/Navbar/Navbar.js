@@ -29,8 +29,8 @@ export default function Navbar() {
                 Личный кабинет
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Мой профиль</a></li>
-                <li><a className="dropdown-item" href="#">Мои друзья</a></li>
+                <li><a className="dropdown-item" href="/profile">Мой профиль</a></li>
+                <li><a className="dropdown-item" href="/friends">Мои друзья</a></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#">Выход</a></li>
               </ul>
