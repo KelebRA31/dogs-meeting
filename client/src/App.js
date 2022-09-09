@@ -10,6 +10,8 @@ import About from './components/About/About';
 import { checkAuthTHUNK } from './redux/actions/authAction';
 
 import './App.css';
+import MyDogs from './components/MyDogs/MyDogs';
+import MyFriends from './components/MyFriends/MyFriends';
 
 function App() {
   const { auth } = useSelector((state) => state);
@@ -32,10 +34,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/mydogs/:id" element={<MyDogs />} />
+        <Route path="/myfriends/:id" element={<MyFriends />} />
       </Routes>
     </div>
   );

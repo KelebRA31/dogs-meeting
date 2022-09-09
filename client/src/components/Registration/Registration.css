@@ -18,7 +18,7 @@
 /* body {
     background: -webkit-linear-gradient(left, #8BC34A, #00e1ff);;
   } */
-  form {
+  .form {
     width: 60%;
     margin: 60px auto;
     background: #efefef;

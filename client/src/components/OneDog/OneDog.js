@@ -1,21 +1,23 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import './Profile.css';
 import axios from 'axios';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUserInfo, getUserInfoTHUNK, setUserImgTHUNK } from '../../redux/actions/userAction';
+import { getDogInfoTHUNK, setDogImgTHUNK } from '../../redux/actions/dogAction';
+import { getUserInfoTHUNK, setUserImgTHUNK } from '../../redux/actions/userAction';
+import './OneDog.css';
 
-export default function Profile() {
+export default function OneDog() {
   const [avatar, setAvatar] = useState(null);
   const [img, setImg] = useState(null);
   const dispatch = useDispatch();
   // const { auth } = useSelector((state) => state);
-  const { user } = useSelector((state) => state);
+  const { dog } = useSelector((state) => state);
+  console.log(dog);
 
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getUserInfoTHUNK(id));
+    dispatch(getDogInfoTHUNK(id));
   }, []);
 
   const sendFile = useCallback(async () => {
@@ -31,7 +33,7 @@ export default function Profile() {
           const resPath = res.data.path;
           const fileP = resPath.split('/');
           setAvatar(`/Images/${fileP[fileP.length - 1]}`);
-          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}` }));
+          dispatch(setDogImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}` }));
         });
     } catch (error) {
       console.error(error);
@@ -58,17 +60,17 @@ export default function Profile() {
 
           </div>
 
-          {user.name}
+          {dog.name}
         </h5>
         <h5>
           Пол:
           {' '}
-          {user.Gender?.gender}
+          {dog.Gender?.gender}
         </h5>
         <h5>
           Возраст:
           {' '}
-          {user.age ? user.age : 'Возраст не заполнен'}
+          {dog.age ? dog.age : 'Возраст не заполнен'}
         </h5>
       </div>
     </div>

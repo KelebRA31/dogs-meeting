@@ -1,14 +1,14 @@
 import {
-  SET_USER_IMG, GET_USER_INFO,
+  SET_DOG_IMG, GET_DOG_INFO,
 } from '../types/types';
 
-export default (state = {}, action) => {
+export default (state = [], action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case SET_USER_IMG:
+    case SET_DOG_IMG:
       return payload;
-    case GET_USER_INFO:
+    case GET_DOG_INFO:
       return payload;
 
     default:
