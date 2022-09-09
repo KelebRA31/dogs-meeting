@@ -13,6 +13,7 @@ export default function Map() {
     }, {
       searchControlProvider: 'yandex#search',
     });
+    console.log(coordinates);
 
     const placemark = new ymaps.Placemark(center, {}, {
       // hintContent: 'Собственный значок метки',
@@ -27,16 +28,15 @@ export default function Map() {
 
     map.geoObjects.add(placemark);
   }
-  // const myGeocoder = ymaps.geocode('Бутово');
-  // myGeocoder.then(
-  //   (res) => {
-  //     // alert(`Координаты объекта :${res.geoObjects.get(0).geometry.getCoordinates()}`);
-  //     setCoordinates([res.geoObjects.get(0).geometry.getCoordinates()]);
-  //   },
-  //   (err) => {
-  //     alert('Ошибка');
-  //   },
-  // );
+  const myGeocoder = ymaps.geocode('Бутово');
+  myGeocoder.then(
+    (res) => {
+      alert(`Координаты объекта :${res.geoObjects.get(0).geometry.getCoordinates()}`);
+    },
+    (err) => {
+      alert('Ошибка');
+    },
+  );
   useEffect(() => {
     ymaps.ready(init);
   }, []);
