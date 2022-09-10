@@ -52,24 +52,30 @@ export default function Profile() {
           <button type="button" className="btn btn-outline-warning button-profile" onClick={sendFile}>Изменить аватар</button>
         </div>
         {/* <input type="file" onChange={(e) => setImg(e.target.files[0])} /> */}
-        <h5 className="name-profile">
-          <div>
-            Имя:
-
-          </div>
-
-          {user.name}
-        </h5>
-        <h5>
-          Пол:
+        <form className="form-profile">
           {' '}
-          {user.Gender?.gender}
-        </h5>
-        <h5>
-          Возраст:
-          {' '}
-          {user.age ? user.age : 'Возраст не заполнен'}
-        </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Имя
+
+            </div>
+
+            {user.name}
+          </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Пол
+            </div>
+            {user.Gender?.gender === 'male' ? 'Мужчина' : 'Женщина'}
+          </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Возраст
+            </div>
+            {user.age ? user.age : 'Возраст не заполнен'}
+          </h5>
+          <button type="button" className="btn btn-outline-warning button-profile">Редактировать данные</button>
+        </form>
       </div>
     </div>
   );
