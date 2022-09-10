@@ -43,6 +43,7 @@ export default function Navbar() {
                     <li><NavLink className="dropdown-item" to={`/profile/${auth?.id}`}>Мой профиль</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/myfriends/${auth?.id}`}>Мои друзья</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мой собаки</NavLink></li>
+                    <li><NavLink className="dropdown-item" to={`/event/${auth?.id}`}>Мои прогулки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><a className="dropdown-item" onClick={() => { dispatch(logoutTHUNK()); navigate('/'); }}>Выход</a></li>
                   </ul>

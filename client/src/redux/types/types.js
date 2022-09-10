@@ -30,3 +30,6 @@ export const SET_USER_IMG = 'SET_USER_IMG';
 
 export const GET_DOG_INFO = 'GET_DOG_INFO';
 export const SET_DOG_IMG = 'SET_DOG_IMG';
+
+// EVENT
+export const CREATE_EVENT = 'CREATE_EVENT';

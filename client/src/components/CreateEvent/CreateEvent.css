@@ -14,3 +14,10 @@
     align-items: center;
     background-color: cadetblue;
 }
+
+.time {
+    color: black;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
