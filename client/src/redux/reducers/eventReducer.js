@@ -1,6 +1,6 @@
 import { CREATE_EVENT } from '../types/types';
 
-export default (state = { eventData: null, loading: false }, action) => {
+export default (state = { eventData: {}, loading: false }, action) => {
   const { type, payload } = action;
 
   switch (type) {

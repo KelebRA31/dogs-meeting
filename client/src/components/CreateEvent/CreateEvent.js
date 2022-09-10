@@ -54,26 +54,31 @@ export default function CreateEvent() {
             Собака №1
           </label>
         </div>
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale} className="timeContainer">
-          <TimePicker
-            label="Начало прогулки"
-            name="start"
-            value={inputValue.start}
-            onChange={setInputValue}
-            minTime={dayjs('2022-01-01T07:00')}
-            maxTime={dayjs('2022-01-01T23:59')}
-            renderInput={(params) => <TextField {...params} />}
-          />
-          <TimePicker
-            label="Конец прогулки"
-            name="end"
-            value={inputValue.end}
-            onChange={setInputValue}
-            minTime={dayjs('2022-01-01T07:00')}
-            maxTime={dayjs('2022-01-01T23:59')}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
+        <div className="timeContainer">
+
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+            <TimePicker
+              className="timePicker"
+              label="Начало прогулки"
+              name="start"
+              value={inputValue.start}
+              onChange={setInputValue}
+              minTime={dayjs('2022-01-01T07:00')}
+              maxTime={dayjs('2022-01-01T23:59')}
+              renderInput={(params) => <TextField {...params} />}
+            />
+            <TimePicker
+              className="timePicker"
+              label="Конец прогулки"
+              name="end"
+              value={inputValue.end}
+              onChange={setInputValue}
+              minTime={dayjs('2022-01-01T07:00')}
+              maxTime={dayjs('2022-01-01T23:59')}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </div>
         <div className="form-check">
           <input
             className="form-check-input"
