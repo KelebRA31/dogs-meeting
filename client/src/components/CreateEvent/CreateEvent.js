@@ -16,7 +16,6 @@ export default function CreateEvent() {
   const { eventData, loading } = event;
 
   const [locale, setLocale] = useState('ru');
-  const [isPrivate, setPrivate] = useState(false);
   const [inputValue, setInputValue] = useState({
     comment: '',
     start: dayjs('2020-01-01 12:00'),

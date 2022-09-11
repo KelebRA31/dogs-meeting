@@ -5,10 +5,10 @@ const { Meeting } = require('../../db/models');
 
 route.post('/', async (req, res) => {
   const {
-    comment,
+    inputs,
   } = req.body;
   const meeting = await Meeting.create({
-    name, user_id_creator: req.session.userId,
+    inputs, user_id_creator: req.session.userId, dog_id_creator,
   });
 
   const m = await Meeting.findByPk(meeting.dataValues.id, {
