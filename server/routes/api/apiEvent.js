@@ -8,12 +8,14 @@ route.post('/', async (req, res) => {
     inputs,
   } = req.body;
   const meeting = await Meeting.create({
-    inputs, user_id_creator: req.session.userId, dog_id_creator,
+    ...inputs, user_id_creator: req.session.userId,
   });
 
-  const m = await Meeting.findByPk(meeting.dataValues.id, {
-    include: User,
-  });
+  //   const m = await Meeting.findByPk(meeting.dataValues.id, {
+  //     include: User,
+  //   });
 
-  res.json(m);
+  res.json(meeting);
 });
+
+module.exports = route;

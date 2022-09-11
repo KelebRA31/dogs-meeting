@@ -24,19 +24,20 @@ export default function CreateEvent() {
     password: '',
 
   });
-
-  console.log('====', JSON.stringify(inputValue.start.$d));
+  console.log('1====', JSON.stringify(inputValue.comment));
+  console.log('2====', JSON.stringify(inputValue.start.$d));
+  console.log('3====', JSON.stringify(inputValue.private));
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createEventTHUNK);
+    dispatch(createEventTHUNK(inputValue));
   };
 
   const changeHandler = (e) => {
-    dispatch(setInputValue((prev) => ({
+    setInputValue((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    })));
+    }));
   };
   return (
 
@@ -44,9 +45,9 @@ export default function CreateEvent() {
 
       <div className="eventContainer">
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder="Описание ивента" aria-label="Username" aria-describedby="basic-addon1" onChange={changeHandler} value={inputValue.comment} />
+          <input type="text" className="form-control" placeholder="Описание ивента" aria-label="Username" aria-describedby="basic-addon1" name="comment" onChange={changeHandler} value={inputValue.comment} />
         </div>
-
+        {/* тут должент быть map по собакам */}
         <div className="form-check">
           <input className="form-check-input" type="checkbox" value="false" id="flexCheckDefault" />
           <label className="form-check-label" htmlFor="flexCheckDefault">
