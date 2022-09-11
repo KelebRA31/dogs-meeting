@@ -1,14 +1,17 @@
 #container-Navbar {
+    font-size: 20px;
     gap: 10px;
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
+    border-bottom: 0.5px solid rgb(121, 111, 111);
 }
 
+
 .color-Navbar {
-    background-color: #ff672c;
+    /* background-color: #ff672c; */
 }
 
 .logo-Navbar {
@@ -17,18 +20,30 @@
     gap: 10px;
 }
 
+
 .logo-color-Navbar {
     color: black;
     text-decoration: none;
 }
 
 .logo-color-Navbar:hover {
-    color: black;
-    text-decoration: underline;
+    color: #c35507;
+
+    scale: 1;
+    transition: 1s;
 }
 
 .text-color-Navbar {
-    color: white;
+    color: rgb(121, 111, 111);
+    /* margin-left: 10px; */
+    margin-right: 15px;
+}
+
+.text-color-Navbar:hover {
+    transition: 1s;
+    color: #c35507;
+    text-decoration: underline;
+    transform: scale(1.030);
 }
 
 .logo-circle-Navbar {
@@ -37,6 +52,16 @@
 }
 
 .shade-Navbar {
-    box-shadow: inset -3px -1em 3em rgb(0 0 0 / 10%), -1px -3px 0 2px rgb(255 255 255), 0em 0em 1em 5px rgb(0 0 0 / 30%);
+    /* box-shadow: inset -3px -1em 3em rgb(0 0 0 / 10%), -1px -3px 0 2px rgb(255 255 255), 0em 0em 1em 5px rgb(0 0 0 / 30%); */
 }
 
+.logo-position-Navbar {
+    /* display: flex;
+    justify-content: flex-start; */
+}
+
+.position-Navbar {
+    display: flex;
+margin-left: 650px;
+
+}
