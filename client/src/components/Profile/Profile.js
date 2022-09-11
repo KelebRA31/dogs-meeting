@@ -16,7 +16,8 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(getUserInfoTHUNK(id));
-  }, []);
+    setAvatar(user.img);
+  }, [user.img]);
 
   const sendFile = useCallback(async () => {
     try {
@@ -31,7 +32,7 @@ export default function Profile() {
           const resPath = res.data.path;
           const fileP = resPath.split('/');
           setAvatar(`/Images/${fileP[fileP.length - 1]}`);
-          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}` }));
+          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}`, id }));
         });
     } catch (error) {
       console.error(error);
@@ -60,7 +61,7 @@ export default function Profile() {
 
             </div>
 
-            {user.name}
+            {user?.name}
           </h5>
           <h5 className="line-profile">
             <div className="text-profile">
