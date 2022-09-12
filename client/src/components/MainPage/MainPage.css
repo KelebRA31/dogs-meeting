@@ -38,7 +38,7 @@
 .carousel-indicators {
     position: absolute;
     display: flex;
-    top: 330px;
+    top: 29rem;
 }
 
 .carousel-inner {
@@ -49,18 +49,20 @@
 .carousel-control-next {
     width: 7%;
     align-items: unset;
+    top: 9rem;
 }
 
 .carousel-control-prev {
     width: 7%;
     align-items: unset;
+    top: 9rem;
     }
 
 .image-carousel {
-    /* position: absolute; */
+    margin: 0 auto;
     display: flex;
     height: 400px;
-    width: 100vw;
+    width: 75vw;
     align-items: center;
     background-position: center center;
     background-size: cover;

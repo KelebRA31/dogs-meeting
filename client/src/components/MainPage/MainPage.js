@@ -12,7 +12,6 @@ export default function MainPage() {
         </Carousel.Item>
         <Carousel.Item>
           <img className="image-carousel" src="/Images/dogswalk.jpeg" width="300px" alt="pic2" />
-          <p>123123</p>
         </Carousel.Item>
         <Carousel.Item>
           <img className="image-carousel" src="/Images/DogsWalk.png" width="50px" alt="pic3" />
