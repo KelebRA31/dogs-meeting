@@ -89,6 +89,18 @@
     width: 40px;
 }
 
+.button-down:hover {
+    width: 40px;
+    transform: scale(1.190);
+    transition: 0.5s;
+}
+
 .button-up {
     width: 40px;
+}
+
+.button-up:hover {
+    width: 40px;
+    transform: scale(1.190);
+    transition: 0.5s;
 }

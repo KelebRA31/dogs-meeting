@@ -15,9 +15,12 @@ margin-top: 30px;
 }
 
 
-.color-Navbar {
-    /* background-color: #ff672c; */
-}
+/* .color-Navbar:hover {
+    background-color: #b2a9a5;
+    transition: 1s;
+    opacity: 0.2;
+    color: #eaa810;
+} */
 
 .logo-Navbar {
     display: flex;
@@ -96,6 +99,12 @@ color: #c35507;
     margin-top: 60px;
     opacity: 0.2;
   }
+
+  /* .line-box2:hover {
+    background: #dfa212;
+    transform: scale(1.030);
+
+  } */
   .line2 {
     position: absolute;
     width: 0%;
