@@ -1,4 +1,8 @@
 body {
   height: 100vh;
-  background-color: floralwhite;
+  background-image: url('../public/Images/backgroundImage.gif');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

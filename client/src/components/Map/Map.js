@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Map.css';
-import { createPortal } from 'react-dom';
+import Button from '@mui/material/Button';
 
 const { ymaps } = window;
 
@@ -99,7 +99,7 @@ export default function Map() {
                   firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
                 ].filter(Boolean).join(', '),
                 // В качестве контента балуна задаем строку с адресом объекта.
-                balloonContent: '<div dangerouslySetInnerHTML={{ __html: \'<Link to="/event">click</Link>\' }} id="driver-2" className="driver-card" />',
+                balloonContent: '<a href="/event/3">Link</a>',
               },
             );
         });
