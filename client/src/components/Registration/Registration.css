@@ -75,3 +75,7 @@
   .label-active {
     top: -3em;
   }
+  p {
+    color: #bf1650;
+    text-align: center;
+  }

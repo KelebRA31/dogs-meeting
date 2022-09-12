@@ -16,7 +16,11 @@ export const checkAuthTHUNK = () => (dispatch) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      dispatch(setAuth(res));
+      if (res.status === 200) {
+        dispatch(setAuth(res));
+      } else {
+        dispatch(setAuth({ notAuth: 'no' }));
+      }
     });
 };
 
@@ -45,14 +49,15 @@ export const setAuthTHUNK = (inputs) => (dispatch) => {
     });
 };
 
-export const setRegistrationTHUNK = (inputs, gender_id) => (dispatch) => {
+export const setRegistrationTHUNK = (data) => (dispatch) => {
   fetch('http://localhost:3001/api/auth/register', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({ ...inputs, gender_id }),
+    // body: JSON.stringify({ ...inputs, gender_id }),
+    body: JSON.stringify(data),
   })
     .then((res) => res.json())
     .then((res) => {
