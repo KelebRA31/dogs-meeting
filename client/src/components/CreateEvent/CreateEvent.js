@@ -77,78 +77,77 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
   };
 
   const list = (anchor) => (
-    <Box className="mainBox">
 
-      <form className="mainEventContainer" onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className="mainEventContainer">
 
-        <div className="eventContainer">
-          <TextField
-            id="filled-basic"
-            variant="filled"
-            name="comment"
-            onChange={changeHandler}
-            value={inputValue.comment}
-            type="text"
-            className="textfield"
-          />
-          <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-            <Select
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
+      <div className="eventContainer">
+        <TextField
+          id="filled-basic"
+          variant="filled"
+          name="comment"
+          onChange={changeHandler}
+          value={inputValue.comment}
+          type="text"
+          className="textfield"
+        />
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
       // value={dog_id_creator}
-              onChange={changeHandler}
-              name="dog_id_creator"
-            >
-              {/* тут должен быть map по собакам */}
-              <MenuItem value={1}>Мухтар</MenuItem>
-              <MenuItem value={2}>Рэкс</MenuItem>
+            onChange={changeHandler}
+            name="dog_id_creator"
+          >
+            {/* тут должен быть map по собакам */}
+            <MenuItem value={1}>Мухтар</MenuItem>
+            <MenuItem value={2}>Рэкс</MenuItem>
 
-            </Select>
-          </FormControl>
-          <div className="timeContainer">
+          </Select>
+        </FormControl>
+        <div className="timeContainer">
 
-            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-              <TimePicker
-                className="timePicker"
-                label="Начало прогулки"
-                name="start"
-                value={inputValue.start}
-                onChange={setInputValue}
-                minTime={dayjs('2022-01-01T07:00')}
-                maxTime={dayjs('2022-01-01T23:59')}
-                renderInput={(params) => <TextField {...params} />}
-              />
-              <TimePicker
-                className="timePicker"
-                label="Конец прогулки"
-                name="end"
-                value={inputValue.end}
-                onChange={setInputValue}
-                minTime={dayjs('2022-01-01T07:00')}
-                maxTime={dayjs('2022-01-01T23:59')}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-          </div>
-          <div className="form-check">
-            <ThemeProvider
-              theme={theme}
-            >
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+            <TimePicker
+              className="timePicker"
+              label="Начало прогулки"
+              name="start"
+              value={inputValue.start}
+              onChange={setInputValue}
+              minTime={dayjs('2022-01-01T07:00')}
+              maxTime={dayjs('2022-01-01T23:59')}
+              renderInput={(params) => <TextField {...params} />}
+            />
+            <TimePicker
+              className="timePicker"
+              label="Конец прогулки"
+              name="end"
+              value={inputValue.end}
+              onChange={setInputValue}
+              minTime={dayjs('2022-01-01T07:00')}
+              maxTime={dayjs('2022-01-01T23:59')}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </div>
+        <div className="form-check">
+          <ThemeProvider
+            theme={theme}
+          >
 
-              <FormControlLabel
-                control={(
-                  <CustomCheckbox
-                    type="checkbox"
-                    id="flexCheckDefault"
-                    value={inputValue.private}
-                    onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
-                  />
+            <FormControlLabel
+              control={(
+                <CustomCheckbox
+                  type="checkbox"
+                  id="flexCheckDefault"
+                  value={inputValue.private}
+                  onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
+                />
 )}
-                label="Приватный"
-              />
+              label="Приватный"
+            />
 
-            </ThemeProvider>
-            {inputValue.private && (
+          </ThemeProvider>
+          {inputValue.private && (
             <div className="mb-3">
               <TextField
                 id="filled-basic"
@@ -159,34 +158,28 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
                 type="text"
               />
             </div>
-            )}
-          </div>
-
+          )}
         </div>
-        <LoadingButton
-          onClick={submitHandler}
-          size="small"
-          type="submit"
-          loading={loading}
-          loadingIndicator="Loading…"
-          variant="outlined"
-        >
-          Создать прогулку
-        </LoadingButton>
-      </form>
-    </Box>
+
+      </div>
+      <LoadingButton
+        onClick={submitHandler}
+        size="small"
+        type="submit"
+        loading={loading}
+        loadingIndicator="Loading…"
+        variant="outlined"
+      >
+        Создать прогулку
+      </LoadingButton>
+    </form>
+
   );
 
   return (
     <div style={{ width: 'max-content', marginLeft: 'auto' }}>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-
-          {/* <Button onClick={toggleDrawer(anchor, true)}>
-            <ToggleButton value="justify" key="justify">
-              <FormatAlignJustifyIcon />
-            </ToggleButton>
-          </Button> */}
 
           <SwipeableDrawer
             anchor={anchor}

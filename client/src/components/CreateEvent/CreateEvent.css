@@ -4,13 +4,17 @@
     justify-content: center;
     align-items: center;
     color: black;
+    padding: 50px;
 
 
 }
 
-.mainBox {
+/* .mainBox {
     width: 500px;
-}
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} */
 .textfield {
     width: 300px;
     align-self: center;
