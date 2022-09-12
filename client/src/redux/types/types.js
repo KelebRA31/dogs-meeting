@@ -31,6 +31,9 @@ export const SET_USER_IMG = 'SET_USER_IMG';
 
 export const GET_DOG_INFO = 'GET_DOG_INFO';
 export const SET_DOG_IMG = 'SET_DOG_IMG';
+export const CREATE_DOG = 'CREATE_DOG';
+export const DELETE_DOG = 'DELETE_DOG';
+export const EDIT_DOG = 'EDIT_DOG';
 
 // EVENT
 export const CREATE_EVENT = 'CREATE_EVENT';

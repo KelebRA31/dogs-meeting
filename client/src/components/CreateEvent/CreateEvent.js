@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import './CreateEvent.css';
 import dayjs from 'dayjs';

@@ -85,6 +85,6 @@
     transition: ease .3s;
   }
   p {
-    color: #bf1650;
+    /* color: #bf1650; */
     text-align: center;
   }
