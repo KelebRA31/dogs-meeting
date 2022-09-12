@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Map.css';
 import BlogPosts from '../BlogPosts/BlogPosts';
+import CreateEvent from '../CreateEvent/CreateEvent';
 
 const { ymaps } = window;
 
@@ -283,7 +284,7 @@ export default function Map() {
       <div id="map" className="mapContainer">
         <button type="button" id="set-balloon-header" className="btn">Задать заголовок балуна</button>
         <button type="button" id="set-balloon-content" className="btn">Задать содержимое балуна</button>
-        <BlogPosts blogPostsState={blogPostsState} setBlogPostsState={setBlogPostsState} />
+        <CreateEvent blogPostsState={blogPostsState} setBlogPostsState={setBlogPostsState} />
       </div>
     </div>
   );

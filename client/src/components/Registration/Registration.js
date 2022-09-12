@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -31,14 +30,12 @@ export default function Registration() {
     nickName: '',
     checkPas: '',
   });
-
   const inputHandler = (e) => {
     setInputs((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
-
   const submitHandler = (data) => {
     // e.preventDefault();
     // console.log(typeof (Number(Object.fromEntries(new FormData(e.target)).gender_id)));
@@ -51,7 +48,6 @@ export default function Registration() {
     // console.log(inputs);
     // dispatch(setRegistrationTHUNK(inputs, gender_id));
     dispatch(setRegistrationTHUNK(data));
-    dispatch(checkAuthTHUNK());
     console.log(auth);
     if (!auth.notAuth) {
       navigate('/');
@@ -62,13 +58,12 @@ export default function Registration() {
       reset();
     }
   };
-
   return (
     <div className="container register-form">
       <div className="form">
         <form onSubmit={handleSubmit(submitHandler)}>
           <h1>Регистрация</h1>
-          {badReg && <h2 style={{ color: '#bf1650' }}>Такой email или nickName уже существует</h2>}
+          {badReg && <h2 style={{ color: '#BF1650' }}>Такой email или nickName уже существует</h2>}
           <label htmlFor="usr">
             <p className="label-txt">Введите свое имя</p>
             <input {...register('name')} onChange={inputHandler} value={inputs.name} className="input" id="usr" />

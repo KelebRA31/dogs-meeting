@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Meeting.init({
     location: DataTypes.STRING,
+    latitude: DataTypes.FLOAT,
+    longtitude: DataTypes.FLOAT,
     comment: DataTypes.STRING,
     start: DataTypes.DATE,
     end: DataTypes.DATE,

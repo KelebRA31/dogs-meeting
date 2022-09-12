@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { logoutTHUNK } from '../../redux/actions/authAction';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
+import { checkAuthTHUNK, logoutTHUNK } from '../../redux/actions/authAction';
 import './Navbar.css';
 
 export default function Navbar() {
   const { auth } = useSelector((state) => state);
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(checkAuthTHUNK());
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg color-Navbar shade-Navbar">
       <div className="container-fluid " id="container-Navbar">
@@ -40,6 +43,7 @@ export default function Navbar() {
                     <li><NavLink className="dropdown-item" to={`/profile/${auth?.id}`}>Мой профиль</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/myfriends/${auth?.id}`}>Мои друзья</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мой собаки</NavLink></li>
+                    <li><NavLink className="dropdown-item" to={`/event/${auth?.id}`}>Мои прогулки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>
                       <a
