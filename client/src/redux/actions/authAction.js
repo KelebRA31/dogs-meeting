@@ -63,5 +63,6 @@ export const setRegistrationTHUNK = (data) => (dispatch) => {
     .then((res) => res.json())
     .then((res) => {
       dispatch(setAuth(res));
+      dispatch(checkAuthTHUNK());
     });
 };

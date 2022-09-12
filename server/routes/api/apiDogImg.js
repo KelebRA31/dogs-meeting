@@ -18,4 +18,17 @@ route.patch('/', async (req, res) => {
   }
 });
 
+route.post('/createdog', async (req, res) => {
+  try {
+    const dog = await Dog.create(req.body);
+    if (dog) {
+      res.json(dog);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 module.exports = route;

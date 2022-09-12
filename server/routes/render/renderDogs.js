@@ -16,4 +16,33 @@ route.get('/:id', async (req, res) => {
   }
 });
 
+route.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Dog.destroy({ where: { id } });
+    if (result) {
+      res.json({ id });
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+route.patch('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const dog = await Dog.update(req.body, { where: { id } });
+    if (dog) {
+      const updatedRes = await Dog.findByPk(id);
+      res.json(updatedRes);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 module.exports = route;
