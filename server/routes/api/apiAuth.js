@@ -58,6 +58,7 @@ route.post('/register', [
     if (result.id && result.name !== 'SequelizeDatabaseError') {
       req.session.userName = result.nickName;
       req.session.userId = result.id;
+      console.log(result);
       return res.json(result);
     }
     res.sendStatus(404);
