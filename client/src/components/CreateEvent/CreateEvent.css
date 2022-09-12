@@ -1,0 +1,27 @@
+.mainEventContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.eventContainer {
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+.timeContainer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.timePicker {
+    width: 50%;
+
+}

@@ -1,13 +1,16 @@
 const express = require('express');
 
 const route = express.Router();
-const { User, Gender } = require('../../db/models');
+const { User } = require('../../db/models');
 
 route.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id, req.body);
-    const favorite = await User.update(req.body, { where: { id }, include: { model: Gender } });
+    const {
+      age, name, gender_id,
+    } = req.body;
+    const favorite = await User.update({ age, gender_id, name }, { where: { id } });
     if (favorite) {
       const updatedRes = await User.findByPk(id);
       res.json(updatedRes);

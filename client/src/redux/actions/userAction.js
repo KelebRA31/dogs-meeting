@@ -24,12 +24,12 @@ export const getUserInfoTHUNK = (id) => (dispatch) => {
     .then((res) => dispatch(getUserInfo(res)));
 };
 
-export const editUserInfoTHUNK = (id, obj) => (dispatch) => {
+export const editUserInfoTHUNK = (id, obj, gender_id) => (dispatch) => {
   console.log('11111111111111', obj);
   fetch(`http://localhost:3001/api/profilechange/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(obj),
+    body: JSON.stringify({ ...obj, gender_id }),
   })
     .then((res) => res.json())
     .then((res) => {

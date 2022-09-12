@@ -10,6 +10,12 @@ module.exports = {
       location: {
         type: Sequelize.STRING,
       },
+      longtitude: {
+        type: Sequelize.FLOAT,
+      },
+      latitude: {
+        type: Sequelize.FLOAT,
+      },
       comment: {
         type: Sequelize.STRING,
       },

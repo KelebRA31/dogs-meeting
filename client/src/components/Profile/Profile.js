@@ -27,7 +27,13 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(getUserInfoTHUNK(id));
-  }, []);
+    setInput({
+      name: user.name,
+      gender: user.Gender?.gender === 'male' ? 'Мужчина' : 'Женщина',
+      age: user.age ? user.age : '',
+    });
+    setAvatar(user.img);
+  }, [user.img]);
 
   // Редактирование Фото
 
@@ -44,7 +50,7 @@ export default function Profile() {
           const resPath = res.data.path;
           const fileP = resPath.split('/');
           setAvatar(`/Images/${fileP[fileP.length - 1]}`);
-          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}` }));
+          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}`, id }));
         });
     } catch (error) {
       console.error(error);
@@ -63,9 +69,11 @@ export default function Profile() {
       [e.target.name]: e.target.value,
     }));
   };
-  const editUserInfoHandler = () => {
+  const editUserInfoHandler = (e) => {
     // console.log(input);
-    dispatch(editUserInfoTHUNK(id, input));
+    e.preventDefault();
+    console.log('--->', Object.fromEntries(new FormData(e.target)).gender);
+    dispatch(editUserInfoTHUNK(id, input, Object.fromEntries(new FormData(e.target)).gender));
     setIsEdit(!isEdit);
   };
 
@@ -95,8 +103,14 @@ export default function Profile() {
             <div className="text-profile">
               Пол
             </div>
-            {isEdit === true ? <input value={input.Gender?.gender === 'Мужской' ? 1 : 2} onChange={changeInput} name="gender" />
-              : user.Gender?.gender === 'male'
+            {isEdit === true ? (
+              <select name="gender" className="form-select" aria-label="Default select example">
+                <option defaultValue={user.Gender?.gender_id}>Выберите пол</option>
+                <option value="1">Мужчина</option>
+                <option value="2">Женщина</option>
+              </select>
+            )
+              : user.gender_id === 1
                 ? 'Мужчина'
                 : 'Женщина' }
           </h5>
@@ -104,7 +118,7 @@ export default function Profile() {
             <div className="text-profile">
               Возраст
             </div>
-            {isEdit === true ? <input value={input.age} onChange={changeInput} name="age" />
+            {isEdit === true ? <input type="number" value={input.age} onChange={changeInput} name="age" />
               : user.age
                 ? user.age
                 : 'Возраст не заполнен'}

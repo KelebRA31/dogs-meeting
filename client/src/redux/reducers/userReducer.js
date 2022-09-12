@@ -11,7 +11,7 @@ export default (state = {}, action) => {
     case GET_USER_INFO:
       return payload;
     case EDIT_USER_INFO:
-      return [...state.filter((el) => el.id !== payload.id), payload];
+      return payload;
     default:
       return state;
   }
