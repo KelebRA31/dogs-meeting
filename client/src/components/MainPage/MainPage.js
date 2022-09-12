@@ -7,7 +7,7 @@ import Map from '../Map/Map';
 
 export default function MainPage() {
   const handlerScrollDown = () => {
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    if (document.body.scrollTop >= 0 || document.documentElement.scrollTop >= 0) {
       window.scrollBy(0, -50);
       window.scrollTo({
         top: 900,
