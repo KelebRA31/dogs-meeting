@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { checkAuthTHUNK, logoutTHUNK } from '../../redux/actions/authAction';
 import './Navbar.css';
 
@@ -36,7 +36,7 @@ export default function Navbar() {
             {auth
               ? (
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle text-color-Navbar" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle text-color-Navbar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Личный кабинет
                   </a>
                   <ul className="dropdown-menu">
@@ -45,15 +45,27 @@ export default function Navbar() {
                     <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мой собаки</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/event/${auth?.id}`}>Мои прогулки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" onClick={() => { dispatch(logoutTHUNK()); navigate('/'); }}>Выход</a></li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          dispatch(logoutTHUNK());
+                          navigate('/');
+                        }}
+                      >
+                        Выход
+                      </a>
+
+                    </li>
                   </ul>
                 </li>
               )
               : (
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle text-color-Navbar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <Link className="nav-link dropdown-toggle text-color-Navbar" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Личный кабинет
-                  </a>
+                  </Link>
                   <ul className="dropdown-menu">
                     <li><NavLink className="dropdown-item" to="/registration">Регистрация</NavLink></li>
                     <li><NavLink className="dropdown-item" to="/login">Вход</NavLink></li>

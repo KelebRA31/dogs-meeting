@@ -7,6 +7,7 @@ const sessionConf = require('./sessionConfig');
 const apiAuthRoute = require('../routes/api/apiAuth');
 const apiRoute = require('../routes/api/apiRoute');
 const apiUserImg = require('../routes/api/apiUserImg');
+const apiUserChangeInfo = require('../routes/api/apiUserChangeInfo');
 const apiDogImg = require('../routes/api/apiDogImg');
 const renderUsers = require('../routes/render/renderUsers');
 const renderDogs = require('../routes/render/renderDogs');
@@ -30,6 +31,7 @@ const serverConfig = (app) => {
   app.use('/api/event', apiEvent);
   app.use('/api/setuserimg', apiUserImg);
   app.use('/api/setdogimg', apiDogImg);
+  app.use('/api/profilechange', apiUserChangeInfo);
   app.use('/profile', renderUsers);
   app.use('/mydogs', renderDogs);
 };

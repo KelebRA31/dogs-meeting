@@ -74,6 +74,9 @@ route.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await User.findOne({ where: { email } });
+    if (!result) {
+      return res.sendStatus(400);
+    }
     if (await bcrypt.compare(password, result.password)) {
       req.session.userName = result.name;
       req.session.userId = result.id;

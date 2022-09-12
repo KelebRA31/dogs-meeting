@@ -31,3 +31,21 @@
     display: flex;
     justify-content: center;
 }
+
+.line-profile {
+    width: 75%;
+    border-bottom: 1px solid black;
+}
+
+.text-profile {
+display: flex;
+justify-content: center;
+}
+
+.form-profile {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: normal;
+align-items: center;
+}

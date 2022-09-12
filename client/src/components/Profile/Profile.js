@@ -1,22 +1,41 @@
+/* eslint-disable no-nested-ternary */
 import React, { useCallback, useEffect, useState } from 'react';
 import './Profile.css';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUserInfo, getUserInfoTHUNK, setUserImgTHUNK } from '../../redux/actions/userAction';
+import {
+  editUserInfoTHUNK, getUserInfo, getUserInfoTHUNK, setUserImgTHUNK,
+} from '../../redux/actions/userAction';
 
 export default function Profile() {
+  const { user } = useSelector((state) => state);
   const [avatar, setAvatar] = useState(null);
   const [img, setImg] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
+  const [input, setInput] = useState({
+    name: '',
+    gender: '',
+    age: '',
+  });
   const dispatch = useDispatch();
   // const { auth } = useSelector((state) => state);
-  const { user } = useSelector((state) => state);
 
   const { id } = useParams();
 
+  // Отрисовка инфо о юзере
+
   useEffect(() => {
     dispatch(getUserInfoTHUNK(id));
-  }, []);
+    setInput({
+      name: user.name,
+      gender: user.Gender?.gender === 'male' ? 'Мужчина' : 'Женщина',
+      age: user.age ? user.age : '',
+    });
+    setAvatar(user.img);
+  }, [user.img]);
+
+  // Редактирование Фото
 
   const sendFile = useCallback(async () => {
     try {
@@ -31,12 +50,32 @@ export default function Profile() {
           const resPath = res.data.path;
           const fileP = resPath.split('/');
           setAvatar(`/Images/${fileP[fileP.length - 1]}`);
-          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}` }));
+          dispatch(setUserImgTHUNK({ str: `/Images/${fileP[fileP.length - 1]}`, id }));
         });
     } catch (error) {
       console.error(error);
     }
   }, [img]);
+
+  // Редактирование
+
+  const changeStatusEdit = () => {
+    setIsEdit(!isEdit);
+  };
+
+  const changeInput = (e) => {
+    setInput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const editUserInfoHandler = (e) => {
+    // console.log(input);
+    e.preventDefault();
+    console.log('--->', Object.fromEntries(new FormData(e.target)).gender);
+    dispatch(editUserInfoTHUNK(id, input, Object.fromEntries(new FormData(e.target)).gender));
+    setIsEdit(!isEdit);
+  };
 
   return (
     <div>
@@ -52,24 +91,46 @@ export default function Profile() {
           <button type="button" className="btn btn-outline-warning button-profile" onClick={sendFile}>Изменить аватар</button>
         </div>
         {/* <input type="file" onChange={(e) => setImg(e.target.files[0])} /> */}
-        <h5 className="name-profile">
-          <div>
-            Имя:
-
-          </div>
-
-          {user.name}
-        </h5>
-        <h5>
-          Пол:
+        <form className="form-profile" onSubmit={editUserInfoHandler}>
           {' '}
-          {user.Gender?.gender}
-        </h5>
-        <h5>
-          Возраст:
-          {' '}
-          {user.age ? user.age : 'Возраст не заполнен'}
-        </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Имя
+            </div>
+            {isEdit === true ? <input value={input.name} onChange={changeInput} name="name" /> : user.name}
+          </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Пол
+            </div>
+            {isEdit === true ? (
+              <select name="gender" className="form-select" aria-label="Default select example">
+                <option defaultValue={user.Gender?.gender_id}>Выберите пол</option>
+                <option value="1">Мужчина</option>
+                <option value="2">Женщина</option>
+              </select>
+            )
+              : user.gender_id === 1
+                ? 'Мужчина'
+                : 'Женщина' }
+          </h5>
+          <h5 className="line-profile">
+            <div className="text-profile">
+              Возраст
+            </div>
+            {isEdit === true ? <input type="number" value={input.age} onChange={changeInput} name="age" />
+              : user.age
+                ? user.age
+                : 'Возраст не заполнен'}
+          </h5>
+          {!isEdit ? <button type="button" className="btn btn-outline-warning button-profile" onClick={changeStatusEdit}>Редактировать данные</button>
+            : (
+              <div>
+                <button type="button" className="btn btn-outline-warning button-profile" onClick={changeStatusEdit}>Редактировать данные</button>
+                <button type="submit" className="btn btn-outline-warning button-profile">Сохранить изменения</button>
+              </div>
+            )}
+        </form>
       </div>
     </div>
   );
