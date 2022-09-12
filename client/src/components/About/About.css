@@ -1,0 +1,9 @@
+.about-container {
+    width: 800px;
+    height: 820px;
+    background-color: #fff;
+    margin-left: 23%;
+    margin-top: 3%;
+    border-radius: 7px;
+    text-align: center;
+}

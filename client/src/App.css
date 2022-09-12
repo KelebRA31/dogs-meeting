@@ -1,9 +1,11 @@
 body {
+  position: relative;
   padding: 0;
   height: 100vh;
   background-color: floralwhite;
   background-image: url('../public/Images/dogswalk.jpeg');
   background-position:center center;
   background-size:cover;
-
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
