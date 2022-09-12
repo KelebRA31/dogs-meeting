@@ -25,9 +25,9 @@ export default function CreateEvent() {
     password: '',
 
   });
-  console.log('1====', JSON.stringify(inputValue.comment));
-  console.log('2====', JSON.stringify(inputValue.start.$d));
-  console.log('3====', JSON.stringify(inputValue.private));
+  // console.log('1====', JSON.stringify(inputValue.comment));
+  // console.log('2====', JSON.stringify(inputValue.start.$d));
+  // console.log('3====', JSON.stringify(inputValue.private));
   // console.log('3====', JSON.stringify(inputValue.dog_id_creator));
 
   const submitHandler = (e) => {
@@ -43,7 +43,7 @@ export default function CreateEvent() {
   };
   return (
 
-    <form className="mainEventContainer" onSubmit={submitHandler}>
+    <form className="mainEventContainer form-event" onSubmit={submitHandler}>
 
       <div className="eventContainer">
         <div className="input-group mb-3">

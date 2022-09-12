@@ -1,6 +1,16 @@
 .mapContainer {
-    margin-top: 294px;
+    border-radius: 3rem;
+    width: 70vw;
+    height: 70vh;
+        box-shadow: inset -6px -3em 7em 11px rgb(0 0 0 / 10%), -1em -1em 2em 0px rgb(0 0 0 / 30%);
+    /* display: flex;
+    align-items: center; */
+}
+
+.mapContainerSuper {
+    padding: 100px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
     height: 100vh;
-
-
 }

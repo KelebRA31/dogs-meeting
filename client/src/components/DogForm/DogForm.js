@@ -1,22 +1,23 @@
 import React from 'react';
+import './DogForm.css';
 
 function DogForm(props) {
   return (
     <div>
-      <form>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Имя собаки</label>
-          <input className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+      <form className=" container-DogForm">
+        <div className="input-DogForm">
+          <label htmlFor="">Имя собаки</label>
+          <input className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Возраст собаки</label>
-          <input type="Number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+          <input type="Number" className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Порода собаки</label>
-          <input className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+          <input className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
         </div>
-        <button type="submit" className="btn btn-primary">Добавить собаку</button>
+        <button type="submit" className="btn btn-outline-warning button-DogForm">Добавить собаку</button>
       </form>
     </div>
   );

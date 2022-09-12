@@ -6,6 +6,11 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    /* border-bottom: 0.5px solid rgb(121, 111, 111); */
+}
+
+.line {
+margin-top: 30px;
     border-bottom: 0.5px solid rgb(121, 111, 111);
 }
 
@@ -27,9 +32,8 @@
 }
 
 .logo-color-Navbar:hover {
-    color: #c35507;
-
-    scale: 1;
+    color: #eaa810;
+    scale: 1.2;
     transition: 1s;
 }
 
@@ -40,7 +44,7 @@
 
 .text-color-Navbar:hover {
     transition: 1s;
-    color: #c35507;
+    color: #eaa810;
     text-decoration: underline;
     transform: scale(1.030);
 }
@@ -48,6 +52,11 @@
 .logo-circle-Navbar {
     border: solid 1px black;
     border-radius: 50%;
+}
+
+.logo-circle-Navbar:hover {
+    border: solid 1px #c35507;
+    transform: scale(1.030);
 }
 
 .shade-Navbar {
@@ -62,5 +71,41 @@
 .position-Navbar {
     display: flex;
 margin-left: 650px;
-
 }
+
+.nav-link.active {
+    color: #c35507 !important;
+}
+
+.new-logo_Navbar {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.letter-Navbar {
+color: #c35507;
+}
+
+.line-box2 {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #c35507;
+    margin-top: 60px;
+    opacity: 0.2;
+  }
+  .line2 {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #EFAC3F;
+    transition: ease .6s;
+  }
+  .input:focus + .line-box2 .line2 {
+    width: 100%;
+  }

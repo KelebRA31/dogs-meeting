@@ -126,7 +126,7 @@ export default function Map() {
   }, []);
 
   return (
-    <div>
+    <div className="mapContainerSuper">
       <div id="map" className="mapContainer" />
     </div>
   );
