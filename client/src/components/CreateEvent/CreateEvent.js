@@ -49,9 +49,9 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
     password: '',
 
   });
-  console.log('1====', JSON.stringify(inputValue.comment));
-  console.log('2====', JSON.stringify(inputValue.start.$d));
-  console.log('3====', JSON.stringify(inputValue.private));
+  // console.log('1====', JSON.stringify(inputValue.comment));
+  // console.log('2====', JSON.stringify(inputValue.start.$d));
+  // console.log('3====', JSON.stringify(inputValue.private));
   // console.log('3====', JSON.stringify(inputValue.dog_id_creator));
 
   const submitHandler = (e) => {

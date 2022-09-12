@@ -13,17 +13,23 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg color-Navbar shade-Navbar">
+    <nav className=" navbar-expand-lg color-Navbar shade-Navbar" id="container-Navbar">
       <div className="container-fluid " id="container-Navbar">
         <div className="logo-Navbar">
           <NavLink to="/" className="logo-color-Navbar"><img className="logo-circle-Navbar" src="/Images/DogsWalk.png" width="40px" alt="logo" /></NavLink>
-          <NavLink to="/" className="logo-color-Navbar">DogsMeeting</NavLink>
-        </div>
-        <div>
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Ник пользователя..." aria-label="Search" />
-            <button className="btn  text-color-Navbar" type="submit">Поиск</button>
-          </form>
+          <NavLink to="/" className="logo-color-Navbar logo-position-Navbar">
+            <div className="new-logo_Navbar">
+              <p className="letter-Navbar">D</p>
+              <p>o</p>
+              <p>g</p>
+              <p>s</p>
+              <p className="letter-Navbar">B</p>
+              <p>o</p>
+              <p>u</p>
+              <p>t</p>
+            </div>
+
+          </NavLink>
         </div>
         <div id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
@@ -75,6 +81,9 @@ export default function Navbar() {
               )}
           </ul>
         </div>
+      </div>
+      <div className="line-box2">
+        <div className="line2" />
       </div>
     </nav>
   );

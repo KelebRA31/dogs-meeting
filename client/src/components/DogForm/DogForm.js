@@ -63,11 +63,11 @@ function DogForm({ setIsAdding }) {
           <label htmlFor="exampleInputEmail1">Имя собаки</label>
           <input name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Возраст собаки</label>
           <input name="age" type="Number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите возраст собаки" />
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Порода собаки</label>
           <input name="breed" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите породу собаки" />
         </div>
