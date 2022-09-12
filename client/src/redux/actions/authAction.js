@@ -62,7 +62,7 @@ export const setRegistrationTHUNK = (data) => (dispatch) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status === 200) {
+      if (res.id) {
         dispatch(setAuth(res));
       } else {
         dispatch(setAuth({ err: 'Данные для регистрации неверны' }));
