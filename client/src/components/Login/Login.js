@@ -1,18 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { checkAuthTHUNK, setAuthTHUNK } from '../../redux/actions/authAction';
 import '../Registration/Registration.css';
 
-export default function Login({ auth }) {
+export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { auth } = useSelector((state) => state);
   const [badAuth, setBadAuth] = useState(false);
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
   });
+
+  useEffect(() => {
+    dispatch(checkAuthTHUNK());
+  }, []);
 
   const inputHandler = (e) => {
     setInputs((prev) => ({
@@ -36,7 +41,7 @@ export default function Login({ auth }) {
     dispatch(checkAuthTHUNK());
     console.log(auth);
     // console.log(data);
-    if (!auth?.notAuth) {
+    if (!auth.notAuth) {
       navigate('/');
       setBadAuth(false);
     } else {

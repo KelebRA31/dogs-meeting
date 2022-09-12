@@ -59,6 +59,7 @@ route.post('/register', [
       req.session.userName = result.nickName;
       req.session.userId = result.id;
       console.log(req.session);
+      console.log(result);
       return res.json(result);
     }
     res.sendStatus(404);

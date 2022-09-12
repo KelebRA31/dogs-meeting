@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { setRegistrationTHUNK } from '../../redux/actions/authAction';
+import { checkAuthTHUNK, setRegistrationTHUNK } from '../../redux/actions/authAction';
 import validPassword from '../../utils/validPassword';
 import './Registration.css';
 import { getUserInfoTHUNK } from '../../redux/actions/userAction';
@@ -20,7 +20,7 @@ export default function Registration() {
     mode: 'onBlur',
   });
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state);
+  const { auth } = useSelector((state) => state);
   const navigate = useNavigate();
   const [badReg, setBadReg] = useState(false);
   const [inputs, setInputs] = useState({
@@ -48,8 +48,9 @@ export default function Registration() {
     // console.log(inputs);
     // dispatch(setRegistrationTHUNK(inputs, gender_id));
     dispatch(setRegistrationTHUNK(data));
-    console.log(data);
-    if (user) {
+    dispatch(checkAuthTHUNK());
+    console.log(auth);
+    if (!auth.notAuth) {
       navigate('/');
       setBadReg(false);
       reset();

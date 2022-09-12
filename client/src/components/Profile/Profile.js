@@ -104,11 +104,13 @@ export default function Profile() {
               Пол
             </div>
             {isEdit === true ? (
-              <select name="gender" className="form-select" aria-label="Default select example">
-                <option defaultValue={user.Gender?.gender_id}>Выберите пол</option>
-                <option value="1">Мужчина</option>
-                <option value="2">Женщина</option>
-              </select>
+              <>
+                <p className="label-txt">Выберите пол</p>
+                <select name="gender" className="form-select" aria-label="Default select example">
+                  <option value="1">Мужчина</option>
+                  <option value="2">Женщина</option>
+                </select>
+              </>
             )
               : user.gender_id === 1
                 ? 'Мужчина'
