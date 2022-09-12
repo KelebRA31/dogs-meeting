@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './DogForm.css';
 import { useParams } from 'react-router-dom';
 import { createDogTHUNK, setDogImgTHUNK } from '../../redux/actions/dogAction';
+=======
+import React from 'react';
+import './DogForm.css';
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
 
 function DogForm({ setIsAdding }) {
   const [avatar, setAvatar] = useState(null);
@@ -48,6 +53,7 @@ function DogForm({ setIsAdding }) {
   };
   return (
     <div>
+<<<<<<< HEAD
       <div className="avatar">
         {avatar
           ? <img src={`${avatar}`} width="120px" height="120px" style={{ borderRadius: '50%', border: '1px solid black' }} alt="avatar" />
@@ -62,13 +68,24 @@ function DogForm({ setIsAdding }) {
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Имя собаки</label>
           <input name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+=======
+      <form className=" container-DogForm">
+        <div className="input-DogForm">
+          <label htmlFor="">Имя собаки</label>
+          <input className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Возраст собаки</label>
+<<<<<<< HEAD
           <input name="age" type="Number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите возраст собаки" />
+=======
+          <input type="Number" className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
         </div>
-        <div className="form-group">
+        <div className="input-DogForm">
           <label htmlFor="exampleInputEmail1">Порода собаки</label>
+<<<<<<< HEAD
           <input name="breed" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите породу собаки" />
         </div>
         <select name="gender_id" className="form-select" aria-label="Default select example">
@@ -81,6 +98,11 @@ function DogForm({ setIsAdding }) {
           <option value="3">Спокойный</option>
         </select>
         <button type="submit" className="btn btn-primary">Добавить собаку</button>
+=======
+          <input className="form-DogForm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
+        </div>
+        <button type="submit" className="btn btn-outline-warning button-DogForm">Добавить собаку</button>
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
       </form>
     </div>
   );

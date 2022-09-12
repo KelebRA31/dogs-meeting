@@ -1,0 +1,94 @@
+.position-Carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(94vh - 61px);
+}
+
+.item-position-Carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+}
+
+.button-next-Carousel {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: 0.5;
+    transition: opacity .15s ease;
+    right: 0;
+}
+
+.button-next-Carousel:hover {
+    color: #c35507;
+}
+
+.carousel-indicators {
+    position: absolute;
+    display: flex;
+    top: 38rem;
+}
+
+.carousel-inner {
+    /* display: flex; */
+    justify-content: center;
+}
+
+.carousel-control-next {
+    width: 7%;
+    align-items: unset;
+    top: 17rem;
+}
+
+.carousel-control-prev {
+    width: 7%;
+    align-items: unset;
+    top: 17rem;
+    }
+
+.image-carousel {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    display: flex;
+    width: 60vw;
+    align-items: center;
+    background-position: center center;
+    background-size: cover;
+}
+
+.example-img {
+    border-radius: 2rem;
+}
+
+
+.button-containerDown {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-containerUp {
+    margin-top: -48px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-down {
+    width: 40px;
+}
+
+.button-up {
+    width: 40px;
+}

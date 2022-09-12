@@ -84,7 +84,12 @@
     letter-spacing: 1px;
     transition: ease .3s;
   }
+<<<<<<< HEAD
   p {
     /* color: #bf1650; */
+=======
+  /* p {
+    color: #bf1650;
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
     text-align: center;
-  }
+  } */

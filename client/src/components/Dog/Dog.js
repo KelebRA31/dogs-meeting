@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -130,3 +131,12 @@ function Dog({ dog, deleteHandler, editHandler }) {
 }
 
 export default Dog;
+=======
+import React from 'react';
+
+export default function Dog() {
+  return (
+    <div>Dog</div>
+  );
+}
+>>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
