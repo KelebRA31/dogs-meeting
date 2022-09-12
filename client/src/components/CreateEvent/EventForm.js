@@ -7,7 +7,26 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
+
+const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
+  color: theme.status.danger,
+  '&.Mui-checked': {
+    color: theme.status.danger,
+  },
+}));
+
+const theme = createTheme({
+  status: {
+    danger: orange[500],
+  },
+});
 
 export default function EventForm() {
   const { event } = useSelector((state) => state);
@@ -46,32 +65,34 @@ export default function EventForm() {
     <form className="mainEventContainer" onSubmit={submitHandler}>
 
       <div className="eventContainer">
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Описание ивента"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            name="comment"
-            onChange={changeHandler}
-            value={inputValue.comment}
+        <TextField
+          id="filled-basic"
+          variant="filled"
+          name="comment"
+          onChange={changeHandler}
+          value={inputValue.comment}
+          type="text"
+          className="textfield"
+        />
+
+        <ThemeProvider
+          theme={theme}
+        >
+
+          <FormControlLabel
+            control={(
+              <CustomCheckbox
+                type="checkbox"
+                // value={inputValue}
+                id="flexCheckDefault"
+                name="dog_id_creator"
+                onChange={changeHandler}
+              />
+)}
+            label="Собака"
           />
-        </div>
-        {/* тут должент быть map по собакам */}
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="false"
-            id="flexCheckDefault"
-            name="dog_id_creator"
-            onChange={changeHandler}
-          />
-          <label className="form-check-label" htmlFor="flexCheckDefault">
-            Собака
-          </label>
-        </div>
+
+        </ThemeProvider>
         <div className="timeContainer">
 
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
@@ -98,27 +119,32 @@ export default function EventForm() {
           </LocalizationProvider>
         </div>
         <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexCheckDefault"
-            value={inputValue.private}
-            onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
-          />
-          <label className="form-check-label" htmlFor="flexCheckDefault">
-            Приватный ивент
-          </label>
+          <ThemeProvider
+            theme={theme}
+          >
+
+            <FormControlLabel
+              control={(
+                <CustomCheckbox
+                  type="checkbox"
+                  id="flexCheckDefault"
+                  value={inputValue.private}
+                  onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
+                />
+)}
+              label="Приватный"
+            />
+
+          </ThemeProvider>
           {inputValue.private && (
             <div className="mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Впишите пароль"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
+              <TextField
+                id="filled-basic"
+                variant="filled"
                 name="password"
                 value={inputValue.password}
                 onChange={changeHandler}
+                type="text"
               />
             </div>
           )}

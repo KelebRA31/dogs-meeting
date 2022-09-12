@@ -3,25 +3,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+
+    color: black;
+
 
 }
-
-.eventContainer {
-    width: 60%;
+.textfield {
+    width: 300px;
+    align-self: center;
+    margin-left: 30px;
+    
+}
+/* .eventContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
 } 
 
 .timeContainer {
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-}
+} */
 
-.timePicker {
-    width: 50%;
 
-}

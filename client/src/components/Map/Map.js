@@ -178,6 +178,10 @@ export default function Map() {
       // hideIconOnBalloonOpen: false,
       // И дополнительно смещаем балун, для открытия над иконкой.
       // balloonOffset: [3, -40]
+      iconLayout: 'default#image',
+      iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
+      iconImageSize: [40, 40],
+      iconImageOffset: [-19, -36],
     });
 
     myMap.geoObjects.add(myPlacemark);

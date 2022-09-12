@@ -131,22 +131,6 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
           title="Shrimp and Chorizo Paella"
           subheader="September 14, 2016"
         />
-        <CardContent style={{ color: 'black' }}>
-          <Typography gutterBottom variant="h5" component="div">
-            A million voices
-          </Typography>
-          <Typography sx={{ color: 'black' }} variant="body2">
-            We are the worlds people
-            Different yet were the same
-            We believe
-            We believe in a dream
-
-            Praying for peace and healing
-            I hope we can start again
-            We believe
-            We believe in a dream
-          </Typography>
-        </CardContent>
         <EventForm />
         <ButtonGroup>
           <IconButton color="primary" aria-label="add to shopping cart" fontSize="large">
