@@ -1,32 +1,69 @@
-import * as React from 'react';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import CardHeader from '@mui/material/CardHeader';
-import { red } from '@mui/material/colors';
-import {
-  Avatar, Box, Button, ButtonGroup, IconButton, Link, SwipeableDrawer, TextField,
-} from '@mui/material';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ToggleButton from '@mui/material/ToggleButton';
-import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
-import DoubleArrowSharpIcon from '@mui/icons-material/DoubleArrowSharp';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import SendIcon from '@mui/icons-material/Send';
-// import './BlogPosts.css';
+import React, { useState } from 'react';
+import './CreateEvent.css';
+import dayjs from 'dayjs';
+import TextField from '@mui/material/TextField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import EventForm from './EventForm';
-// import { AddPostsThunk, getAllPostsThunk } from '../../redux/actions/postsAction';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import LoadingButton from '@mui/lab/LoadingButton';
+import Checkbox from '@mui/material/Checkbox';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { Box, SwipeableDrawer } from '@mui/material';
+import { createEventTHUNK } from '../../redux/actions/eventAction';
+
+const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
+  color: theme.status.danger,
+  '&.Mui-checked': {
+    color: theme.status.danger,
+  },
+}));
+
+const theme = createTheme({
+  status: {
+    danger: orange[500],
+  },
+});
 
 export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
-  const [state, setState] = React.useState({ right: false });
-  const [add, setAdd] = useState(false);
-  const [addPost, setAddPost] = React.useState(false);
-  const [addLocation, setAddLocation] = React.useState(false);
-  const [input, setInput] = useState({});
+  const { event } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const posts = useSelector((store) => store.posts);
-  console.log('ppppp', posts);
+
+  const { eventData, loading } = event;
+
+  const [locale, setLocale] = useState('ru');
+  const [inputValue, setInputValue] = useState({
+    comment: '',
+    // dog_id_creator: null,
+    start: dayjs('2020-01-01 12:00'),
+    end: dayjs('2020-01-01 13:00'),
+    private: false,
+    password: '',
+
+  });
+  console.log('1====', JSON.stringify(inputValue.comment));
+  console.log('2====', JSON.stringify(inputValue.start.$d));
+  console.log('3====', JSON.stringify(inputValue.private));
+  // console.log('3====', JSON.stringify(inputValue.dog_id_creator));
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(createEventTHUNK(inputValue));
+  };
+
+  const changeHandler = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -39,108 +76,104 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
     setBlogPostsState({ ...blogPostsState, [anchor]: open });
   };
 
-  const handleTextTitleInputChange = (e) => {
-    setInput((prev) => ({ ...prev, title: e.target.value }));
-  };
-
-  const handleTextBodyInputChange = (e) => {
-    setInput((prev) => ({ ...prev, body: e.target.value }));
-  };
-  console.log(input);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    // dispatch(AddPostsThunk(input));
-  };
-
-  useEffect(() => {
-    // dispatch(getAllPostsThunk());
-  }, []);
-
   const list = (anchor) => (
-    <Box
-      sx={{
-        maxWidth: 500,
-        backgroundColor: '#00000000 !important',
-        opacity: '0.8',
-        boxShadow: 'none',
-        height: '100%',
-        color: 'azure',
-      }}
-    >
-      <Button sx={{ backgroundColor: 'transparent', color: 'burlywood' }} component={Link} to="/points" onClick={() => setBlogPostsState((prev) => ({ ...prev, [anchor]: false }))}><DoubleArrowSharpIcon /></Button>
-      <Box>
-        <Button onClick={() => setAdd(!add)} variant="h1" color="text.secondary" sx={{ marginLeft: '30%' }}>
-          Добавить
-        </Button>
-        { add
-        && (
-        <>
-          <Button onClick={() => { setAddLocation(!addLocation); setAddPost(false); }} variant="h1" color="text.secondary" sx={{ marginLeft: '30%' }}>
-            Локацию
-          </Button>
-          <Button onClick={() => { setAddPost(!addPost); setAddLocation(false); }} variant="h1" color="text.secondary" sx={{ marginLeft: '35%' }}>
-            Пост
-          </Button>
+    <Box className="mainBox">
 
-        </>
-        )}
-      </Box>
-      {!addPost ? null
-        : (
-          <Box component="form" onSubmit={submitHandler}>
-            <CardContent>
-              <TextField className="TextField" name="title" value={input.title} onChange={handleTextTitleInputChange} fullWidth size="small" placeholder="Заголовок" color="info" />
-              <TextField className="TextField" name="body" value={input.body} onChange={handleTextBodyInputChange} fullWidth size="large" placeholder="Текст" sx={{ marginTop: '2rem', textColor: 'primary' }} />
-              <Button type="submit" onClick={submitHandler} sx={{ backgroundColor: 'transparent', color: 'azure', marginLeft: '40%' }} endIcon={<SendIcon />}>
-                Добавить
-              </Button>
-            </CardContent>
-          </Box>
-        )}
-      {!addLocation ? null
-        : (
-          <Box component="form" onSubmit={submitHandler}>
-            <CardContent>
-              <TextField className="TextField" name="title" value={input.name} fullWidth size="small" placeholder="Location" color="info" />
-              <Button type="submit" onClick={submitHandler} sx={{ backgroundColor: 'transparent', color: 'azure', marginLeft: '30%' }} endIcon={<SendIcon />}>
-                Добавить
-              </Button>
-            </CardContent>
-          </Box>
-        )}
-      <Box sx={{
-        backgroundColor: '#f8f9fa24',
-        borderRadius: '25px',
-        margin: '10px',
-      }}
-      >
-        <Typography component="legend" sx={{ marginTop: '3rem' }} />
-        <CardHeader
-          sx={{
-            color: 'azure',
-          }}
-          avatar={(
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
-            </Avatar>
-        )}
-          action={(
-            <IconButton aria-label="settings" />
-        )}
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
-        />
-        <EventForm />
-        <ButtonGroup>
-          <IconButton color="primary" aria-label="add to shopping cart" fontSize="large">
-            <ThumbUpOffAltIcon sx={{ marginLeft: '1rem' }} />
-          </IconButton>
-          <IconButton color="primary" aria-label="add to shopping cart" fontSize="large">
-            <ThumbDownOffAltIcon sx={{ marginLeft: '1rem' }} />
-          </IconButton>
-        </ButtonGroup>
-      </Box>
+      <form className="mainEventContainer" onSubmit={submitHandler}>
+
+        <div className="eventContainer">
+          <TextField
+            id="filled-basic"
+            variant="filled"
+            name="comment"
+            onChange={changeHandler}
+            value={inputValue.comment}
+            type="text"
+            className="textfield"
+          />
+          <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+            <Select
+              labelId="demo-simple-select-filled-label"
+              id="demo-simple-select-filled"
+      // value={dog_id_creator}
+              onChange={changeHandler}
+              name="dog_id_creator"
+            >
+              {/* тут должен быть map по собакам */}
+              <MenuItem value={1}>Мухтар</MenuItem>
+              <MenuItem value={2}>Рэкс</MenuItem>
+
+            </Select>
+          </FormControl>
+          <div className="timeContainer">
+
+            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+              <TimePicker
+                className="timePicker"
+                label="Начало прогулки"
+                name="start"
+                value={inputValue.start}
+                onChange={setInputValue}
+                minTime={dayjs('2022-01-01T07:00')}
+                maxTime={dayjs('2022-01-01T23:59')}
+                renderInput={(params) => <TextField {...params} />}
+              />
+              <TimePicker
+                className="timePicker"
+                label="Конец прогулки"
+                name="end"
+                value={inputValue.end}
+                onChange={setInputValue}
+                minTime={dayjs('2022-01-01T07:00')}
+                maxTime={dayjs('2022-01-01T23:59')}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+          <div className="form-check">
+            <ThemeProvider
+              theme={theme}
+            >
+
+              <FormControlLabel
+                control={(
+                  <CustomCheckbox
+                    type="checkbox"
+                    id="flexCheckDefault"
+                    value={inputValue.private}
+                    onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
+                  />
+)}
+                label="Приватный"
+              />
+
+            </ThemeProvider>
+            {inputValue.private && (
+            <div className="mb-3">
+              <TextField
+                id="filled-basic"
+                variant="filled"
+                name="password"
+                value={inputValue.password}
+                onChange={changeHandler}
+                type="text"
+              />
+            </div>
+            )}
+          </div>
+
+        </div>
+        <LoadingButton
+          onClick={submitHandler}
+          size="small"
+          type="submit"
+          loading={loading}
+          loadingIndicator="Loading…"
+          variant="outlined"
+        >
+          Создать прогулку
+        </LoadingButton>
+      </form>
     </Box>
   );
 

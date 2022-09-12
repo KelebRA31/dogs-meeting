@@ -7,12 +7,15 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 
 const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
@@ -74,25 +77,21 @@ export default function EventForm() {
           type="text"
           className="textfield"
         />
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            // value={dog_id_creator}
+            onChange={changeHandler}
+            name="dog_id_creator"
 
-        <ThemeProvider
-          theme={theme}
-        >
+          >
+            {/* тут должен быть map по собакам */}
+            <MenuItem value={1}>Мухтар</MenuItem>
+            <MenuItem value={2}>Рэкс</MenuItem>
 
-          <FormControlLabel
-            control={(
-              <CustomCheckbox
-                type="checkbox"
-                // value={inputValue}
-                id="flexCheckDefault"
-                name="dog_id_creator"
-                onChange={changeHandler}
-              />
-)}
-            label="Собака"
-          />
-
-        </ThemeProvider>
+          </Select>
+        </FormControl>
         <div className="timeContainer">
 
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
