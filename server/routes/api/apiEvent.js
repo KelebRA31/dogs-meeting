@@ -7,6 +7,7 @@ route.post('/', async (req, res) => {
   const {
     inputs,
   } = req.body;
+  console.log(req.session);
   const meeting = await Meeting.create({
     ...inputs, user_id_creator: req.session.userId,
   });

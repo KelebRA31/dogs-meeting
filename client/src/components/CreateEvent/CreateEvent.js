@@ -18,6 +18,7 @@ export default function CreateEvent() {
   const [locale, setLocale] = useState('ru');
   const [inputValue, setInputValue] = useState({
     comment: '',
+    // dog_id_creator: null,
     start: dayjs('2020-01-01 12:00'),
     end: dayjs('2020-01-01 13:00'),
     private: false,
@@ -27,6 +28,7 @@ export default function CreateEvent() {
   console.log('1====', JSON.stringify(inputValue.comment));
   console.log('2====', JSON.stringify(inputValue.start.$d));
   console.log('3====', JSON.stringify(inputValue.private));
+  // console.log('3====', JSON.stringify(inputValue.dog_id_creator));
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,7 +51,7 @@ export default function CreateEvent() {
         </div>
         {/* тут должент быть map по собакам */}
         <div className="form-check">
-          <input className="form-check-input" type="checkbox" value="false" id="flexCheckDefault" />
+          <input className="form-check-input" type="checkbox" value="false" id="flexCheckDefault" name="dog_id_creator" onChange={changeHandler} />
           <label className="form-check-label" htmlFor="flexCheckDefault">
             Собака №1
           </label>
