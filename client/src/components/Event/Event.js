@@ -57,41 +57,45 @@ export default function Event() {
           </h6>
         </div>
         <div className="container-dog-in-meeting">
-          <div className="dog-profile-in-meeting">
-            <h6 className="line-profile-in-meeting text-profile-in-meeting">
-              <div className="text-title-profile-in-meeting">
-                Имя:
-              </div>
-              <div className="text-body-profile-in-meeting">
-                {auth?.name}
-              </div>
-            </h6>
-            <h6 className="line-profile-in-meeting text-profile-in-meeting">
-              <div className="text-title-profile-in-meeting">
-                Ник:
-              </div>
-              <div className="text-body-profile-in-meeting">
-                {auth?.nickName}
-              </div>
-            </h6>
-            <h6 className="line-profile-in-meeting text-profile-in-meeting">
-              <div className="text-title-profile-in-meeting">
-                Возраст:
-              </div>
-              <div className="text-body-profile-in-meeting">
-                {auth?.age}
-              </div>
-            </h6>
-            <h6 className="line-profile-in-meeting text-profile-in-meeting">
-              <div className="text-title-profile-in-meeting">
-                Пол:
-              </div>
-              <div className="text-body-profile-in-meeting">
-                {auth?.Gender?.gender === 1 ? 'Мужчина' : 'Женщина'}
-              </div>
-            </h6>
-          </div>
-          {/* <div className="dog-profile-in-meeting_2">
+          {dog?.map((el) => (
+            <div className="dog-profile-in-meeting">
+              <h6 className="line-profile-in-meeting text-profile-in-meeting">
+                <div className="text-title-profile-in-meeting">
+                  Имя:
+                </div>
+                <div className="text-body-profile-in-meeting">
+                  {el.name}
+                </div>
+              </h6>
+              <h6 className="line-profile-in-meeting text-profile-in-meeting">
+                <div className="text-title-profile-in-meeting">
+                  Ник:
+                </div>
+                <div className="text-body-profile-in-meeting">
+                  {el.nickName}
+                </div>
+              </h6>
+              <h6 className="line-profile-in-meeting text-profile-in-meeting">
+                <div className="text-title-profile-in-meeting">
+                  Возраст:
+                </div>
+                <div className="text-body-profile-in-meeting">
+                  {el.age}
+                </div>
+              </h6>
+              <h6 className="line-profile-in-meeting text-profile-in-meeting">
+                <div className="text-title-profile-in-meeting">
+                  Пол:
+                </div>
+                <div className="text-body-profile-in-meeting">
+                  {el.Gender?.gender === 1 ? 'Мужчина' : 'Женщина'}
+                </div>
+              </h6>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="dog-profile-in-meeting_2">
             <h6 className="line-profile-in-meeting text-profile-in-meeting">
               <div className="text-title-profile-in-meeting">
                 Имя:
@@ -125,7 +129,7 @@ export default function Event() {
               </div>
             </h6>
           </div> */}
-        </div>
+
       </div>
     </div>
   );

@@ -72,6 +72,10 @@
     width: 600px;
     height: 238px;
     margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .dog-profile-in-meeting {
@@ -81,10 +85,8 @@
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;
     margin: auto;
-    margin-right: 320px;
     justify-content: center;
     /* margin-top: 9%; */
-    position: absolute;
     flex-direction: row;
 }
 
