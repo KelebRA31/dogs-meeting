@@ -1,6 +1,8 @@
-import { CREATE_EVENT } from '../types/types';
+import { CREATE_EVENT, EVENT_FILTER, GET_EVENT } from '../types/types';
 
 export const createEvent = (data) => ({ type: CREATE_EVENT, payload: data });
+export const getEvent = (data) => ({ type: GET_EVENT, payload: data });
+export const eventFilter = (data) => ({ type: EVENT_FILTER, payload: data });
 
 export const createEventTHUNK = (inputs) => (dispatch) => {
   dispatch({ type: 'FETCH_EVENT' });
@@ -14,5 +16,13 @@ export const createEventTHUNK = (inputs) => (dispatch) => {
     .then((res) => res.json())
     .then((res) => {
       dispatch(createEvent(res));
+    });
+};
+
+export const getEventTHUNK = () => (dispatch) => {
+  fetch('http://localhost:3001/api/event')
+    .then((res) => res.json())
+    .then((res) => {
+      dispatch(getEvent(res));
     });
 };

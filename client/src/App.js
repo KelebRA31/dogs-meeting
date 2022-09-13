@@ -39,7 +39,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration auth={auth} />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/event/:id" element={<Event />} />
         <Route path="/profile/:id" element={<Profile />} />

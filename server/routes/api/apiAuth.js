@@ -36,8 +36,8 @@ route.post('/register', [
     const {
       email, password, name, nickName, gender_id,
     } = req.body;
-    console.log(typeof (gender_id));
-    console.log(process.env.CRYPT_ROUNDS);
+    // console.log(typeof (gender_id));
+    // console.log(process.env.CRYPT_ROUNDS);
 
     const candidateByEmail = await User.findOne({ where: { email } });
     if (candidateByEmail) {
@@ -58,8 +58,8 @@ route.post('/register', [
     if (result.id && result.name !== 'SequelizeDatabaseError') {
       req.session.userName = result.nickName;
       req.session.userId = result.id;
-      console.log(result);
-      console.log(req.session);
+      // console.log(result);
+      // console.log(req.session);
       return res.json(result);
     }
     res.sendStatus(404);
@@ -81,7 +81,7 @@ route.post('/login', async (req, res) => {
     if (await bcrypt.compare(password, result.password)) {
       req.session.userName = result.name;
       req.session.userId = result.id;
-      console.log(req.session);
+      // console.log(req.session);
       return res.json(result);
     }
     throw Error(result);

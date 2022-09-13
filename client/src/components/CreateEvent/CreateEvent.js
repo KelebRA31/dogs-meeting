@@ -22,6 +22,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { Stack } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
@@ -32,7 +33,6 @@ const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
     color: theme.status.danger,
   },
 }));
-
 const theme = createTheme({
   status: {
     danger: orange[500],
@@ -62,17 +62,10 @@ export default function CreateEvent({
   const [locale, setLocale] = useState('ru');
   const [inputValue, setInputValue] = useState({
     comment: '',
-    // start: dayjs('2020-01-01 12:00'),
-    // end: dayjs('2020-01-01 13:00'),
     private: false,
     password: '',
 
   });
-  console.log('1====', JSON.stringify(inputValue.comment));
-  console.log('2====', JSON.stringify(inputValue.start));
-  console.log('3====', JSON.stringify(inputValue.end));
-  console.log('4====', JSON.stringify(inputValue.private));
-  console.log('5====', JSON.stringify(inputValue.password));
 
   const [start, setStart] = useState(dayjs('2020-01-01 12:00'));
   const [end, setEnd] = useState(dayjs('2020-01-01 13:00'));
@@ -93,7 +86,6 @@ export default function CreateEvent({
       end,
     };
     dispatch(createEventTHUNK(eventData));
-    // dispatch(createEventTHUNK(inputValue));
   };
   const toggleDrawer = (anchor, open) => (event) => {
     if (

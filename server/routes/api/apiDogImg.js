@@ -5,7 +5,7 @@ const { Dog } = require('../../db/models');
 
 route.patch('/', async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const userImg = await Dog.update({ img: req.body.str }, { where: { user_id: 3 } });
     if (userImg) {
       const updateUserImg = await Dog.findByPk(3);
