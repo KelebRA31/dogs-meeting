@@ -134,6 +134,13 @@ export default function MainPage() {
 //       <Map />
 //       <div className="button-containerUp">
 // <img src="/Images/ButtonUp.svg" className="button-down-and-up" onClick={handlerScrollUp} alt="button-up" />
+//       <img src="/Images/ButtonDown.svg" className="button-down-and-up" onClick={handlerSc
+/// rollDown} alt="button-down" />
+//       </div>
+//       <Map />
+//       <div className="button-containerUp">
+//       <img src="/Images/ButtonUp.svg" className="button-down-and-up" onClick
+/// ={handlerScrollUp} alt="button-up" />
 //       </div>
 //     </div>
 
