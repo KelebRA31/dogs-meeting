@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import './CreateEvent.css';
@@ -168,6 +169,10 @@ export default function CreateEvent({
                       className="timePicker"
                       label="Начало прогулки"
                       name="start"
+                      value={start}
+                      onChange={(newValue) => {
+                        setStart(newValue);
+                      }}
                       // value={inputValue.start}
                       // onChange={setInputValue}
                       minTime={dayjs('2022-01-01T07:00')}
@@ -178,6 +183,10 @@ export default function CreateEvent({
                       className="timePicker"
                       label="Конец прогулки"
                       name="end"
+                      value={end}
+                      onChange={(newValue) => {
+                        setEnd(newValue);
+                      }}
                       // value={inputValue.end}
                       // onChange={setInputValue}
                       minTime={dayjs('2022-01-01T07:00')}

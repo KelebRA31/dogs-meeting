@@ -46,7 +46,9 @@ export const setAuthTHUNK = (inputs) => (dispatch) => {
     .then((res) => res.json())
     .then((res) => {
       // name && id
-      dispatch(setAuth(res));
+      if (res.id) {
+        dispatch(setAuth(res));
+      }
     });
 };
 
@@ -64,9 +66,6 @@ export const setRegistrationTHUNK = (data) => (dispatch) => {
     .then((res) => {
       if (res.id) {
         dispatch(setAuth(res));
-        dispatch(checkAuthTHUNK());
-      } else {
-        dispatch(setAuth({ err: 'Данные для регистрации неверны' }));
       }
     });
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -49,15 +49,19 @@ export default function Registration() {
     // dispatch(setRegistrationTHUNK(inputs, gender_id));
     dispatch(setRegistrationTHUNK(data));
     console.log(auth);
-    if (!auth.notAuth) {
-      navigate('/');
-      setBadReg(false);
-      reset();
-    } else {
+    if (!auth) {
       setBadReg(true);
       reset();
+    } else {
+      setBadReg(false);
     }
   };
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth]);
+
   return (
     <div className="container register-form">
       <div className="form">

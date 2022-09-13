@@ -316,13 +316,9 @@ export default function Map() {
     ymaps.ready(init);
   }, []);
 
-
-
   return (
     <div className="mapContainerSuper">
       <div id="map" className="mapContainer">
-        <button type="button" id="set-balloon-header" className="btn">Задать заголовок балуна</button>
-        <button type="button" id="set-balloon-content" className="btn">Задать содержимое балуна</button>
         <CreateEvent
           blogPostsState={blogPostsState}
           setBlogPostsState={setBlogPostsState}

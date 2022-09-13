@@ -41,13 +41,17 @@ export default function Login() {
     dispatch(checkAuthTHUNK());
     console.log(auth);
     // console.log(data);
-    if (!auth.notAuth) {
-      navigate('/');
-      setBadAuth(false);
-    } else {
+    if (!auth) {
       setBadAuth(true);
+    } else {
+      setBadAuth(false);
     }
   };
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth]);
 
   return (
     <div className="container register-form">
