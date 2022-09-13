@@ -78,6 +78,14 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
       latitude: blogPostsState.coords[0],
       longtitude: blogPostsState.coords[1],
     });
+    const eventData = {
+      ...Object.fromEntries(new FormData(e.target)),
+      latitude: blogPostsState.coords[0],
+      longtitude: blogPostsState.coords[1],
+      start,
+      end,
+    };
+    dispatch(createEventTHUNK(eventData));
     // dispatch(createEventTHUNK(inputValue));
   };
   const toggleDrawer = (anchor, open) => (event) => {
@@ -99,8 +107,6 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
           id="filled-basic"
           variant="filled"
           name="comment"
-          // onChange={changeHandler}
-          // value={inputValue.comment}
           type="text"
           className="textfield"
         />
@@ -108,14 +114,9 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
           <Select
             labelId="demo-simple-select-filled-label"
             id="demo-simple-select-filled"
-      // value={dog_id_creator}
-            // onChange={changeHandler}
             name="dog_id_creator"
           >
-            {/* тут должен быть map по собакам */}
             {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
-            {/* <MenuItem value={1}>Мухтар</MenuItem>
-              <MenuItem value={2}>Рэкс</MenuItem> */}
           </Select>
         </FormControl>
         <div className="timeContainer">
@@ -162,7 +163,6 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
                 <CustomCheckbox
                   type="checkbox"
                   id="flexCheckDefault"
-                  // value={inputValue.private}
                   onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
                 />
 )}
@@ -170,18 +170,14 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
             />
 
           </ThemeProvider>
-          {inputValue.private && (
-            <div className="mb-3">
-              <TextField
-                id="filled-basic"
-                variant="filled"
-                name="password"
-                // value={inputValue.password}
-                // onChange={changeHandler}
-                type="text"
-              />
-            </div>
-          )}
+          <div className="mb-3">
+            <TextField
+              id="filled-basic"
+              variant="filled"
+              name="password"
+              type="text"
+            />
+          </div>
         </div>
 
       </div>
