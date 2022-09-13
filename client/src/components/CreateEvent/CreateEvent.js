@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CreateEvent.css';
 import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
@@ -18,6 +18,8 @@ import Select from '@mui/material/Select';
 import { Box, SwipeableDrawer } from '@mui/material';
 import { Stack } from '@mui/system';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
+import { checkAuthTHUNK } from '../../redux/actions/authAction';
+import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
 
 const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
   color: theme.status.danger,
@@ -32,9 +34,21 @@ const theme = createTheme({
   },
 });
 
-export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
-  const { event } = useSelector((state) => state);
+export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
+  const event = useSelector((state) => state.event);
   const dispatch = useDispatch();
+  const dog = useSelector((state) => state.dog);
+  const auth = useSelector((state) => state.auth);
+
+  // useEffect(() => {
+  //   dispatch(checkAuthTHUNK());
+  // }, []);
+  useEffect(() => {
+    if (auth) {
+      dispatch(getDogInfoTHUNK(auth?.id));
+    }
+  }, [auth]);
+  console.log(auth);
 
   const { eventData, loading } = event;
 
@@ -80,7 +94,6 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
   const list = (anchor) => (
 
     <form onSubmit={submitHandler} className="mainEventContainer">
-
       <div className="eventContainer">
         <TextField
           id="filled-basic"
@@ -95,14 +108,14 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
           <Select
             labelId="demo-simple-select-filled-label"
             id="demo-simple-select-filled"
-            // value={1}
+      // value={dog_id_creator}
             // onChange={changeHandler}
             name="dog_id_creator"
           >
             {/* тут должен быть map по собакам */}
-            <MenuItem value={1}>Мухтар</MenuItem>
-            <MenuItem value={2}>Рэкс</MenuItem>
-
+            {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
+            {/* <MenuItem value={1}>Мухтар</MenuItem>
+              <MenuItem value={2}>Рэкс</MenuItem> */}
           </Select>
         </FormControl>
         <div className="timeContainer">

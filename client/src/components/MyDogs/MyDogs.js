@@ -22,7 +22,6 @@ export default function MyDogs() {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(checkAuthTHUNK());
     dispatch(getDogInfoTHUNK(id));
   }, []);
   const deleteHandler = (dogId) => {
