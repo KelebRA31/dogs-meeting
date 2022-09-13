@@ -45,8 +45,10 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
   //   dispatch(checkAuthTHUNK());
   // }, []);
   useEffect(() => {
-    dispatch(getDogInfoTHUNK(auth?.userId));
-  }, []);
+    if (auth) {
+      dispatch(getDogInfoTHUNK(auth?.id));
+    }
+  }, [auth]);
   console.log(auth);
 
   const { eventData, loading } = event;
@@ -113,7 +115,7 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
               name="dog_id_creator"
             >
               {/* тут должен быть map по собакам */}
-              {dog.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
+              {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
               {/* <MenuItem value={1}>Мухтар</MenuItem>
               <MenuItem value={2}>Рэкс</MenuItem> */}
 
