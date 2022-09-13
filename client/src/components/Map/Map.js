@@ -209,6 +209,30 @@ export default function Map() {
 
     // setMap(myMap);
 
+    // Определяем адрес по координатам (обратное геокодирование).
+    function getAddress(coords) {
+      myPlacemark.properties.set('iconCaption', 'поиск...');
+      ymaps.geocode(coords).then((res) => {
+        const firstGeoObject = res.geoObjects.get(0);
+        console.log('geo ->>>>', firstGeoObject.properties._data.text);
+
+        myPlacemark.properties
+          .set({
+            // Формируем строку с данными об объекте.
+            iconCaption: [
+              // Название населенного пункта или вышестоящее
+              /// административно-территориальное образование.
+              firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities()
+                : firstGeoObject.getAdministrativeAreas(),
+              // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+              firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
+            ].filter(Boolean).join(', '),
+            // В качестве контента балуна задаем строку с адресом объекта.
+            balloonContent: firstGeoObject.getAddressLine(),
+          });
+      });
+    }
+
     // Обработка события, возникающего при щелчке
     // левой кнопкой мыши в любой точке карты.
     // При возникновении такого события откроем балун.
@@ -217,7 +241,8 @@ export default function Map() {
         const coords = e.get('coords');
         console.log(coords);
         console.log(blogPostsState);
-        setBlogPostsState({ ...blogPostsState, right: true });
+        console.log('address:', getAddress(coords));
+        setBlogPostsState({ ...blogPostsState, right: true, coords });
         // toggleDrawer('right', true);
         // setBlogPostsState({ right: true });
         console.log(blogPostsState);

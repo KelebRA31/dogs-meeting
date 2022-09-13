@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .container-profile {
   margin: 100px auto;
   display: flex;
@@ -45,7 +45,7 @@ justify-content: center;
 
 .form-profile {
   display: flex;
-=======
+}
 .container-DogForm {
     /* position: absolute; */
     margin-left: auto;
@@ -65,13 +65,11 @@ justify-content: center;
 
 .form-DogForm {
     display: flex;
->>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
-flex-direction: column;
-justify-content: center;
-align-self: normal;
-align-items: center;
-<<<<<<< HEAD
-=======
+    flex-direction: column;
+    justify-content: center;
+    align-self: normal;
+    align-items: center;
+
 }
 
 .input-DogForm {
@@ -87,5 +85,4 @@ align-items: center;
 
 .button-DogForm{
 margin-top: 10px;
->>>>>>> 196d9289a36cc78c1e13dc32428fcb3d24ccec02
 }

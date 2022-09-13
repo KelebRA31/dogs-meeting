@@ -12,12 +12,11 @@ import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Box, SwipeableDrawer } from '@mui/material';
+import { Stack } from '@mui/system';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 
 const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
@@ -42,28 +41,30 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
   const [locale, setLocale] = useState('ru');
   const [inputValue, setInputValue] = useState({
     comment: '',
-    // dog_id_creator: null,
-    start: dayjs('2020-01-01 12:00'),
-    end: dayjs('2020-01-01 13:00'),
+    // start: dayjs('2020-01-01 12:00'),
+    // end: dayjs('2020-01-01 13:00'),
     private: false,
     password: '',
 
   });
-  // console.log('1====', JSON.stringify(inputValue.comment));
-  // console.log('2====', JSON.stringify(inputValue.start.$d));
-  // console.log('3====', JSON.stringify(inputValue.private));
-  // console.log('3====', JSON.stringify(inputValue.dog_id_creator));
+  console.log('1====', JSON.stringify(inputValue.comment));
+  console.log('2====', JSON.stringify(inputValue.start));
+  console.log('3====', JSON.stringify(inputValue.end));
+  console.log('4====', JSON.stringify(inputValue.private));
+  console.log('5====', JSON.stringify(inputValue.password));
+
+  const [start, setStart] = useState(dayjs('2020-01-01 12:00'));
+  const [end, setEnd] = useState(dayjs('2020-01-01 13:00'));
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createEventTHUNK(inputValue));
-  };
-
-  const changeHandler = (e) => {
-    setInputValue((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    console.log(e.target);
+    console.log({
+      ...Object.fromEntries(new FormData(e.target)),
+      latitude: blogPostsState.coords[0],
+      longtitude: blogPostsState.coords[1],
+    });
+    // dispatch(createEventTHUNK(inputValue));
   };
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -85,8 +86,8 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
           id="filled-basic"
           variant="filled"
           name="comment"
-          onChange={changeHandler}
-          value={inputValue.comment}
+          // onChange={changeHandler}
+          // value={inputValue.comment}
           type="text"
           className="textfield"
         />
@@ -94,8 +95,8 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
           <Select
             labelId="demo-simple-select-filled-label"
             id="demo-simple-select-filled"
-      // value={dog_id_creator}
-            onChange={changeHandler}
+            // value={1}
+            // onChange={changeHandler}
             name="dog_id_creator"
           >
             {/* тут должен быть map по собакам */}
@@ -107,26 +108,35 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
         <div className="timeContainer">
 
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-            <TimePicker
-              className="timePicker"
-              label="Начало прогулки"
-              name="start"
-              value={inputValue.start}
-              onChange={setInputValue}
-              minTime={dayjs('2022-01-01T07:00')}
-              maxTime={dayjs('2022-01-01T23:59')}
-              renderInput={(params) => <TextField {...params} />}
-            />
-            <TimePicker
-              className="timePicker"
-              label="Конец прогулки"
-              name="end"
-              value={inputValue.end}
-              onChange={setInputValue}
-              minTime={dayjs('2022-01-01T07:00')}
-              maxTime={dayjs('2022-01-01T23:59')}
-              renderInput={(params) => <TextField {...params} />}
-            />
+            <Stack spacing={3}>
+              <TimePicker
+                className="timePicker"
+                label="Начало прогулки"
+                name="start"
+                // value={inputValue.start}
+                // onChange={timeHandler}
+                value={start}
+                onChange={(newValue) => {
+                  setStart(newValue);
+                }}
+                minTime={dayjs('2022-01-01T07:00')}
+                maxTime={dayjs('2022-01-01T23:59')}
+                renderInput={(params) => <TextField {...params} />}
+              />
+              <TimePicker
+                className="timePicker"
+                label="Конец прогулки"
+                name="end"
+                value={end}
+                onChange={(newValue) => {
+                  setEnd(newValue);
+                }}
+                minTime={dayjs('2022-01-01T07:00')}
+                maxTime={dayjs('2022-01-01T23:59')}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </Stack>
+
           </LocalizationProvider>
         </div>
         <div className="form-check">
@@ -139,7 +149,7 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
                 <CustomCheckbox
                   type="checkbox"
                   id="flexCheckDefault"
-                  value={inputValue.private}
+                  // value={inputValue.private}
                   onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
                 />
 )}
@@ -153,8 +163,8 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
                 id="filled-basic"
                 variant="filled"
                 name="password"
-                value={inputValue.password}
-                onChange={changeHandler}
+                // value={inputValue.password}
+                // onChange={changeHandler}
                 type="text"
               />
             </div>
@@ -163,7 +173,6 @@ export default function BlogPosts({ blogPostsState, setBlogPostsState }) {
 
       </div>
       <LoadingButton
-        onClick={submitHandler}
         size="small"
         type="submit"
         loading={loading}
