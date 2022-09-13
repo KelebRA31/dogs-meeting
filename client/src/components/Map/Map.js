@@ -3,7 +3,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-multi-assign */
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import './Map.css';
 import BlogPosts from '../BlogPosts/BlogPosts';
 import CreateEvent from '../CreateEvent/CreateEvent';
@@ -166,25 +165,28 @@ export default function Map() {
     );
 
     // Создание метки с пользовательским макетом балуна.
-    const myPlacemark = window.myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-      balloonHeader: 'Заголовок балуна',
-      balloonContent: 'Контент балуна',
-    }, {
-      balloonShadow: false,
-      balloonLayout: MyBalloonLayout,
-      balloonContentLayout: MyBalloonContentLayout,
-      balloonPanelMaxMapArea: 0,
-      // Не скрываем иконку при открытом балуне.
-      // hideIconOnBalloonOpen: false,
-      // И дополнительно смещаем балун, для открытия над иконкой.
-      // balloonOffset: [3, -40]
-      iconLayout: 'default#image',
-      iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
-      iconImageSize: [40, 40],
-      iconImageOffset: [-19, -36],
-    });
+    {Object.map((el) => (
 
-    myMap.geoObjects.add(myPlacemark);
+      const myPlacemark = new ymaps.Placemark([longtitude, latitude], {
+        balloonHeader: 'Заголовок балуна',
+        balloonContent: 'Контент балуна',
+      }, {
+        balloonShadow: false,
+        balloonLayout: MyBalloonLayout,
+        balloonContentLayout: MyBalloonContentLayout,
+        balloonPanelMaxMapArea: 0,
+        // Не скрываем иконку при открытом балуне.
+        // hideIconOnBalloonOpen: false,
+        // И дополнительно смещаем балун, для открытия над иконкой.
+        // balloonOffset: [3, -40]
+        iconLayout: 'default#image',
+        iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
+        iconImageSize: [40, 40],
+        iconImageOffset: [-19, -36],
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+    ))}
     // / /////////////////////////////////////////////////////////////////////////////////
     document.querySelector('#set-balloon-header').addEventListener('click', () => {
       window.myPlacemark.properties.set(
