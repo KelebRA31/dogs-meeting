@@ -18,25 +18,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
+    color: black;
+
 
 }
 
-.eventContainer {
-    width: 60%;
+.mainBox {
+    width: 500px;
+}
+.textfield {
+    width: 300px;
+    align-self: center;
+    
+}
+/* .eventContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
 } 
 
 .timeContainer {
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-}
+} */
 
-.timePicker {
-    width: 50%;
 
-}

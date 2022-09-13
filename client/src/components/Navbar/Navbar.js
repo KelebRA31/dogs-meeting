@@ -48,8 +48,8 @@ export default function Navbar() {
                   <ul className="dropdown-menu">
                     <li><NavLink className="dropdown-item" to={`/profile/${auth?.id}`}>Мой профиль</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/myfriends/${auth?.id}`}>Мои друзья</NavLink></li>
-                    <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мой собаки</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/event/${auth?.id}`}>Мои прогулки</NavLink></li>
+                    <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мои собаки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>
                       <a

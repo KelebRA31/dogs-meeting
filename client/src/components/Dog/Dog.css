@@ -3,3 +3,58 @@
   flex-direction: column;
   justify-content: space-between;
 }
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.container-profile {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 600px;
+  background-color: white;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+  border-radius: 12px;
+}
+
+.button-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.name-profile {
+
+}
+
+.photo-button-profile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-photo-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.line-profile {
+  width: 75%;
+  border-bottom: 1px solid black;
+}
+
+.text-profile {
+display: flex;
+justify-content: center;
+}
+
+.form-profile {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: normal;
+align-items: center;
+}

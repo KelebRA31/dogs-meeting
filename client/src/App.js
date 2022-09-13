@@ -15,7 +15,7 @@ import MyDogs from './components/MyDogs/MyDogs';
 import MyFriends from './components/MyFriends/MyFriends';
 
 function App() {
-  const { auth } = useSelector((state) => state);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   // useEffect(() => {
   //   fetch('http://localhost:3001/auth', {

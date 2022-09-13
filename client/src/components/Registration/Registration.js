@@ -48,7 +48,6 @@ export default function Registration() {
     // console.log(inputs);
     // dispatch(setRegistrationTHUNK(inputs, gender_id));
     dispatch(setRegistrationTHUNK(data));
-    dispatch(checkAuthTHUNK());
     console.log(auth);
     if (!auth.notAuth) {
       navigate('/');
