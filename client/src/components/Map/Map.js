@@ -167,7 +167,7 @@ export default function Map() {
     // Создание метки с пользовательским макетом балуна.
     {Object.map((el) => (
 
-      const myPlacemark = new ymaps.Placemark([longtitude, latitude], {
+      const myPlacemark = new ymaps.Placemark([el.longtitude, el.latitude], {
         balloonHeader: 'Заголовок балуна',
         balloonContent: 'Контент балуна',
       }, {
