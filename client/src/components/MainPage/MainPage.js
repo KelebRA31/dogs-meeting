@@ -1,8 +1,13 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
+import React, { useState } from 'react';
 import './MainPage.css';
 import Carousel from 'react-bootstrap/Carousel';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 import Map from '../Map/Map';
 
 export default function MainPage() {
@@ -28,6 +33,23 @@ export default function MainPage() {
     }
   };
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 800,
+    height: 528,
+    bgcolor: 'background.paper',
+    border: '1px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div>
       <Carousel className="position-Carousel">
@@ -42,11 +64,21 @@ export default function MainPage() {
         </Carousel.Item>
       </Carousel>
       <div className="button-containerDown">
-      <img src="/Images/ButtonDown.svg" className="button-down" onClick={handlerScrollDown} alt="button-down" />
+      <img
+        src="/Images/ButtonDown.svg"
+        className="button-down"
+        onClick={handlerScrollDown}
+        alt="button-down"
+      />
       </div>
       <Map />
       <div className="button-containerUp">
-      <img src="/Images/ButtonUp.svg" className="button-up" onClick={handlerScrollUp} alt="button-up" />
+      <img
+        src="/Images/ButtonUp.svg"
+        className="button-up"
+        onClick={handlerScrollUp}
+        alt="button-up"
+      />
       </div>
     </div>
 
@@ -97,11 +129,11 @@ export default function MainPage() {
 //         </Carousel.Item>
 //       </Carousel>
 //       <div className="button-containerDown">
-//       <img src="/Images/ButtonDown.svg" className="button-down-and-up" onClick={handlerScrollDown} alt="button-down" />
+// <img src="/Images/ButtonDown.svg" className="button-down-and-up" onClick={handlerScrollDown} alt="button-down" />
 //       </div>
 //       <Map />
 //       <div className="button-containerUp">
-//       <img src="/Images/ButtonUp.svg" className="button-down-and-up" onClick={handlerScrollUp} alt="button-up" />
+// <img src="/Images/ButtonUp.svg" className="button-down-and-up" onClick={handlerScrollUp} alt="button-up" />
 //       </div>
 //     </div>
 

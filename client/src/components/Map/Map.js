@@ -12,17 +12,20 @@ const { ymaps } = window;
 
 export default function Map() {
   const [blogPostsState, setBlogPostsState] = React.useState({ right: false });
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event
-            && event.type === 'keydown'
-            && (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
-    setBlogPostsState({ ...blogPostsState, [anchor]: open });
-  };
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (
+  //     event
+  //           && event.type === 'keydown'
+  //           && (event.key === 'Tab' || event.key === 'Shift')
+  //   ) {
+  //     return;
+  //   }
+  //   setBlogPostsState({ ...blogPostsState, [anchor]: open });
+  // };
 
   const [sidebarState, setSidebarState] = useState(false);
   const center = [55.7536760175035, 37.61988016065489];
@@ -234,6 +237,7 @@ export default function Map() {
       } else {
         myMap.balloon.close();
       }
+      handleOpen();
     });
 
     // Обработка события, возникающего при щелчке
@@ -283,12 +287,21 @@ export default function Map() {
     ymaps.ready(init);
   }, []);
 
+
+
   return (
     <div className="mapContainerSuper">
       <div id="map" className="mapContainer">
         <button type="button" id="set-balloon-header" className="btn">Задать заголовок балуна</button>
         <button type="button" id="set-balloon-content" className="btn">Задать содержимое балуна</button>
-        <CreateEvent blogPostsState={blogPostsState} setBlogPostsState={setBlogPostsState} />
+        <CreateEvent
+          blogPostsState={blogPostsState}
+          setBlogPostsState={setBlogPostsState}
+          open={open}
+          setOpen={setOpen}
+          handleClose={handleClose}
+          handleOpen={handleOpen}
+        />
       </div>
     </div>
   );
