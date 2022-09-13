@@ -214,7 +214,9 @@ export default function Map() {
       myPlacemark.properties.set('iconCaption', 'поиск...');
       ymaps.geocode(coords).then((res) => {
         const firstGeoObject = res.geoObjects.get(0);
+        const location = firstGeoObject.properties._data.text;
         console.log('geo ->>>>', firstGeoObject.properties._data.text);
+        // setBlogPostsState({ ...blogPostsState, location });
 
         myPlacemark.properties
           .set({
@@ -230,6 +232,8 @@ export default function Map() {
             // В качестве контента балуна задаем строку с адресом объекта.
             balloonContent: firstGeoObject.getAddressLine(),
           });
+
+        // return location;
       });
     }
 

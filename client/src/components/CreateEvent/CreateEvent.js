@@ -78,6 +78,14 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
       latitude: blogPostsState.coords[0],
       longtitude: blogPostsState.coords[1],
     });
+    const eventData = {
+      ...Object.fromEntries(new FormData(e.target)),
+      latitude: blogPostsState.coords[0],
+      longtitude: blogPostsState.coords[1],
+      start,
+      end,
+    };
+    dispatch(createEventTHUNK(eventData));
     // dispatch(createEventTHUNK(inputValue));
   };
   const toggleDrawer = (anchor, open) => (event) => {
@@ -170,7 +178,7 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
             />
 
           </ThemeProvider>
-          {inputValue.private && (
+          { (
             <div className="mb-3">
               <TextField
                 id="filled-basic"
