@@ -8,7 +8,7 @@ export default (state = { eventData: [], loading: false }, action) => {
       return { eventData: payload, loading: false };
 
     case CREATE_EVENT:
-      return { ...state, eventData: payload, loading: false };
+      return { eventData: [...state.eventData, payload], loading: false };
 
     case EVENT_FILTER:
       return { ...state, eventData: state.eventData.filter((el) => el.id !== payload) };

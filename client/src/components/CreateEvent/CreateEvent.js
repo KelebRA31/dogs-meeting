@@ -17,6 +17,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Box, SwipeableDrawer } from '@mui/material';
 import { Stack } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
@@ -27,7 +28,6 @@ const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
     color: theme.status.danger,
   },
 }));
-
 const theme = createTheme({
   status: {
     danger: orange[500],
@@ -35,6 +35,7 @@ const theme = createTheme({
 });
 
 export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
+  const navigate = useNavigate();
   const event = useSelector((state) => state.event);
   const dispatch = useDispatch();
   const dog = useSelector((state) => state.dog);
