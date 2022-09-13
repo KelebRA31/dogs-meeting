@@ -6,7 +6,7 @@ const route = express.Router();
 route.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    // console.log(id);
     const result = await User.findOne({ where: { id }, include: { model: Gender } });
     // console.log(JSON.stringify(JSON.parse(result)));
     res.json(result);

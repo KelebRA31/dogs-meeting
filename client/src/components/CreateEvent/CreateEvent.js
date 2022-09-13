@@ -55,17 +55,10 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
   const [locale, setLocale] = useState('ru');
   const [inputValue, setInputValue] = useState({
     comment: '',
-    // start: dayjs('2020-01-01 12:00'),
-    // end: dayjs('2020-01-01 13:00'),
     private: false,
     password: '',
 
   });
-  console.log('1====', JSON.stringify(inputValue.comment));
-  console.log('2====', JSON.stringify(inputValue.start));
-  console.log('3====', JSON.stringify(inputValue.end));
-  console.log('4====', JSON.stringify(inputValue.private));
-  console.log('5====', JSON.stringify(inputValue.password));
 
   const [start, setStart] = useState(dayjs('2020-01-01 12:00'));
   const [end, setEnd] = useState(dayjs('2020-01-01 13:00'));
@@ -86,7 +79,6 @@ export default function CreateEvent({ blogPostsState, setBlogPostsState }) {
       end,
     };
     dispatch(createEventTHUNK(eventData));
-    // dispatch(createEventTHUNK(inputValue));
   };
   const toggleDrawer = (anchor, open) => (event) => {
     if (
