@@ -1,10 +1,15 @@
-import { CREATE_EVENT, EVENT_FILTER, GET_EVENT } from '../types/types';
+import {
+  CREATE_EVENT, EVENT_FILTER, GET_EVENT, GET_CREATED_EVENTS,
+} from '../types/types';
 
 export default (state = { eventData: [], loading: false }, action) => {
   const { type, payload } = action;
 
   switch (type) {
     case GET_EVENT:
+      return { eventData: payload, loading: false };
+
+    case GET_CREATED_EVENTS:
       return { eventData: payload, loading: false };
 
     case CREATE_EVENT:

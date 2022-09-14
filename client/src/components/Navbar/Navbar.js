@@ -23,10 +23,12 @@ export default function Navbar() {
               <p>o</p>
               <p>g</p>
               <p>s</p>
-              <p className="letter-Navbar">B</p>
+              <p>T</p>
               <p>o</p>
-              <p>u</p>
-              <p>t</p>
+              <p className="letter-Navbar">D</p>
+              <p>o</p>
+              <p>g</p>
+              <p>s</p>
             </div>
 
           </NavLink>
@@ -47,8 +49,10 @@ export default function Navbar() {
                   </a>
                   <ul className="dropdown-menu">
                     <li><NavLink className="dropdown-item" to={`/profile/${auth?.id}`}>Мой профиль</NavLink></li>
-                    <li><NavLink className="dropdown-item" to={`/myfriends/${auth?.id}`}>Мои друзья</NavLink></li>
-                    <li><NavLink className="dropdown-item" to={`/event/${auth?.id}`}>Мои прогулки</NavLink></li>
+                    <li><NavLink className="dropdown-item" to={`/myfriends/${auth?.id}`}>Мои подписки</NavLink></li>
+                    {/* <li><NavLink className="dropdown-item" to={`
+                    /event/${auth?.id}`}>Мои прогулки</NavLink></li> */}
+                    <li><NavLink className="dropdown-item" to={`/mycreatedevents/${auth?.id}`}>Мои созданные прогулки</NavLink></li>
                     <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мои собаки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>

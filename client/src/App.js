@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MainPage from './components/MainPage/MainPage';
 import Navbar from './components/Navbar/Navbar';
 import Registration from './components/Registration/Registration';
@@ -14,9 +14,13 @@ import CreateEvent from './components/CreateEvent/CreateEvent';
 import MyDogs from './components/MyDogs/MyDogs';
 import MyFriends from './components/MyFriends/MyFriends';
 import Event from './components/Event/Event';
+import MyCreatedEvents from './components/MyCreatedEvents/MyCreatedEvents';
+import MyEvents from './components/MyEvents/MyEvents';
+import { getUserInfoTHUNK } from './redux/actions/userAction';
 
 function App() {
   const auth = useSelector((state) => state.auth);
+  const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
   // useEffect(() => {
   //   fetch('http://localhost:3001/auth', {
@@ -30,7 +34,10 @@ function App() {
 
   useEffect(() => {
     dispatch(checkAuthTHUNK());
-  }, []);
+    // if (auth) {
+    //   dispatch(getUserInfoTHUNK(auth.id));
+    // }
+  }, [avatar]);
   return (
     <div className="App">
       <Navbar />
@@ -41,8 +48,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/about" element={<About />} />
-        <Route path="/event/:id" element={<Event />} />
-        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/event/:id/:meetingId" element={<Event />} />
+        <Route path="/mycreatedevents/:id" element={<MyCreatedEvents />} />
+        <Route path="/myevents/:id" element={<MyEvents />} />
+        <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} />} />
         <Route path="/mydogs/:id" element={<MyDogs />} />
         <Route path="/myfriends/:id" element={<MyFriends />} />
       </Routes>

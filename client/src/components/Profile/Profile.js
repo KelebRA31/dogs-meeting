@@ -8,9 +8,8 @@ import {
   editUserInfoTHUNK, getUserInfo, getUserInfoTHUNK, setUserImgTHUNK,
 } from '../../redux/actions/userAction';
 
-export default function Profile() {
+export default function Profile({ avatar, setAvatar }) {
   const { user } = useSelector((state) => state);
-  const [avatar, setAvatar] = useState(null);
   const [img, setImg] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState({
@@ -106,7 +105,7 @@ export default function Profile() {
             {isEdit === true ? (
               <>
                 <p className="label-txt">Выберите пол</p>
-                <select name="gender" className="form-select" aria-label="Default select example">
+                <select name="gender" className="form-select" value={input.gender} onChange={changeInput} aria-label="Default select example">
                   <option value="1">Мужчина</option>
                   <option value="2">Женщина</option>
                 </select>

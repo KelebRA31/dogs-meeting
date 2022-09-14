@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable react/no-this-in-sfc */
 /* eslint-disable no-underscore-dangle */
@@ -177,10 +178,11 @@ export default function Map() {
 
   useEffect(() => {
     if (events?.eventData && myMap) {
+      console.log(events);
       events.eventData.forEach((el) => {
         const myPlacemark = new ymaps.Placemark([el.latitude, el.longtitude], {
           // balloonHeader: 'Заголовок балуна',
-          balloonContent: '<div><a href="/event">link</a></div>',
+          balloonContent: `<div><a href='/event/${el.user_id_creator}/${el.id}'>link</a></div>`,
         }, {
           // balloonShadow: false,
           // balloonLayout: MyBalloonLayout,
