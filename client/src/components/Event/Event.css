@@ -39,12 +39,12 @@
 }
 
 .super-container-event {
-
+    width: 100%;
 }
 
 .chat-event {
-    width: 700px;
-    height: 615px;
+    width: 55rem;
+    height: 37.5em;
     background-color: rgba(2, 1, 0, 0.400);
     margin-top: 2%;
     position: absolute;

@@ -2,10 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Carousel from 'react-material-ui-carousel';
+import { Row } from 'reactstrap';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
 import DogCard from '../DogCard/DogCard';
 import Profile from '../Profile/Profile';
 import './Event.css';
+import UsersList from '../UsersList/UsersList';
+import ChatWrapper from '../ChatWrapper/ChatWrapper';
 
 export default function Event() {
   const auth = useSelector((state) => state.auth);
@@ -22,7 +25,12 @@ export default function Event() {
   console.log(dog);
   return (
     <div className="super-container-event">
-      <div className="chat-event" />
+      <div className="chat-event">
+        <Row>
+          <UsersList />
+          <ChatWrapper />
+        </Row>
+      </div>
       <div className="container-event">
         <div className="inner-event">
           <img src={auth?.img} width="100px" height="100px" className="img-profile-in-meeting" alt="user-img" />

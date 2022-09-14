@@ -17,11 +17,25 @@ import Event from './components/Event/Event';
 import MyCreatedEvents from './components/MyCreatedEvents/MyCreatedEvents';
 import MyEvents from './components/MyEvents/MyEvents';
 import { getUserInfoTHUNK } from './redux/actions/userAction';
+import { socketInit } from './redux/actions/wsActions';
+import { userCheck } from './redux/actions/userActions';
 
 function App() {
   const auth = useSelector((state) => state.auth);
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    // ws1 initialize in saga
+    if (user.id) {
+      dispatch(socketInit());
+    }
+  }, [user]);
+
+  useEffect(() => {
+    dispatch(userCheck());
+  }, []);
   // useEffect(() => {
   //   fetch('http://localhost:3001/auth', {
   //     credentials: 'include',
