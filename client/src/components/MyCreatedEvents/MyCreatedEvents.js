@@ -22,7 +22,7 @@ export default function MyCreatedEvents() {
   return (
     <div className="container-createdEvents">
       {event?.eventData?.map((el) => (
-        <div className="mini-container-createdEvents" key={el?.id} type="div" onClick={() => (clickHandler(el?.id))}>
+        <div className="mini-container-createdEvents" key={el.id} type="div" onClick={() => (clickHandler(el?.id))}>
           <div>{el?.User?.nickName}</div>
           <div>{el?.comment}</div>
           <div>{Number(el?.start?.substring(11, 13)) + 3 + el?.start?.substring(13, 19)}</div>

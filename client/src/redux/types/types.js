@@ -39,6 +39,7 @@ export const EDIT_DOG = 'EDIT_DOG';
 export const CREATE_EVENT = 'CREATE_EVENT';
 export const GET_EVENT = 'GET_EVENT';
 export const GET_CREATED_EVENTS = 'GET_CREATED_EVENTS';
+export const GET_EVENT_INFO = 'GET_EVENT_INFO';
 
 // FILTER
 
