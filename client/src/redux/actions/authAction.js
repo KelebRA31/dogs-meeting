@@ -17,11 +17,7 @@ export const checkAuthTHUNK = () => (dispatch) => {
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      if (res.id) {
-        dispatch(setAuth(res));
-      } else {
-        dispatch(setAuth({ notAuth: 'no' }));
-      }
+      dispatch(setAuth(res));
     });
 };
 

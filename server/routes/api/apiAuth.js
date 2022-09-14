@@ -8,7 +8,11 @@ const route = express.Router();
 route.get('/check', async (req, res) => {
   try {
     const result = await User.findByPk(req.session.userId);
-    res.json(result);
+    if (result) {
+      res.json(result);
+    } else {
+      res.json(null);
+    }
   } catch (error) {
     res.json(error);
   }

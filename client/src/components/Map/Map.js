@@ -14,6 +14,7 @@ const { ymaps } = window;
 export default function Map() {
   const [myMap, setMyMap] = useState(null);
   const [blogPostsState, setBlogPostsState] = useState({ right: false });
+  const [loc, setLoc] = useState(null);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -137,7 +138,7 @@ export default function Map() {
         const firstGeoObject = res.geoObjects.get(0);
         const location = firstGeoObject.properties._data.text;
         console.log('geo ->>>>', firstGeoObject.properties._data.text);
-
+        setLoc(location);
         window.myPlacemark.properties
           .set({
             iconCaption: [

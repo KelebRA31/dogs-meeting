@@ -33,10 +33,10 @@ export default function MyDogs() {
 
   return (
     <div className="container">
-      {!auth?.notAuth && !isAdding && <button onClick={() => setIsAdding(true)} type="button" className="btn btn-primary">Добавить собаку</button>}
+      {auth && !isAdding && <button onClick={() => setIsAdding(true)} type="button" className="btn btn-primary">Добавить собаку</button>}
       <div className="room-container">
-        {!auth?.notAuth && isAdding && <DogForm setIsAdding={setIsAdding} />}
-        {auth?.notAuth && <h1>Нужно зарегистрироваться!</h1>}
+        {auth && isAdding && <DogForm setIsAdding={setIsAdding} />}
+        {!auth && <h1>Нужно зарегистрироваться!</h1>}
         {dog?.map((el) => (
           <Dog
             key={el?.id}
