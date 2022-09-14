@@ -16,7 +16,7 @@ route.post('/', async (req, res) => {
 // ручка для всех митингов
 route.get('/', async (req, res) => {
   const meeting = await Meeting.findAll({ include: { all: true } });
-  console.log(meeting);
+  // console.log(meeting);
   res.json(meeting);
 });
 
