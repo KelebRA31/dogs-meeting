@@ -9,7 +9,7 @@ import { sendChatMessage } from '../../redux/actions/chatActions';
 export default function ChatForm() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { meetingId } = useParams();
 
   const inputHAndler = (e) => {
     setInput(e.target.value);
@@ -18,7 +18,7 @@ export default function ChatForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     // ws10 dispatches action to saga look step ws9
-    dispatch(sendChatMessage({ message: input, meeting_id: id }));
+    dispatch(sendChatMessage({ message: input, meeting_id: meetingId }));
     setInput('');
   };
 

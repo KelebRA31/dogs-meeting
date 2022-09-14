@@ -23,6 +23,7 @@ wss.on('connection', (ws, request, wsMap) => {
   // WS listen to message event
   ws.on('message', async (message) => {
     const { type, payload } = JSON.parse(message);
+    console.log(message);
 
     switch (type) {
       case 'SET_CHAT_MESSAGE':
