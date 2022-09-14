@@ -265,7 +265,7 @@ export default function CreateEvent({
             anchor={anchor}
             open={blogPostsState[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            onOpen={toggleDrawer(anchor, true)}432p/.,  
           >
             {list(anchor)}
           </SwipeableDrawer> */}
