@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import './CreateEvent.css';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -23,6 +23,7 @@ import Modal from '@mui/material/Modal';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { Stack } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
+import DateTimePicker from 'react-datetime-picker';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
@@ -67,8 +68,8 @@ export default function CreateEvent({
 
   });
 
-  const [start, setStart] = useState(dayjs('2020-01-01 12:00'));
-  const [end, setEnd] = useState(dayjs('2020-01-01 13:00'));
+  const [start, setStart] = useState(dayjs());
+  const [end, setEnd] = useState(dayjs());
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -158,34 +159,34 @@ export default function CreateEvent({
                   <div className="timeContainer">
 
                     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-                      <TimePicker
-                        className="timePicker"
-                        label="Начало прогулки"
-                        name="start"
-                        value={start}
-                        onChange={(newValue) => {
-                          setStart(newValue);
-                        }}
+                      <Stack spacing={3}>
+                        <DateTimePicker
+                          renderInput={(params) => <TextField {...params} />}
+                          label="Начало прогулки"
+                          className="timePicker"
+                          name="start"
+                          value={start}
+                          onChange={(newValue) => {
+                            setStart(newValue);
+                          }}
                       // value={inputValue.start}
                       // onChange={setInputValue}
-                        minTime={dayjs('2022-01-01T07:00')}
-                        maxTime={dayjs('2022-01-01T23:59')}
-                        renderInput={(params) => <TextField {...params} />}
-                      />
-                      <TimePicker
-                        className="timePicker"
-                        label="Конец прогулки"
-                        name="end"
-                        value={end}
-                        onChange={(newValue) => {
-                          setEnd(newValue);
-                        }}
+                          minDateTime={dayjs()}
+                        />
+                        <DateTimePicker
+                          className="timePicker"
+                          renderInput={(params) => <TextField {...params} />}
+                          label="Конец прогулки"
+                          name="end"
+                          value={end}
+                          onChange={(newValue) => {
+                            setEnd(newValue);
+                          }}
                       // value={inputValue.end}
                       // onChange={setInputValue}
-                        minTime={dayjs('2022-01-01T07:00')}
-                        maxTime={dayjs('2022-01-01T23:59')}
-                        renderInput={(params) => <TextField {...params} />}
-                      />
+                          minDateTime={dayjs()}
+                        />
+                      </Stack>
                     </LocalizationProvider>
                   </div>
                   <div className="form-check">
@@ -231,7 +232,13 @@ export default function CreateEvent({
                   Создать прогулку
                 </LoadingButton>
               </form>
-            ) : <Link to="/registration">Зарегистрироваться, чтобы создать прогулку</Link>}
+            ) : (
+              <>
+                <Link to="/registration">Зарегистрироваться, чтобы создать прогулку</Link>
+                <p> </p>
+                <Link to="login">Или войти</Link>
+              </>
+            )}
 
           </Box>
         </Modal>
@@ -244,8 +251,8 @@ export default function CreateEvent({
     <div style={{ width: 'max-content', marginLeft: 'auto' }}>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <button type="button" id="set-balloon-header" className="btn">Задать заголовок балуна</button>
-          <button type="button" id="set-balloon-content" className="btn">Задать содержимое балуна</button>
+          <button type="button" id="set-balloon-header" style={{ display: 'none' }} className="btn">Задать заголовок балуна</button>
+          <button type="button" id="set-balloon-content" style={{ display: 'none' }} className="btn">Задать содержимое балуна</button>
 
           {/* <Button onClick={toggleDrawer(anchor, true)}>
             <ToggleButton value="justify" key="justify">

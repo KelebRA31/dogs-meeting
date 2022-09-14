@@ -138,7 +138,7 @@ export default function Map() {
         const firstGeoObject = res.geoObjects.get(0);
         const location = firstGeoObject.properties._data.text;
         console.log('geo ->>>>', firstGeoObject.properties._data.text);
-        setLoc(location);
+        // setLoc(location);
         window.myPlacemark.properties
           .set({
             iconCaption: [
