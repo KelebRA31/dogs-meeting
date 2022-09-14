@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -20,12 +21,12 @@ export default function MyCreatedEvents() {
   };
   return (
     <div className="container-createdEvents">
-      {event.eventData?.map((el) => (
-        <div className="mini-container-createdEvents" key={el.id} type="div" onClick={() => (clickHandler(el.id))}>
-          <div>{el.User.nickName}</div>
-          <div>{el.comment}</div>
-          <div>{el.start.substring(11, 19)}</div>
-          <div>{el.end.substring(11, 19)}</div>
+      {event?.eventData?.map((el) => (
+        <div className="mini-container-createdEvents" key={el?.id} type="div" onClick={() => (clickHandler(el?.id))}>
+          <div>{el?.User?.nickName}</div>
+          <div>{el?.comment}</div>
+          <div>{Number(el?.start?.substring(11, 13)) + 3 + el?.start?.substring(13, 19)}</div>
+          <div>{Number(el?.end?.substring(11, 13)) + 3 + el?.end?.substring(13, 19)}</div>
         </div>
       ))}
     </div>

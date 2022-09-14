@@ -22,7 +22,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { Stack } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
@@ -127,110 +127,118 @@ export default function CreateEvent({
           aria-describedby="modal-modal-description"
         >
           <Box sx={style} className="mainBox">
-            <form className="mainEventContainer" onSubmit={submitHandler}>
+            {auth ? (
+              <form className="mainEventContainer" onSubmit={submitHandler}>
 
-              <div className="eventContainer">
-                <TextField
-                  id="filled-basic"
-                  variant="filled"
-                  name="comment"
+                <div className="eventContainer">
+                  <TextField
+                    id="filled-basic"
+                    variant="filled"
+                    name="comment"
                   // onChange={changeHandler}
                   // value={inputValue.comment}
-                  type="text"
-                  className="textfield"
-                />
-                <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    labelId="demo-simple-select-filled-label"
-                    id="demo-simple-select-filled"
+                    type="text"
+                    className="textfield"
+                  />
+                  <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+                    <Select
+                      labelId="demo-simple-select-filled-label"
+                      id="demo-simple-select-filled"
 // value={dog_id_creator}
                     // onChange={changeHandler}
-                    name="dog_id_creator"
-                  >
-                    {/* тут должен быть map по собакам */}
-                    {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
+                      name="dog_id_creator"
+                    >
+                      {/* тут должен быть map по собакам */}
+                      {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
 
-                    {/* <MenuItem value={1}>Мухтар</MenuItem>
+                      {/* <MenuItem value={1}>Мухтар</MenuItem>
                     <MenuItem value={2}>Рэкс</MenuItem> */}
 
-                  </Select>
-                </FormControl>
-                <div className="timeContainer">
+                    </Select>
+                  </FormControl>
+                  <div className="timeContainer">
 
-                  <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-                    <Stack spacing={3}>
-                      <DateTimePicker
-                        renderInput={(params) => <TextField {...params} />}
-                        label="Начало прогулки"
-                        className="timePicker"
-                        name="start"
-                        value={start}
-                        onChange={(newValue) => {
-                          setStart(newValue);
-                        }}
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+                      <Stack spacing={3}>
+                        <DateTimePicker
+                          renderInput={(params) => <TextField {...params} />}
+                          label="Начало прогулки"
+                          className="timePicker"
+                          name="start"
+                          value={start}
+                          onChange={(newValue) => {
+                            setStart(newValue);
+                          }}
                       // value={inputValue.start}
                       // onChange={setInputValue}
-                        minDateTime={dayjs()}
-                      />
-                      <DateTimePicker
-                        className="timePicker"
-                        renderInput={(params) => <TextField {...params} />}
-                        label="Конец прогулки"
-                        name="end"
-                        value={end}
-                        onChange={(newValue) => {
-                          setEnd(newValue);
-                        }}
+                          minDateTime={dayjs()}
+                        />
+                        <DateTimePicker
+                          className="timePicker"
+                          renderInput={(params) => <TextField {...params} />}
+                          label="Конец прогулки"
+                          name="end"
+                          value={end}
+                          onChange={(newValue) => {
+                            setEnd(newValue);
+                          }}
                       // value={inputValue.end}
                       // onChange={setInputValue}
-                        minDateTime={dayjs()}
-                      />
-                    </Stack>
-                  </LocalizationProvider>
-                </div>
-                <div className="form-check">
-                  <ThemeProvider
-                    theme={theme}
-                  >
-
-                    <FormControlLabel
-                      control={(
-                        <CustomCheckbox
-                          type="checkbox"
-                          id="flexCheckDefault"
-                          // value={inputValue.private}
-                          onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
+                          minDateTime={dayjs()}
                         />
-)}
-                      label="Приватный"
-                    />
+                      </Stack>
+                    </LocalizationProvider>
+                  </div>
+                  <div className="form-check">
+                    <ThemeProvider
+                      theme={theme}
+                    >
 
-                  </ThemeProvider>
-                  {inputValue.private && (
-                  <div className="mb-3">
-                    <TextField
-                      id="filled-basic"
-                      variant="filled"
-                      name="password"
+                      <FormControlLabel
+                        control={(
+                          <CustomCheckbox
+                            type="checkbox"
+                            id="flexCheckDefault"
+                          // value={inputValue.private}
+                            onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
+                          />
+)}
+                        label="Приватный"
+                      />
+
+                    </ThemeProvider>
+                    {inputValue.private && (
+                    <div className="mb-3">
+                      <TextField
+                        id="filled-basic"
+                        variant="filled"
+                        name="password"
                       // value={inputValue.password}
                       // onChange={changeHandler}
-                      type="text"
-                    />
+                        type="text"
+                      />
+                    </div>
+                    )}
                   </div>
-                  )}
-                </div>
 
-              </div>
-              <LoadingButton
-                size="small"
-                type="submit"
-                loading={loading}
-                loadingIndicator="Loading…"
-                variant="outlined"
-              >
-                Создать прогулку
-              </LoadingButton>
-            </form>
+                </div>
+                <LoadingButton
+                  size="small"
+                  type="submit"
+                  loading={loading}
+                  loadingIndicator="Loading…"
+                  variant="outlined"
+                >
+                  Создать прогулку
+                </LoadingButton>
+              </form>
+            ) : (
+              <>
+                <Link to="/registration">Нужно зарегитирроваться</Link>
+                <p> </p>
+                <Link to="/login">Или войти</Link>
+              </>
+            )}
 
           </Box>
         </Modal>
