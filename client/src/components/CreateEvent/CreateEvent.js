@@ -243,8 +243,8 @@ export default function CreateEvent({
     <div style={{ width: 'max-content', marginLeft: 'auto' }}>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <button type="button" id="set-balloon-header" className="btn">Задать заголовок балуна</button>
-          <button type="button" id="set-balloon-content" className="btn">Задать содержимое балуна</button>
+          <button type="button" id="set-balloon-header" style={{ display: 'none' }} className="btn">Задать заголовок балуна</button>
+          <button type="button" id="set-balloon-content" style={{ display: 'none' }} className="btn">Задать содержимое балуна</button>
 
           {/* <Button onClick={toggleDrawer(anchor, true)}>
             <ToggleButton value="justify" key="justify">
