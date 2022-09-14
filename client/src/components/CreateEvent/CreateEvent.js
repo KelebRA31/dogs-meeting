@@ -23,6 +23,7 @@ import Modal from '@mui/material/Modal';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { Stack } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
+import DateTimePicker from 'react-datetime-picker';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
@@ -157,34 +158,34 @@ export default function CreateEvent({
                 <div className="timeContainer">
 
                   <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-                    <TimePicker
-                      className="timePicker"
-                      label="Начало прогулки"
-                      name="start"
-                      value={start}
-                      onChange={(newValue) => {
-                        setStart(newValue);
-                      }}
+                    <Stack spacing={3}>
+                      <DateTimePicker
+                        renderInput={(params) => <TextField {...params} />}
+                        label="Начало прогулки"
+                        className="timePicker"
+                        name="start"
+                        value={start}
+                        onChange={(newValue) => {
+                          setStart(newValue);
+                        }}
                       // value={inputValue.start}
                       // onChange={setInputValue}
-                      minTime={dayjs('2022-01-01T07:00')}
-                      maxTime={dayjs('2022-01-01T23:59')}
-                      renderInput={(params) => <TextField {...params} />}
-                    />
-                    <TimePicker
-                      className="timePicker"
-                      label="Конец прогулки"
-                      name="end"
-                      value={end}
-                      onChange={(newValue) => {
-                        setEnd(newValue);
-                      }}
+                        minDateTime={dayjs()}
+                      />
+                      <DateTimePicker
+                        className="timePicker"
+                        renderInput={(params) => <TextField {...params} />}
+                        label="Конец прогулки"
+                        name="end"
+                        value={end}
+                        onChange={(newValue) => {
+                          setEnd(newValue);
+                        }}
                       // value={inputValue.end}
                       // onChange={setInputValue}
-                      minTime={dayjs('2022-01-01T07:00')}
-                      maxTime={dayjs('2022-01-01T23:59')}
-                      renderInput={(params) => <TextField {...params} />}
-                    />
+                        minDateTime={dayjs()}
+                      />
+                    </Stack>
                   </LocalizationProvider>
                 </div>
                 <div className="form-check">
@@ -265,7 +266,7 @@ export default function CreateEvent({
             anchor={anchor}
             open={blogPostsState[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}432p/.,  
+            onOpen={toggleDrawer(anchor, true)}432p/.,
           >
             {list(anchor)}
           </SwipeableDrawer> */}
