@@ -38,9 +38,9 @@ wss.on('connection', (ws, request, wsMap) => {
         }
         break;
       case 'GET_CHAT_MESSAGES':
-        const messages = await Message.findAll({ include: User });
+        const messages = await Message.findAll({ include: User, where: { meeting_id: payload.meeting_id } });
         const data = JSON.parse(JSON.stringify(messages)).map((el) => ({
-          name: el.User.name,
+          name: el.User.nickName,
           id: el.User.id,
           message: el.text,
           msId: el.id,

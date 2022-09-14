@@ -5,8 +5,9 @@ export const chatUserAction = (payload) => ({
   payload,
 });
 
-export const getChatMessages = () => ({
+export const getChatMessages = (payload) => ({
   type: GET_CHAT_MESSAGES,
+  payload,
 });
 
 export const sendChatMessage = (payload) => ({
