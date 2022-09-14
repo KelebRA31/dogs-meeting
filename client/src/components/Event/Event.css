@@ -1,7 +1,7 @@
 .container-event {
     width: 600px;
     height: 305px;
-    background-color: aliceblue;
+    background-color: rgba(2, 1, 0, 0.300);
     box-shadow:
     inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;
@@ -10,6 +10,7 @@
     justify-content: center;
     margin-top: 3%;
     position: relative;
+    border: 1px solid white;
 }
 
 .inner-event {
@@ -24,7 +25,7 @@
 
 .line-profile-in-meeting {
     width: 75%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
 }
 
 .text-profile-in-meeting {
@@ -33,6 +34,8 @@
     justify-content: center;
     width: 100%;
     font-size: 10px;
+    color: aliceblue;
+
 }
 
 .super-container-event {
@@ -42,7 +45,7 @@
 .chat-event {
     width: 700px;
     height: 615px;
-    background-color: aliceblue;
+    background-color: rgba(2, 1, 0, 0.400);
     margin-top: 2%;
     position: absolute;
     margin: auto;
@@ -50,6 +53,7 @@
     inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;
     margin-left: 50px;
+    border: 1px solid white;
 }
 
 .text-title-profile-in-meeting {
@@ -82,7 +86,7 @@
 .dog-profile-in-meeting {
     width: 600px;
     height: 289px;
-    background-color: aliceblue;
+    background-color: seashell;
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;
     margin: auto;
@@ -94,7 +98,7 @@
 .dog-profile-in-meeting_2 {
     width: 280px;
     height: 289px;
-    background-color: aliceblue;
+    background-color: seashell;
     box-shadow:
     inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;

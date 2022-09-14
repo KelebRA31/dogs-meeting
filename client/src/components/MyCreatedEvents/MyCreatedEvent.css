@@ -1,0 +1,24 @@
+.container-createdEvents {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+width: 75%;
+height: 85vh;
+margin: 3.5vh auto;
+flex-direction: column;
+gap: 10px;
+}
+
+.mini-container-createdEvents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    text-align: center;
+    background-color: rgba(2, 1, 0, 0.500);
+    color: seashell;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+}

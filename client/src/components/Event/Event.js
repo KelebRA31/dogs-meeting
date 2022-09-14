@@ -10,7 +10,8 @@ import './Event.css';
 export default function Event() {
   const auth = useSelector((state) => state.auth);
   const dog = useSelector((state) => state.dog);
-  const { id } = useParams();
+  const user = useSelector((state) => state.user);
+  const { id, meetingId } = useParams();
 
   const dispatch = useDispatch();
 
@@ -54,7 +55,7 @@ export default function Event() {
               Пол:
             </div>
             <div className="text-body-profile-in-meeting">
-              {auth?.Gender?.gender === 1 ? 'Мужчина' : 'Женщина'}
+              {auth?.gender_id === 1 ? 'Мужчина' : 'Женщина'}
             </div>
           </h7>
         </div>
