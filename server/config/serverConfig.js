@@ -60,6 +60,7 @@ const serverConfig = (app) => {
   app.use('/profile', renderUsers);
   app.use('/mydogs', renderDogs);
   app.use('/api/user', userRouter);
+  // app.use('/user', )
 
   const server = http.createServer(app);
 

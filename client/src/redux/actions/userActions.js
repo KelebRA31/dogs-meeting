@@ -13,7 +13,7 @@ export const userSignUp = (input) => (dispatch) => {
 };
 
 export const userCheck = () => (dispatch) => {
-  axios.post('/user/check')
+  axios.post('/api/user/check')
     .then((res) => {
       dispatch(userAdd(res.data));
     })

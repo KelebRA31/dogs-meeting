@@ -6,6 +6,7 @@ import wsReducer from './wsReducer';
 import chatUserReducer from './chatUsersReducer';
 import chatMessageReducer from './chatMessageReducer';
 import userReducer from './userReducer';
+import userReducer1 from './userReducer(our)';
 
 const rootReducer = combineReducers({
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   ws: wsReducer,
   chatUsers: chatUserReducer,
   messages: chatMessageReducer,
+  user1: userReducer1,
 });
 
 export default rootReducer;

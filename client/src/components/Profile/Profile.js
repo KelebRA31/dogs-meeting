@@ -9,7 +9,7 @@ import {
 } from '../../redux/actions/userAction';
 
 export default function Profile({ avatar, setAvatar }) {
-  const { user } = useSelector((state) => state);
+  const { user1 } = useSelector((state) => state);
   const [img, setImg] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState({
@@ -27,12 +27,12 @@ export default function Profile({ avatar, setAvatar }) {
   useEffect(() => {
     dispatch(getUserInfoTHUNK(id));
     setInput({
-      name: user.name,
-      gender: user.Gender?.gender === 'male' ? 'Мужчина' : 'Женщина',
-      age: user.age ? user.age : '',
+      name: user1.name,
+      gender: user1.Gender?.gender === 'male' ? 'Мужчина' : 'Женщина',
+      age: user1.age ? user1.age : '',
     });
-    setAvatar(user.img);
-  }, [user.img]);
+    setAvatar(user1.img);
+  }, [user1.img]);
 
   // Редактирование Фото
 
@@ -96,7 +96,7 @@ export default function Profile({ avatar, setAvatar }) {
             <div className="text-profile">
               Имя
             </div>
-            {isEdit === true ? <input value={input.name} onChange={changeInput} name="name" /> : user.name}
+            {isEdit === true ? <input value={input.name} onChange={changeInput} name="name" /> : user1.name}
           </h5>
           <h5 className="line-profile">
             <div className="text-profile">
@@ -111,7 +111,7 @@ export default function Profile({ avatar, setAvatar }) {
                 </select>
               </>
             )
-              : user.gender_id === 1
+              : user1.gender_id === 1
                 ? 'Мужчина'
                 : 'Женщина' }
           </h5>
@@ -120,8 +120,8 @@ export default function Profile({ avatar, setAvatar }) {
               Возраст
             </div>
             {isEdit === true ? <input type="number" value={input.age} onChange={changeInput} name="age" />
-              : user.age
-                ? user.age
+              : user1.age
+                ? user1.age
                 : 'Возраст не заполнен'}
           </h5>
           {!isEdit ? <button type="button" className="btn btn-outline-warning button-profile" onClick={changeStatusEdit}>Редактировать данные</button>
