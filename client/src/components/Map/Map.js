@@ -152,20 +152,7 @@ export default function Map() {
     myMap.events.add('click', (e) => {
       if (!myMap.balloon.isOpen()) {
         const coords = e.get('coords');
-        console.log(coords);
-        console.log(blogPostsState);
         setBlogPostsState({ ...blogPostsState, right: true, coords });
-        console.log(blogPostsState);
-
-        myMap.balloon.open(coords, {
-          contentHeader: 'Событие!',
-          contentBody: '<button id="yyy">sss</button'
-                    + `<p>Координаты щелчка: ${[
-                      coords[0].toPrecision(6),
-                      coords[1].toPrecision(6),
-                    ].join(', ')}</p>`,
-          contentFooter: '<sup>Щелкните еще раз</sup>',
-        });
       } else {
         myMap.balloon.close();
       }
@@ -189,19 +176,16 @@ export default function Map() {
   }, [myMap]);
 
   useEffect(() => {
-    console.log(events);
     if (events?.eventData && myMap) {
-      console.log(events.eventData);
-      console.log('hit');
       events.eventData.forEach((el) => {
         const myPlacemark = new ymaps.Placemark([el.latitude, el.longtitude], {
-          balloonHeader: 'Заголовок балуна',
-          balloonContent: 'Контент балуна',
+          // balloonHeader: 'Заголовок балуна',
+          balloonContent: '<div><a href="/event">link</a></div>',
         }, {
-          balloonShadow: false,
-          balloonLayout: MyBalloonLayout,
-          balloonContentLayout: MyBalloonContentLayout,
-          balloonPanelMaxMapArea: 0,
+          // balloonShadow: false,
+          // balloonLayout: MyBalloonLayout,
+          // balloonContentLayout: MyBalloonContentLayout,
+          // balloonPanelMaxMapArea: 0,
 
           iconLayout: 'default#image',
           iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
