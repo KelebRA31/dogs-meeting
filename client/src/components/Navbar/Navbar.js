@@ -38,9 +38,6 @@ export default function Navbar() {
             <li className="nav-item">
               <NavLink className="nav-link text-color-Navbar" aria-current="page" to="/">Главная</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link text-color-Navbar" to="/about">О Приложении</NavLink>
-            </li>
             {auth
               ? (
                 <li className="nav-item dropdown">

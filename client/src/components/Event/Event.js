@@ -24,7 +24,7 @@ export default function Event() {
 
   useEffect(() => {
     dispatch(getEventTHUNK());
-    dispatch(getDogInfoTHUNK(id));
+    dispatch(getDogInfoTHUNK(auth.id));
   }, []);
 
   useEffect(() => {

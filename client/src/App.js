@@ -26,7 +26,6 @@ function App() {
   const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
     // ws1 initialize in saga

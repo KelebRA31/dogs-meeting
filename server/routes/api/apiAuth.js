@@ -43,8 +43,6 @@ route.post('/register', [
     const {
       email, password, name, nickName, gender_id,
     } = req.body;
-    // console.log(typeof (gender_id));
-    // console.log(process.env.CRYPT_ROUNDS);
 
     const candidateByEmail = await User.findOne({ where: { email } });
     if (candidateByEmail) {

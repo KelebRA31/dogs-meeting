@@ -9,7 +9,6 @@ function createSocketChannel(socket, action) {
   return eventChannel((emit) => {
     // ws6 four types of events
     socket.onopen = () => {
-      console.log('action --->', action);
       emit({ type: SET_WS, payload: true });
     };
 
@@ -18,8 +17,6 @@ function createSocketChannel(socket, action) {
     };
 
     socket.onmessage = function (event) {
-      console.log({ event });
-      console.log('message --->>', JSON.parse(event.data));
       emit(JSON.parse(event.data));
     };
 

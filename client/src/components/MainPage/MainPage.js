@@ -57,10 +57,10 @@ export default function MainPage() {
           <img className="image-carousel example-img" src="/Images/Photo3.svg" alt="pic1" />
         </Carousel.Item>
         <Carousel.Item>
-          <img className="image-carousel example-img" src="/Images/Photo3.svg" alt="pic2" />
+          <img className="image-carousel example-img" src="/Images/Photo4.svg" alt="pic2" />
         </Carousel.Item>
         <Carousel.Item>
-          <img className="image-carousel example-img" src="/Images/Photo3.svg" alt="pic3" />
+          <img className="image-carousel example-img" src="/Images/Photo5.svg" alt="pic3" />
         </Carousel.Item>
       </Carousel>
       <div className="button-containerDown">
