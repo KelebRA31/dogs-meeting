@@ -20,4 +20,11 @@ route.get('/', async (req, res) => {
   res.json(meeting);
 });
 
+route.delete('/:id/:meetingId', async (req, res) => {
+  const { meetingId } = req.params;
+  await Meeting.destroy({ where: { id: meetingId } });
+  const meeting = await Meeting.findAll();
+  res.json(meeting);
+});
+
 module.exports = route;

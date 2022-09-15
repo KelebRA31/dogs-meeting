@@ -1,8 +1,11 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect } from 'react';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getCreatedEventsTHUNK } from '../../redux/actions/eventAction';
+import { delEventTHUNK, getCreatedEventsTHUNK } from '../../redux/actions/eventAction';
 import './MyCreatedEvent.css';
 
 export default function MyCreatedEvents() {
@@ -14,6 +17,10 @@ export default function MyCreatedEvents() {
   useEffect(() => {
     dispatch(getCreatedEventsTHUNK(id));
   }, []);
+  const deleteHandler = (meetingId) => {
+    dispatch(delEventTHUNK(id, meetingId));
+    navigate('/');
+  };
 
   const clickHandler = (mettingId) => {
     navigate(`/event/${id}/${mettingId}`);
@@ -26,6 +33,11 @@ export default function MyCreatedEvents() {
           <div>{el?.comment}</div>
           <div>{Number(el?.start?.substring(11, 13)) + 3 + el?.start?.substring(13, 19)}</div>
           <div>{Number(el?.end?.substring(11, 13)) + 3 + el?.end?.substring(13, 19)}</div>
+          <div onClick={() => deleteHandler(el?.id)}>
+            <IconButton aria-label="delete" color="error">
+              <DeleteIcon />
+            </IconButton>
+          </div>
         </div>
       ))}
     </div>
