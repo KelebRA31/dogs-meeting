@@ -69,7 +69,7 @@ export default function CreateEvent({
 
   const submitHandler = (e) => {
     e.preventDefault();
-   
+
     const eventData = {
       ...Object.fromEntries(new FormData(e.target)),
       latitude: blogPostsState.coords[0],
