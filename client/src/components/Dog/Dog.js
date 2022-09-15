@@ -43,11 +43,7 @@ function Dog({ dog, deleteHandler, editHandler }) {
   }, [img]);
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log({
-      ...Object.fromEntries(new FormData(e.target)),
-      user_id: id,
-      img: avatar,
-    });
+    
     dispatch(editDogTHUNK(dog.id, {
       ...Object.fromEntries(new FormData(e.target)),
       user_id: id,

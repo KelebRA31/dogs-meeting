@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable react/no-this-in-sfc */
 /* eslint-disable no-underscore-dangle */
@@ -136,7 +137,6 @@ export default function Map() {
       ymaps.geocode(coords).then((res) => {
         const firstGeoObject = res.geoObjects.get(0);
         const location = firstGeoObject.properties._data.text;
-        console.log('geo ->>>>', firstGeoObject.properties._data.text);
 
         window.myPlacemark.properties
           .set({
@@ -152,20 +152,7 @@ export default function Map() {
     myMap.events.add('click', (e) => {
       if (!myMap.balloon.isOpen()) {
         const coords = e.get('coords');
-        console.log(coords);
-        console.log(blogPostsState);
         setBlogPostsState({ ...blogPostsState, right: true, coords });
-        console.log(blogPostsState);
-
-        myMap.balloon.open(coords, {
-          contentHeader: 'Событие!',
-          contentBody: '<button id="yyy">sss</button'
-                    + `<p>Координаты щелчка: ${[
-                      coords[0].toPrecision(6),
-                      coords[1].toPrecision(6),
-                    ].join(', ')}</p>`,
-          contentFooter: '<sup>Щелкните еще раз</sup>',
-        });
       } else {
         myMap.balloon.close();
       }
@@ -189,19 +176,26 @@ export default function Map() {
   }, [myMap]);
 
   useEffect(() => {
-    console.log(events);
+    const interval = setInterval(() => {
+      dispatch(getEventTHUNK());
+    }, 30000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  useEffect(() => {
     if (events?.eventData && myMap) {
-      console.log(events.eventData);
-      console.log('hit');
+      myMap.geoObjects.removeAll();
       events.eventData.forEach((el) => {
         const myPlacemark = new ymaps.Placemark([el.latitude, el.longtitude], {
-          balloonHeader: 'Заголовок балуна',
-          balloonContent: 'Контент балуна',
+          // balloonHeader: 'Заголовок балуна',
+          balloonContent: `<div><button style="background:hwb(40deg 55% 2%);color:black;text-decoration:none;border:'1px solid black';"><a style="text-decoration:none;color:inherit;" href='/event/${el.user_id_creator}/${el.id}'>Перейти на страницу прогулки</a></button></div>`,
         }, {
-          balloonShadow: false,
-          balloonLayout: MyBalloonLayout,
-          balloonContentLayout: MyBalloonContentLayout,
-          balloonPanelMaxMapArea: 0,
+          // balloonShadow: false,
+          // balloonLayout: MyBalloonLayout,
+          // balloonContentLayout: MyBalloonContentLayout,
+          // balloonPanelMaxMapArea: 0,
 
           iconLayout: 'default#image',
           iconImageHref: 'https://cdn-icons-png.flaticon.com/512/6680/6680947.png',
@@ -210,6 +204,7 @@ export default function Map() {
         });
 
         myMap.geoObjects.add(myPlacemark);
+        console.log(myMap.geoObjects.getLength());
       });
     }
   }, [events, myMap]);
