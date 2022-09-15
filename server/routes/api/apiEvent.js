@@ -22,9 +22,13 @@ route.get('/', async (req, res) => {
 
 route.delete('/:id/:meetingId', async (req, res) => {
   const { meetingId } = req.params;
-  await Meeting.destroy({ where: { id: meetingId } });
+  const result = await Meeting.destroy({ where: { id: meetingId } });
   const meeting = await Meeting.findAll();
-  res.json(meeting);
+  if (result) {
+    res.json(meeting);
+  } else {
+    req.sendStatus(400);
+  }
 });
 
 module.exports = route;
