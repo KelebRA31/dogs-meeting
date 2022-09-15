@@ -100,7 +100,7 @@ const serverConfig = (app) => {
 
         const delFunc = await Meeting.destroy({ where: { end: { [Op.lte]: today } } });
       })();
-    }, 10000000);
+    }, 100000000);
 
     console.log(`Server is started on port ${PORT}`);
   });

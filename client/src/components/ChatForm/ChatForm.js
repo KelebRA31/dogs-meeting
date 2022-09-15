@@ -5,6 +5,7 @@ import {
   Form, FormGroup, Input, Col, InputGroup, Button, Row,
 } from 'reactstrap';
 import { sendChatMessage } from '../../redux/actions/chatActions';
+import '../chatStyles.css';
 
 export default function ChatForm() {
   const [input, setInput] = useState('');

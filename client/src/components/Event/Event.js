@@ -9,6 +9,7 @@ import Profile from '../Profile/Profile';
 import './Event.css';
 import UsersList from '../UsersList/UsersList';
 import ChatWrapper from '../ChatWrapper/ChatWrapper';
+import '../chatStyles.css';
 
 export default function Event() {
   const auth = useSelector((state) => state.auth);

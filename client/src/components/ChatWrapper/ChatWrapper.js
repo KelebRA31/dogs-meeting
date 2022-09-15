@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import ChatForm from '../ChatForm/ChatForm';
 import ChatWindow from '../ChatWindow/ChatWindow';
+import '../chatStyles.css';
 
 export default function ChatWrapper() {
   return (

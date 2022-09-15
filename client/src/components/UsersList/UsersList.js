@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, ListGroup } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import UsersItem from '../UsersItem/UsersItem';
+import '../chatStyles.css';
 
 export default function UsersList() {
   const chatUsers = useSelector((state) => state.chatUsers);

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Row, Col, ListGroup } from 'reactstrap';
 import { getChatMessages } from '../../redux/actions/chatActions';
 import MessageItem from '../MessageItem/MessageItem';
+import '../chatStyles.css';
 
 export default function ChatWindow() {
   const messages = useSelector((state) => state.messages);
