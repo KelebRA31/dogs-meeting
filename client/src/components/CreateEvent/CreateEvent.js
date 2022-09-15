@@ -52,7 +52,6 @@ export default function CreateEvent({
       dispatch(getDogInfoTHUNK(auth?.id));
     }
   }, [auth]);
-  console.log(auth);
 
   const { eventData, loading } = event;
 
@@ -69,12 +68,7 @@ export default function CreateEvent({
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log({
-      ...Object.fromEntries(new FormData(e.target)),
-      latitude: blogPostsState.coords[0],
-      longtitude: blogPostsState.coords[1],
-    });
+   
     const eventData = {
       ...Object.fromEntries(new FormData(e.target)),
       latitude: blogPostsState.coords[0],

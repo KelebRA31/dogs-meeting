@@ -10,7 +10,6 @@ export default function MyCreatedEvents() {
   const { event } = useSelector((state) => state);
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(event, 'dsadsda');
   // const { room } = useSelector((state) => state);
   useEffect(() => {
     dispatch(getCreatedEventsTHUNK(id));

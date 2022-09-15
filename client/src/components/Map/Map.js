@@ -137,7 +137,6 @@ export default function Map() {
       ymaps.geocode(coords).then((res) => {
         const firstGeoObject = res.geoObjects.get(0);
         const location = firstGeoObject.properties._data.text;
-        console.log('geo ->>>>', firstGeoObject.properties._data.text);
 
         window.myPlacemark.properties
           .set({
@@ -177,7 +176,17 @@ export default function Map() {
   }, [myMap]);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(getEventTHUNK());
+    }, 30000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  useEffect(() => {
     if (events?.eventData && myMap) {
+      myMap.geoObjects.removeAll();
       events.eventData.forEach((el) => {
         const myPlacemark = new ymaps.Placemark([el.latitude, el.longtitude], {
           // balloonHeader: 'Заголовок балуна',
@@ -195,6 +204,7 @@ export default function Map() {
         });
 
         myMap.geoObjects.add(myPlacemark);
+        console.log(myMap.geoObjects.getLength());
       });
     }
   }, [events, myMap]);
