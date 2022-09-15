@@ -23,6 +23,7 @@ import { userCheck } from './redux/actions/userActions';
 function App() {
   const auth = useSelector((state) => state.auth);
   const [avatar, setAvatar] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
@@ -51,7 +52,7 @@ function App() {
     // if (auth) {
     //   dispatch(getUserInfoTHUNK(auth.id));
     // }
-  }, [avatar]);
+  }, [avatar, isEdit]);
   return (
     <div className="App">
       <Navbar />
@@ -65,7 +66,7 @@ function App() {
         <Route path="/event/:id/:meetingId" element={<Event />} />
         <Route path="/mycreatedevents/:id" element={<MyCreatedEvents />} />
         <Route path="/myevents/:id" element={<MyEvents />} />
-        <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} />} />
+        <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} isEdit={isEdit} setIsEdit={setIsEdit} />} />
         <Route path="/mydogs/:id" element={<MyDogs />} />
         <Route path="/myfriends/:id" element={<MyFriends />} />
       </Routes>
