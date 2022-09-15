@@ -31,6 +31,6 @@ module.exports = {
     camelcase: 0,
     'default-param-last': 0,
     'no-lone-blocks': 0,
-
+    'no-param-reassign': 0,
   },
 };

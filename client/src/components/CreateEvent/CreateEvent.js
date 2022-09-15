@@ -63,8 +63,9 @@ export default function CreateEvent({
 
   });
 
-  const [start, setStart] = useState(dayjs('2020-01-01 12:00'));
-  const [end, setEnd] = useState(dayjs('2020-01-01 13:00'));
+  const [start, setStart] = useState(dayjs());
+  const [end, setEnd] = useState(dayjs());
+  // console.log(start.$d);
 
   const submitHandler = (e) => {
     e.preventDefault();

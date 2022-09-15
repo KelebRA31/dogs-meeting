@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Carousel from 'react-material-ui-carousel';
+import { Row } from 'reactstrap';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
 import DogCard from '../DogCard/DogCard';
 import Profile from '../Profile/Profile';
 import './Event.css';
 import { getEventInfoTHUNK, getEventTHUNK } from '../../redux/actions/eventAction';
+import UsersList from '../UsersList/UsersList';
+import ChatWrapper from '../ChatWrapper/ChatWrapper';
+import '../chatStyles.css';
 
 export default function Event() {
   const [currentEvent, setCurrentEvent] = useState({});
@@ -71,8 +75,12 @@ export default function Event() {
           </div> */}
         </div>
         <div className="chat-of-meeting">
-          Чат
+          <Row>
+            <UsersList />
+            <ChatWrapper />
+          </Row>
         </div>
+
       </div>
       <div className="container-event">
         <div className="inner-event">
