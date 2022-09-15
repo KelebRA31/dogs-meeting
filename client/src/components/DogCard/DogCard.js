@@ -3,11 +3,11 @@ import { Paper } from '@mui/material';
 import '../Event/Event.css';
 
 function DogCard({ item }) {
-  const dogTemper = (genderId) => {
-    if (genderId === 1) return 'Активный';
-    if (genderId === 1) return 'Нейтральный';
-    if (genderId === 1) return 'Спокойный';
-    return genderId;
+  const dogTemper = (temperId) => {
+    if (temperId === 1) return 'Активный';
+    if (temperId === 2) return 'Нейтральный';
+    if (temperId === 3) return 'Спокойный';
+    return temperId;
   };
   return (
     <Paper>
@@ -54,7 +54,7 @@ function DogCard({ item }) {
                   Пол:
                 </div>
                 <div className="text-body-profile-in-meeting">
-                  {item.Gender?.gender === 1 ? 'Самец' : 'Самка'}
+                  {item.gender_id === 1 ? 'Самец' : 'Самка'}
                 </div>
               </h6>
             </div>

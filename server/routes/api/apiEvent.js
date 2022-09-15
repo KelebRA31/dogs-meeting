@@ -36,5 +36,34 @@ route.delete('/:id/:meetingId', async (req, res) => {
     req.sendStatus(400);
   }
 });
+route.post('/addUser', async (req, res) => {
+  try {
+    const { user_id, meeting_id, dog_id } = req.body;
+    const result = await User_on_meeting.create(req.body);
+    if (result) {
+      const addedUser = User_on_meeting.findOne({ where: { user_id, meeting_id, dog_id } });
+      res.json(addedUser);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+route.delete('/delUser', async (req, res) => {
+  try {
+    const { user_id, meeting_id } = req.body;
+    const deletedUser = User_on_meeting.findAll({ where: { user_id, meeting_id } });
+    const result = await User_on_meeting.destroy({ where: { user_id, meeting_id } });
+    if (result) {
+      res.json(deletedUser);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 module.exports = route;

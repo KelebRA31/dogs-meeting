@@ -86,11 +86,11 @@ function Dog({ dog, deleteHandler, editHandler }) {
                   <label className="label-mydogs" htmlFor="exampleInputEmail1">Порода собаки</label>
                   <input value={input.breed} onChange={changeInput} name="breed" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите породу собаки" />
                 </div>
-                <select value={input.gender_id} name="gender_id" className="form-select" aria-label="Default select example">
+                <select name="gender_id" className="form-select" aria-label="Default select example">
                   <option value="1">Самец</option>
                   <option value="2">Самка</option>
                 </select>
-                <select value={input.temper_id} name="temper_id" className="form-select" aria-label="Default select example">
+                <select name="temper_id" className="form-select" aria-label="Default select example">
                   <option value="1">Активный</option>
                   <option value="2">Нейтральный</option>
                   <option value="3">Спокойный</option>

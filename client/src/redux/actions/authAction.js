@@ -8,6 +8,7 @@
 
 import { LOGOUT, SET_AUTH } from '../types/types';
 import { getDogInfoTHUNK } from './dogAction';
+import { getUserInfoTHUNK } from './userAction';
 
 export const setAuth = (data) => ({ type: SET_AUTH, payload: data });
 export const logout = () => ({ type: LOGOUT });
@@ -22,6 +23,7 @@ export const checkAuthTHUNK = () => (dispatch) => {
       if (res.id) {
         dispatch(setAuth(res));
         dispatch(getDogInfoTHUNK(res.id));
+        dispatch(getUserInfoTHUNK(res.id));
       }
     });
 };
