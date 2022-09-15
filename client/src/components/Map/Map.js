@@ -178,11 +178,10 @@ export default function Map() {
 
   useEffect(() => {
     if (events?.eventData && myMap) {
-      console.log(events);
       events.eventData.forEach((el) => {
         const myPlacemark = new ymaps.Placemark([el.latitude, el.longtitude], {
           // balloonHeader: 'Заголовок балуна',
-          balloonContent: `<div><a href='/event/${el.user_id_creator}/${el.id}'>link</a></div>`,
+          balloonContent: `<div><button style="background:hwb(40deg 55% 2%);color:black;text-decoration:none;border:'1px solid black';"><a style="text-decoration:none;color:inherit;" href='/event/${el.user_id_creator}/${el.id}'>Перейти на страницу прогулки</a></button></div>`,
         }, {
           // balloonShadow: false,
           // balloonLayout: MyBalloonLayout,

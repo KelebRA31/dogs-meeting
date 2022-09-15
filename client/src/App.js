@@ -10,13 +10,12 @@ import About from './components/About/About';
 import { checkAuthTHUNK } from './redux/actions/authAction';
 
 import './App.css';
-import CreateEvent from './components/CreateEvent/CreateEvent';
+
 import MyDogs from './components/MyDogs/MyDogs';
 import MyFriends from './components/MyFriends/MyFriends';
 import Event from './components/Event/Event';
 import MyCreatedEvents from './components/MyCreatedEvents/MyCreatedEvents';
 import MyEvents from './components/MyEvents/MyEvents';
-import { getUserInfoTHUNK } from './redux/actions/userAction';
 
 function App() {
   const auth = useSelector((state) => state.auth);
@@ -54,6 +53,7 @@ function App() {
         <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} />} />
         <Route path="/mydogs/:id" element={<MyDogs />} />
         <Route path="/myfriends/:id" element={<MyFriends />} />
+
       </Routes>
     </div>
   );
