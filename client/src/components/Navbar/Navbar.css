@@ -118,3 +118,16 @@ color: #c35507;
   .input:focus + .line-box2 .line2 {
     width: 100%;
   }
+
+  .dropdown-menu {
+    color: white;
+    border: 3px solid rgba(230, 151, 23, 0.323);
+    background-color: seashell;
+    --bs-dropdown-link-hover-bg: #eaa810;
+    --bs-dropdown-link-active-color: #fff;
+    --bs-dropdown-link-active-bg: #c35507;
+  }
+
+  /* .dropdown-item.active, .dropdown-item:active {
+    background-color: #c35507;
+  } */

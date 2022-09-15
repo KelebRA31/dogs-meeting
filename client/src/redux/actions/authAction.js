@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 // Example
 
 // import { LOGOUT, SET_AUTH } from '../types/types';
@@ -6,6 +7,8 @@
 // export const logout = () => ({ type: LOGOUT });
 
 import { LOGOUT, SET_AUTH } from '../types/types';
+import { getDogInfoTHUNK } from './dogAction';
+import { getUserInfoTHUNK } from './userAction';
 
 export const setAuth = (data) => ({ type: SET_AUTH, payload: data });
 export const logout = () => ({ type: LOGOUT });
@@ -19,6 +22,8 @@ export const checkAuthTHUNK = () => (dispatch) => {
       console.log(res);
       if (res.id) {
         dispatch(setAuth(res));
+        dispatch(getDogInfoTHUNK(res.id));
+        dispatch(getUserInfoTHUNK(res.id));
       }
     });
 };

@@ -19,15 +19,38 @@ export default function MyCreatedEvents() {
     navigate(`/event/${id}/${mettingId}`);
   };
   return (
-    <div className="container-createdEvents">
-      {event?.eventData?.map((el) => (
-        <div className="mini-container-createdEvents" key={el?.id} type="div" onClick={() => (clickHandler(el?.id))}>
-          <div>{el?.User?.nickName}</div>
-          <div>{el?.comment}</div>
-          <div>{Number(el?.start?.substring(11, 13)) + 3 + el?.start?.substring(13, 19)}</div>
-          <div>{Number(el?.end?.substring(11, 13)) + 3 + el?.end?.substring(13, 19)}</div>
-        </div>
-      ))}
+    <div className="super-container-createdEvents">
+      <div className="title-container-createdEvents">Прогулки</div>
+      <div className="background-line-createdEvents" />
+      <div className="container-createdEvents">
+        {event?.eventData?.map((el) => (
+          <div className="mini-container-createdEvents" key={el.id} type="div" onClick={() => (clickHandler(el?.id))}>
+            <div className="key-value-container">
+              <div>
+                <div className="key-container-createdEvents">
+                  Ник создателя:
+                </div>
+                <div className="value-container-createdEvents">
+                  {el?.User?.nickName}
+                </div>
+              </div>
+              <div>
+                <div className="key-container-createdEvents">Комментарий:</div>
+                <div className="value-container-createdEvents">{el?.comment}</div>
+              </div>
+              <div>
+                <div className="key-container-createdEvents">Время начала:</div>
+                <div className="value-container-createdEvents">{Number(el?.start?.substring(11, 13)) + 3 + el?.start?.substring(13, 19)}</div>
+              </div>
+              <div>
+                <div className="key-container-createdEvents">Время окончания:</div>
+                <div className="value-container-createdEvents">{Number(el?.end?.substring(11, 13)) + 3 + el?.end?.substring(13, 19)}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }

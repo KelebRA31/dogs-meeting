@@ -47,28 +47,28 @@ function DogForm({ setIsAdding }) {
     setIsAdding(false);
   };
   return (
-    <div>
+    <div className="container-form-mydogs">
       <div className="avatar">
         {avatar
           ? <img src={`${avatar}`} width="120px" height="120px" style={{ borderRadius: '50%', border: '1px solid black' }} alt="avatar" />
           : <img src="/avatar-logo.png" width="120px" height="120px" style={{ borderRadius: '50%', border: '1px solid black' }} alt="avatar" />}
       </div>
       <div className="mb-3 photo-button-profile">
-        <label htmlFor="formFileSm" className="form-label text-photo-profile">Изменить фото</label>
+        <label htmlFor="formFileSm" className="form-label text-photo-profile label-dogform">Изменить фото</label>
         <input className="form-control form-control-sm" id="formFileSm" type="file" onChange={(e) => setImg(e.target.files[0])} />
         <button type="button" className="btn btn-outline-warning button-profile" onClick={sendFile}>Выбрать фото</button>
       </div>
-      <form onSubmit={submitHandler}>
+      <form className="form-dogform" onSubmit={submitHandler}>
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Имя собаки</label>
+          <label className="label-dogform" htmlFor="exampleInputEmail1">Имя собаки</label>
           <input name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя собаки" />
         </div>
         <div className="input-DogForm">
-          <label htmlFor="exampleInputEmail1">Возраст собаки</label>
+          <label className="label-dogform" htmlFor="exampleInputEmail1">Возраст собаки</label>
           <input name="age" type="Number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите возраст собаки" />
         </div>
         <div className="input-DogForm">
-          <label htmlFor="exampleInputEmail1">Порода собаки</label>
+          <label className="label-dogform" htmlFor="exampleInputEmail1">Порода собаки</label>
           <input name="breed" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите породу собаки" />
         </div>
         <select name="gender_id" className="form-select" aria-label="Default select example">
@@ -80,7 +80,7 @@ function DogForm({ setIsAdding }) {
           <option value="2">Нейтральный</option>
           <option value="3">Спокойный</option>
         </select>
-        <button type="submit" className="btn btn-primary">Добавить собаку</button>
+        <button type="submit" className="btn btn-warning button-dogform">Добавить собаку</button>
       </form>
     </div>
   );

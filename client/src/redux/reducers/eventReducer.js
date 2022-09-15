@@ -1,5 +1,5 @@
 import {
-  CREATE_EVENT, EVENT_FILTER, GET_EVENT, GET_CREATED_EVENTS,
+  CREATE_EVENT, EVENT_FILTER, GET_EVENT, GET_CREATED_EVENTS, GET_EVENT_INFO,
 } from '../types/types';
 
 export default (state = { eventData: [], loading: false }, action) => {
@@ -10,6 +10,9 @@ export default (state = { eventData: [], loading: false }, action) => {
       return { eventData: payload, loading: false };
 
     case GET_CREATED_EVENTS:
+      return { eventData: payload, loading: false };
+
+    case GET_EVENT_INFO:
       return { eventData: payload, loading: false };
 
     case CREATE_EVENT:
