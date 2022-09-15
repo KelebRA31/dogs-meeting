@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,21 +32,32 @@ export default function MyDogs() {
   };
 
   return (
-    <div className="container">
-      {!auth?.notAuth && !isAdding && <button onClick={() => setIsAdding(true)} type="button" className="btn btn-primary">Добавить собаку</button>}
-      <div className="room-container">
-        {!auth?.notAuth && isAdding && <DogForm setIsAdding={setIsAdding} />}
-        {auth?.notAuth && <h1>Нужно зарегистрироваться!</h1>}
-        {dog?.map((el) => (
-          <Dog
-            key={el?.id}
-            dog={el}
-            deleteHandler={deleteHandler}
-            editHandler={editHandler}
-          />
-        ))}
+    <div className="super-container-mydogs">
+      <div className="button-mydogs">
+        {!auth?.notAuth && !isAdding && <button onClick={() => setIsAdding(true)} type="button" className="btn btn-warning">Добавить собаку</button>}
       </div>
+      <div className="background-line-mydogs-createdEvents" />
+      <div className="container-mydogs">
+        <div className="onedog-container-mydogs">
+          <div>
+            {!auth?.notAuth && isAdding && <DogForm setIsAdding={setIsAdding} />}
+            {auth?.notAuth && <h1>Нужно зарегистрироваться!</h1>}
+          </div>
 
+          <div className="mini-onedog-container-mydogs">
+            {dog?.map((el) => (
+              <Dog
+                key={el?.id}
+                dog={el}
+                deleteHandler={deleteHandler}
+                editHandler={editHandler}
+              />
+            ))}
+          </div>
+
+        </div>
+
+      </div>
     </div>
   );
 }

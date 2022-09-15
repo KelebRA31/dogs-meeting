@@ -97,6 +97,41 @@ align-items: center;
 
 }
 
+.container-form-mydogs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 366px;
+  height: 566px;
+  background-color: aliceblue;
+  margin-left: 390px;
+  background-color: rgba(2, 1, 0, 0.800);
+  box-shadow:
+  inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+  border: 3px solid rgba(230, 151, 23, 0.323);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 12px;
+  color: seashell;
+  margin-bottom: 20px;
+}
+
+.label-dogform {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-dogform {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-dogform {
+  display: flex;
+  justify-content: center;
+}
 /* .input-DogForm {
     display: flex;
     width: 54%;

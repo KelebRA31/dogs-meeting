@@ -8,10 +8,11 @@ import {
   editUserInfoTHUNK, getUserInfo, getUserInfoTHUNK, setUserImgTHUNK,
 } from '../../redux/actions/userAction';
 
-export default function Profile({ avatar, setAvatar }) {
+export default function Profile({
+  avatar, setAvatar, isEdit, setIsEdit,
+}) {
   const { user1 } = useSelector((state) => state);
   const [img, setImg] = useState(null);
-  const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState({
     name: '',
     gender: '',

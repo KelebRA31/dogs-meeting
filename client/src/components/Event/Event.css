@@ -90,12 +90,14 @@
 
 .img-profile-in-meeting {
     border-Radius: 50%;
-    border: 1px solid black;
+    border: 1px solid rgba(230, 151, 23, 0.323);
     margin-top: 20px;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
 }
 
 .container-dog-in-meeting{
-    width: 600px;
+    /* width: 600px; */
     height: 238px;
     margin-top: 58px;
     display: flex;
@@ -201,4 +203,8 @@ margin-top: 65px !important;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.row {
+    margin-right: 0;
 }
