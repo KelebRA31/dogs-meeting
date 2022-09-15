@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     color: black;
-
+    margin-top: 100px;
 }
 
 /* .mainBox {
@@ -46,11 +46,16 @@
 } */
 
 .css-6zwhmx {
-    background-color: rgba(2, 1, 0, 0.700);
+    background-color: seashell !important;
     box-shadow:
     inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
     border-radius: 12px;
     border: 3px solid rgba(230, 151, 23, 0.323);
+}
+
+.css-1869usk-MuiFormControl-root {
+    margin: 0 0 0 10px !important;
+
 }
 
 

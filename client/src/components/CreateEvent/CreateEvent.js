@@ -225,7 +225,7 @@ export default function CreateEvent({
               </form>
             ) : (
               <>
-                <Link to="/registration">Нужно зарегитирроваться</Link>
+                <Link to="/registration">Нужно зарегистрироваться</Link>
                 <p> </p>
                 <Link to="/login">Или войти</Link>
               </>
