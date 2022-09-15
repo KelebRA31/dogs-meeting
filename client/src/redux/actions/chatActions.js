@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { ADD_CHAT_USER, GET_CHAT_MESSAGES, SET_CHAT_MESSAGE } from '../types/types';
 
 export const chatUserAction = (payload) => ({
