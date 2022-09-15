@@ -43,6 +43,7 @@ export const GET_EVENT_INFO = 'GET_EVENT_INFO';
 
 // FILTER
 
+export const DEL_EVENT = 'DEL_EVENT';
 export const EVENT_FILTER = 'EVENT_FILTER';
 
 export const ADD_USER = 'ADD_USER';

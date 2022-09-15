@@ -23,6 +23,7 @@ import { userCheck } from './redux/actions/userActions';
 function App() {
   const auth = useSelector((state) => state.auth);
   const [avatar, setAvatar] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const [isEdit, setIsEdit] = useState(false);

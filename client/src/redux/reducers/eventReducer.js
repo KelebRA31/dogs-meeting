@@ -1,5 +1,5 @@
 import {
-  CREATE_EVENT, EVENT_FILTER, GET_EVENT, GET_CREATED_EVENTS, GET_EVENT_INFO,
+  CREATE_EVENT, EVENT_FILTER, GET_EVENT, GET_CREATED_EVENTS, GET_EVENT_INFO, DEL_EVENT,
 } from '../types/types';
 
 export default (state = { eventData: [], loading: false }, action) => {
@@ -20,6 +20,9 @@ export default (state = { eventData: [], loading: false }, action) => {
 
     case EVENT_FILTER:
       return { ...state, eventData: state.eventData.filter((el) => el.id !== payload) };
+
+    case DEL_EVENT:
+      return state.eventData.filter((el) => el.id !== payload.id);
 
     case 'FETCH_EVENT':
       return { ...state, loading: true };
