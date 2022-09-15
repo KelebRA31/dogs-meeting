@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -68,7 +69,8 @@ export default function Event() {
                     Время начала:
                   </div>
                   <div className="value-in-meeting">
-                    {currentEvent[0]?.start.substring(11, 20)}
+                    {(Number(currentEvent[0]?.start.substring(11, 13)) + 3)
+                    + currentEvent[0]?.start.substring(13, 20)}
                   </div>
                 </div>
                 <div className="key-container">
@@ -76,7 +78,8 @@ export default function Event() {
                     Время окончания:
                   </div>
                   <div className="value-in-meeting">
-                    {currentEvent[0]?.end.substring(11, 20)}
+                    {(Number(currentEvent[0]?.end.substring(11, 13)) + 3)
+                    + currentEvent[0]?.end.substring(13, 20)}
                   </div>
                 </div>
               </div>
