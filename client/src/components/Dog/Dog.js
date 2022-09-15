@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { editDogTHUNK } from '../../redux/actions/dogAction';
+import './Dog.css';
 
 function Dog({ dog, deleteHandler, editHandler }) {
   const [isEdit, setIsEdit] = useState(false);
@@ -62,9 +63,9 @@ function Dog({ dog, deleteHandler, editHandler }) {
   };
   return (
     <div>
-      <div className="card" style={{ width: '18rem' }}>
+      <div className="card super-dog-container">
         {isEdit ? (
-          <>
+          <div className="dog-container">
             <div className="avatar">
               {avatar
                 ? <img src={`${avatar}`} width="120px" height="120px" style={{ borderRadius: '50%', border: '1px solid black' }} alt="avatar" />
@@ -99,9 +100,9 @@ function Dog({ dog, deleteHandler, editHandler }) {
               </select>
               <button type="submit" className="btn btn-primary">Сохранить</button>
             </form>
-          </>
+          </div>
         ) : (
-          <>
+          <div className="dog-container">
             <img src={dog.img} className="card-img-top" alt="dogPhoto" height="201px" />
             <div className="card-body under-img-container">
               <p className="card-text" style={{ textAlign: 'center' }}>
@@ -122,7 +123,7 @@ function Dog({ dog, deleteHandler, editHandler }) {
                 <button onClick={() => deleteHandler(dog.id)} type="button" className="btn btn-danger">Удалить</button>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

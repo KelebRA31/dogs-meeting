@@ -58,3 +58,23 @@ justify-content: center;
 align-self: normal;
 align-items: center;
 }
+
+
+.super-dog-container{
+
+}
+
+.dog-container {
+position: absolute;
+/* display: flex; */
+/* justify-content: center; */
+/* align-items: center; */
+/* width: 1140px; */
+/* height: 566px; */
+background-color: aliceblue;
+margin: -18vh auto;
+margin-left: 380px;
+/* flex-direction: column; */
+flex-wrap: wrap;
+gap: 21px;
+}
