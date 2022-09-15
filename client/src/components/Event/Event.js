@@ -23,7 +23,6 @@ export default function Event() {
     dispatch(getDogInfoTHUNK(id));
   }, []);
 
-  console.log(dog);
   return (
     <div className="super-container-event">
       <div className="chat-event">

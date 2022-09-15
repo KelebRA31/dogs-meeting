@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useDispatch, useSelector } from 'react-redux';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
@@ -16,13 +15,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Box, SwipeableDrawer } from '@mui/material';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Box } from '@mui/material';
 import Modal from '@mui/material/Modal';
-import InputUnstyled from '@mui/base/InputUnstyled';
 import { Stack } from '@mui/system';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DateTimePicker from 'react-datetime-picker';
 import { createEventTHUNK } from '../../redux/actions/eventAction';
 import { checkAuthTHUNK } from '../../redux/actions/authAction';
@@ -56,7 +52,6 @@ export default function CreateEvent({
       dispatch(getDogInfoTHUNK(auth?.id));
     }
   }, [auth]);
-  console.log(auth);
 
   const { eventData, loading } = event;
 
@@ -74,12 +69,7 @@ export default function CreateEvent({
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log({
-      ...Object.fromEntries(new FormData(e.target)),
-      latitude: blogPostsState.coords[0],
-      longtitude: blogPostsState.coords[1],
-    });
+
     const eventData = {
       ...Object.fromEntries(new FormData(e.target)),
       latitude: blogPostsState.coords[0],

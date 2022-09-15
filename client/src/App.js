@@ -10,7 +10,7 @@ import About from './components/About/About';
 import { checkAuthTHUNK } from './redux/actions/authAction';
 
 import './App.css';
-import CreateEvent from './components/CreateEvent/CreateEvent';
+
 import MyDogs from './components/MyDogs/MyDogs';
 import MyFriends from './components/MyFriends/MyFriends';
 import Event from './components/Event/Event';
@@ -69,6 +69,7 @@ function App() {
         <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} isEdit={isEdit} setIsEdit={setIsEdit} />} />
         <Route path="/mydogs/:id" element={<MyDogs />} />
         <Route path="/myfriends/:id" element={<MyFriends />} />
+
       </Routes>
     </div>
   );

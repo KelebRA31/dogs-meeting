@@ -17,7 +17,6 @@ export default function MyDogs() {
   // const { auth } = useSelector((state) => state);
   const dog = useSelector((state) => state.dog);
   const auth = useSelector((state) => state.auth);
-  console.log(dog);
 
   const { id } = useParams();
 
