@@ -26,11 +26,14 @@ export default function Event() {
   return (
     <div className="super-container-event">
       <div className="chat-event">
-        <Row>
-          <UsersList />
-          <ChatWrapper />
-        </Row>
+        {auth ? (
+          <Row>
+            <UsersList />
+            <ChatWrapper />
+          </Row>
+        ) : <h1>Зарегистрируйтесь или войдите в аккаунт, чтобы присоединиться к прогулке</h1>}
       </div>
+      {auth && (
       <div className="container-event">
         <div className="inner-event">
           <img src={auth?.img} width="100px" height="100px" className="img-profile-in-meeting" alt="user-img" />
@@ -113,6 +116,7 @@ export default function Event() {
           </div> */}
 
       </div>
+      ) }
     </div>
   );
 }

@@ -40,6 +40,10 @@ export const CREATE_EVENT = 'CREATE_EVENT';
 export const GET_EVENT = 'GET_EVENT';
 export const GET_CREATED_EVENTS = 'GET_CREATED_EVENTS';
 
+// USERSMEETING
+export const ADD_USER_EVENT = 'ADD_USER_EVENT';
+export const REMOVE_USER_EVENT = 'REMOVE_USER_EVENT';
+
 // FILTER
 
 export const EVENT_FILTER = 'EVENT_FILTER';
