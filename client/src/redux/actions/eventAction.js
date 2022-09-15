@@ -55,7 +55,7 @@ export const delEventTHUNK = (id, meetingId) => (dispatch) => {
     .then((res) => {
       if (res.status === 200) {
         console.log('111111111>', res.json());
-        dispatch(delEvent(id));
+        dispatch(eventFilter(meetingId));
       }
     });
 };

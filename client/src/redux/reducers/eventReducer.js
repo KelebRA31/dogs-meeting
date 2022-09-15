@@ -22,7 +22,7 @@ export default (state = { eventData: [], loading: false }, action) => {
       return { ...state, eventData: state.eventData.filter((el) => el.id !== payload) };
 
     case DEL_EVENT:
-      return state.eventData.filter((el) => el.id !== payload.id);
+      return state.eventData.filter((el) => el.id !== payload);
 
     case 'FETCH_EVENT':
       return { ...state, loading: true };

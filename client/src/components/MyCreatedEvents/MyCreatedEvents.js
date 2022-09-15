@@ -17,9 +17,10 @@ export default function MyCreatedEvents() {
   useEffect(() => {
     dispatch(getCreatedEventsTHUNK(id));
   }, []);
-  const deleteHandler = (meetingId) => {
+  const deleteHandler = (e, meetingId) => {
+    e.stopPropagation();
     dispatch(delEventTHUNK(id, meetingId));
-    navigate('/');
+    // navigate('/');
   };
 
   const clickHandler = (mettingId) => {
@@ -53,7 +54,7 @@ export default function MyCreatedEvents() {
                 <div className="key-container-createdEvents">Время окончания:</div>
                 <div className="value-container-createdEvents">{Number(el?.end?.substring(11, 13)) + 3 + el?.end?.substring(13, 19)}</div>
               </div>
-              <div onClick={() => deleteHandler(el?.id)}>
+              <div onClick={(e) => deleteHandler(e, el?.id)}>
                 <IconButton aria-label="delete" color="error">
                   <DeleteIcon />
                 </IconButton>
