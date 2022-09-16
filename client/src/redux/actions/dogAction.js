@@ -3,7 +3,6 @@
 import {
   SET_DOG_IMG, GET_DOG_INFO, CREATE_DOG, DELETE_DOG, EDIT_DOG,
 } from '../types/types';
-import { checkAuthTHUNK } from './authAction';
 
 export const setDogImg = (data) => ({ type: SET_DOG_IMG, payload: data });
 export const getDogInfo = (data) => ({ type: GET_DOG_INFO, payload: data });

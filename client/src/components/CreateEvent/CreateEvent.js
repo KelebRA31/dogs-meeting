@@ -65,8 +65,6 @@ export default function CreateEvent({
 
   const [start, setStart] = useState(dayjs());
   const [end, setEnd] = useState(dayjs());
-  // console.log(start.$d);
-
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -78,6 +76,7 @@ export default function CreateEvent({
       end,
     };
     dispatch(createEventTHUNK(eventData));
+    handleClose();
   };
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -103,14 +102,9 @@ export default function CreateEvent({
     p: 4,
   };
 
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
   const list = (anchor) => (
     <div>
       <div>
-        {/* <Button onClick={handleOpen}>Open modal</Button> */}
         <Modal
           open={open}
           onClose={handleClose}
@@ -126,8 +120,6 @@ export default function CreateEvent({
                     id="filled-basic"
                     variant="filled"
                     name="comment"
-                  // onChange={changeHandler}
-                  // value={inputValue.comment}
                     type="text"
                     className="textfield"
                   />
@@ -135,16 +127,10 @@ export default function CreateEvent({
                     <Select
                       labelId="demo-simple-select-filled-label"
                       id="demo-simple-select-filled"
-// value={dog_id_creator}
-                    // onChange={changeHandler}
                       name="dog_id_creator"
                     >
-                      {/* тут должен быть map по собакам */}
+
                       {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
-
-                      {/* <MenuItem value={1}>Мухтар</MenuItem>
-                    <MenuItem value={2}>Рэкс</MenuItem> */}
-
                     </Select>
                   </FormControl>
                   <div className="timeContainer">
@@ -156,12 +142,10 @@ export default function CreateEvent({
                           label="Начало прогулки"
                           className="timePicker"
                           name="start"
-                          value={start}
+                          value={new Date(start)}
                           onChange={(newValue) => {
                             setStart(newValue);
                           }}
-                      // value={inputValue.start}
-                      // onChange={setInputValue}
                           minDateTime={dayjs()}
                         />
                         <DateTimePicker
@@ -169,12 +153,10 @@ export default function CreateEvent({
                           renderInput={(params) => <TextField {...params} />}
                           label="Конец прогулки"
                           name="end"
-                          value={end}
+                          value={new Date(end)}
                           onChange={(newValue) => {
                             setEnd(newValue);
                           }}
-                      // value={inputValue.end}
-                      // onChange={setInputValue}
                           minDateTime={dayjs()}
                         />
                       </Stack>
@@ -190,7 +172,6 @@ export default function CreateEvent({
                           <CustomCheckbox
                             type="checkbox"
                             id="flexCheckDefault"
-                          // value={inputValue.private}
                             onChange={() => setInputValue((prev) => ({ ...prev, private: !prev.private }))}
                           />
 )}
@@ -204,8 +185,6 @@ export default function CreateEvent({
                         id="filled-basic"
                         variant="filled"
                         name="password"
-                      // value={inputValue.password}
-                      // onChange={changeHandler}
                         type="text"
                       />
                     </div>
@@ -244,12 +223,6 @@ export default function CreateEvent({
         <React.Fragment key={anchor}>
           <button type="button" id="set-balloon-header" style={{ display: 'none' }} className="btn">Задать заголовок балуна</button>
           <button type="button" id="set-balloon-content" style={{ display: 'none' }} className="btn">Задать содержимое балуна</button>
-
-          {/* <Button onClick={toggleDrawer(anchor, true)}>
-            <ToggleButton value="justify" key="justify">
-              <FormatAlignJustifyIcon />
-            </ToggleButton>
-          </Button> */}
           <Modal
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
@@ -259,16 +232,7 @@ export default function CreateEvent({
             onOpen={toggleDrawer(anchor, true)}
           >
             {list(anchor)}
-
           </Modal>
-          {/* <SwipeableDrawer
-            anchor={anchor}
-            open={blogPostsState[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}432p/.,
-          >
-            {list(anchor)}
-          </SwipeableDrawer> */}
         </React.Fragment>
       ))}
     </div>
