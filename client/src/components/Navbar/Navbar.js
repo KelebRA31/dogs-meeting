@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { checkAuthTHUNK, logoutTHUNK } from '../../redux/actions/authAction';
@@ -8,6 +8,7 @@ export default function Navbar() {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [hidden, setHidden] = useState(false);
   useEffect(() => {
     dispatch(checkAuthTHUNK());
   }, []);
@@ -35,6 +36,9 @@ export default function Navbar() {
         </div>
         <div id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+            <li onMouseEnter={() => setHidden(true)}>
+              <img style={{ display: hidden ? 'none' : 'visible' }} height="25px" width="25px" src="https://cdn-icons-png.flaticon.com/512/92/92386.png" alt="img" />
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link text-color-Navbar" aria-current="page" to="/">Главная</NavLink>
             </li>
@@ -53,6 +57,8 @@ export default function Navbar() {
                     {/* <li><NavLink className="dropdown-item" to={`
                     /event/${auth?.id}`}>Мои прогулки</NavLink></li> */}
                     <li><NavLink className="dropdown-item" to={`/mycreatedevents/${auth?.id}`}>Мои созданные прогулки</NavLink></li>
+                    {/* <li><NavLink className="dropdown-item"
+                    to={`/myOpenEvents/${auth?.id}`}>Мои прогулки</NavLink></li> */}
                     <li><NavLink className="dropdown-item" to={`/mydogs/${auth?.id}`}>Мои собаки</NavLink></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>

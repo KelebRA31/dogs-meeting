@@ -1,7 +1,7 @@
 const express = require('express');
 
 const route = express.Router();
-const { Meeting, User_on_meeting } = require('../../db/models');
+const { User, Meeting, User_on_meeting } = require('../../db/models');
 
 route.post('/', async (req, res) => {
   // console.log(req.session);
@@ -73,6 +73,20 @@ route.get('/getUserEvent/:meetingId', async (req, res) => {
     const { meetingId } = req.params;
     const events = await User_on_meeting.findAll({ where: { meeting_id: meetingId } });
     console.log(meetingId, events);
+    res.json(events);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+route.get('/getEventUser/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const events = await User_on_meeting.findAll({
+      where: { user_id: userId },
+      include: { all: true },
+    });
+    console.log(userId, events);
     res.json(events);
   } catch (err) {
     console.error(err);

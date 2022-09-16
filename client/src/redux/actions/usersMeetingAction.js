@@ -28,3 +28,12 @@ export const getUserEventTHUNK = (meetingId) => (dispatch) => {
       dispatch(getUserEvent(res));
     });
 };
+
+export const getEventUserTHUNK = (userId) => (dispatch) => {
+  fetch(`http://localhost:3001/api/event/getEventUser/${userId}`)
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      dispatch(getUserEvent(res));
+    });
+};

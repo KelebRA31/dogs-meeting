@@ -66,7 +66,7 @@ export default function Event() {
             {event.eventData.filter((el) => el.id === +meetingId)[0].password
               ? (
                 <div className="mb-3">
-                  <p>Веедите пароль от комнаты:</p>
+                  <p>Введите пароль от комнаты:</p>
                   <input
                     name="password"
                       // value={inputValue.password}
