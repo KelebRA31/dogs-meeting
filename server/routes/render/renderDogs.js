@@ -6,7 +6,6 @@ const route = express.Router();
 route.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    // console.log(req.params);
     const result = await Dog.findAll({
       where: { user_id: id },
       include: { model: Gender },
@@ -14,7 +13,6 @@ route.get('/:id', async (req, res) => {
         ['id', 'ASC'],
       ],
     });
-    // console.log(result);
     res.json(result);
   } catch (err) {
     res.sendStatus(400);

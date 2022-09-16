@@ -8,7 +8,6 @@ route.get('/:id', async (req, res) => {
     where: { user_id_creator: req.params.id },
     include: { all: true },
   });
-  console.log('////', meeting);
   res.json(meeting);
 });
 

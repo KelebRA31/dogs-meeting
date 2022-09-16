@@ -3,7 +3,6 @@
 import {
   SET_DOG_IMG, GET_DOG_INFO, CREATE_DOG, DELETE_DOG, EDIT_DOG,
 } from '../types/types';
-import { checkAuthTHUNK } from './authAction';
 
 export const setDogImg = (data) => ({ type: SET_DOG_IMG, payload: data });
 export const getDogInfo = (data) => ({ type: GET_DOG_INFO, payload: data });
@@ -52,8 +51,8 @@ export const deleteDogTHUNK = (id) => (dispatch) => {
 };
 
 export const editDogTHUNK = (id, obj) => (dispatch) => {
-  console.log('obj:', obj);
-  console.log('id:', id);
+  // console.log('obj:', obj);
+  // console.log('id:', id);
   fetch(`http://localhost:3001/mydogs/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },

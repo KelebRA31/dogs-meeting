@@ -15,6 +15,7 @@ const apiDogImg = require('../routes/api/apiDogImg');
 const renderUsers = require('../routes/render/renderUsers');
 const renderDogs = require('../routes/render/renderDogs');
 const apiEvent = require('../routes/api/apiEvent');
+const apiFriend = require('../routes/api/apiFriend');
 const apiCreatedEvents = require('../routes/api/apiCreatedEvents');
 const { Meeting } = require('../db/models');
 const wss = require('../webSocket');
@@ -60,6 +61,7 @@ const serverConfig = (app) => {
   app.use('/profile', renderUsers);
   app.use('/mydogs', renderDogs);
   app.use('/api/user', userRouter);
+  app.use('/api/friend', apiFriend);
   // app.use('/user', )
 
   const server = http.createServer(app);

@@ -16,7 +16,7 @@ export default function UsersItem({ user }) {
       }}
       >
         {user.name}
-
+        {/* <button type="button">Подписаться</button> */}
       </p>
     </ListGroupItem>
   );

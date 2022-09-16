@@ -19,6 +19,7 @@ import MyEvents from './components/MyEvents/MyEvents';
 import { getUserInfoTHUNK } from './redux/actions/userAction';
 import { socketInit } from './redux/actions/wsActions';
 import { userCheck } from './redux/actions/userActions';
+import { getFriendTHUNK } from './redux/actions/friendAction';
 
 function App() {
   const auth = useSelector((state) => state.auth);
@@ -31,6 +32,7 @@ function App() {
     // ws1 initialize in saga
     if (user.id) {
       dispatch(socketInit());
+      dispatch(getFriendTHUNK());
     }
   }, [user]);
 

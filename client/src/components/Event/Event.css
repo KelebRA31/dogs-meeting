@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    /* position: absolute; */
+    /* position: relative; */
     top: 25px;
     left: 85px;
 }
@@ -207,4 +207,20 @@ margin-top: 15px !important;
 
 .row {
     margin-right: 0;
+}
+
+.button-event {
+    position: absolute !important;
+    margin-left: 10px;
+    margin-left: -230px !important;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+.css-sxix9q-MuiButtonBase-root-MuiButton-root {
+    position: absolute !important;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    position: absolute !important;
 }

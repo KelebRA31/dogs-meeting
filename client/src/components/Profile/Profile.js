@@ -72,7 +72,7 @@ export default function Profile({
   const editUserInfoHandler = (e) => {
     // console.log(input);
     e.preventDefault();
-    console.log('--->', Object.fromEntries(new FormData(e.target)).gender);
+    // console.log('--->', Object.fromEntries(new FormData(e.target)).gender);
     dispatch(editUserInfoTHUNK(id, input, Object.fromEntries(new FormData(e.target)).gender));
     setIsEdit(!isEdit);
   };

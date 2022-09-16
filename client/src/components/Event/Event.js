@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Carousel from 'react-material-ui-carousel';
 import { Row } from 'reactstrap';
+import { ButtonBase } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
 import DogCard from '../DogCard/DogCard';
 import Profile from '../Profile/Profile';
@@ -12,13 +15,16 @@ import UsersList from '../UsersList/UsersList';
 import ChatWrapper from '../ChatWrapper/ChatWrapper';
 import '../chatStyles.css';
 import { getUserInfoTHUNK } from '../../redux/actions/userAction';
+import { addFriendTHUNK, deleteFriendTHUNK, getFriendTHUNK } from '../../redux/actions/friendAction';
 
 export default function Event() {
   const [currentEvent, setCurrentEvent] = useState({});
+  const [isClicked, setIsClicked] = useState(false);
   const auth = useSelector((state) => state.auth);
   const dog = useSelector((state) => state.dog);
   const user = useSelector((state) => state.user);
   const user1 = useSelector((state) => state.user1);
+  const friend = useSelector((state) => state.friend);
   const usersMeeting = useSelector((state) => state.usersMeeting);
   const event = useSelector((state) => state.event);
   const { id, meetingId } = useParams();
@@ -27,8 +33,17 @@ export default function Event() {
 
   useEffect(() => {
     dispatch(getEventTHUNK());
+    // dispatch(getFriendTHUNK());
+    // dispatch(getFriendTHUNK());
     // dispatch(getDogInfoTHUNK(auth?.id));
   }, []);
+  useEffect(() => {
+    if (friend.filter((el) => el.friend2 === user1.id).length) {
+      setIsClicked(true);
+    } else {
+      setIsClicked(false);
+    }
+  }, [user1]);
 
   // useEffect(() => {
   //   setUserState(auth);
@@ -39,6 +54,18 @@ export default function Event() {
   }, [event]);
 
   // console.log(event.eventData[0].User);
+
+  const addFriend = () => {
+    dispatch(addFriendTHUNK(user1.id));
+    setIsClicked(true);
+  };
+
+  const deleteFriend = () => {
+    dispatch(deleteFriendTHUNK(user1.id));
+    setIsClicked(false);
+  };
+
+  console.log(friend, 'Смотреть тут');
 
   return (
     <div className="super-container-event">
@@ -96,6 +123,13 @@ export default function Event() {
       {auth && (
       <div className="container-event">
         <div className="inner-event">
+          {auth.id !== user1.id && (
+          <Stack spacing={2} direction="row">
+            {isClicked === false
+              ? <Button onClick={addFriend} className="button-event" variant="outlined" color="success">Подписаться</Button>
+              : <Button onClick={deleteFriend} className="button-event" variant="outlined">Отписаться</Button>}
+          </Stack>
+          )}
           <img src={user1?.img} width="100px" height="100px" className="img-profile-in-meeting" alt="user-img" />
           <div className="Name-in-event">Пользователь</div>
           <div className="text-event">
@@ -140,7 +174,6 @@ export default function Event() {
               <DogCard key={item.id} item={item} />
             </div>
           ))}
-
         </Carousel>
 
         {/* <div className="dog-profile-in-meeting_2">

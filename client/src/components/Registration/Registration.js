@@ -48,7 +48,7 @@ export default function Registration() {
     // console.log(inputs);
     // dispatch(setRegistrationTHUNK(inputs, gender_id));
     dispatch(setRegistrationTHUNK(data));
-    console.log(auth);
+    // console.log(auth);
     if (!auth) {
       setBadReg(true);
       reset();

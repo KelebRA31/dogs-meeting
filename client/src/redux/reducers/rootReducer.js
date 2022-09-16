@@ -8,6 +8,7 @@ import chatMessageReducer from './chatMessageReducer';
 import userReducer from './userReducer';
 import userReducer1 from './userReducer(our)';
 import usersMeetingReducer from './usersMeetingReducer';
+import friendReducer from './friendReducer';
 
 const rootReducer = combineReducers({
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   messages: chatMessageReducer,
   usersMeeting: usersMeetingReducer,
   user1: userReducer1,
+  friend: friendReducer,
 });
 
 export default rootReducer;

@@ -6,7 +6,6 @@ const { User } = require('../../db/models');
 route.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    // console.log(id, req.body);
     const {
       age, name, gender_id,
     } = req.body;

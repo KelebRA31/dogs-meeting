@@ -25,7 +25,6 @@ export const getUserInfoTHUNK = (id) => (dispatch) => {
 };
 
 export const editUserInfoTHUNK = (id, obj, gender_id) => (dispatch) => {
-  console.log('11111111111111', obj);
   fetch(`http://localhost:3001/api/profilechange/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },

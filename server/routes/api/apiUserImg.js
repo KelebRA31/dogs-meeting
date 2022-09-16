@@ -5,8 +5,6 @@ const { User } = require('../../db/models');
 
 route.patch('/', async (req, res) => {
   try {
-    // console.log(req.session);
-    // console.log(req.body);
     const { id, str } = req.body;
     const userImg = await User.update({ img: str }, { where: { id } });
     if (userImg) {
