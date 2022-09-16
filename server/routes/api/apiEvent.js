@@ -1,12 +1,14 @@
 const express = require('express');
 
 const route = express.Router();
-const { Meeting, User_on_meeting } = require('../../db/models');
+const { User, Meeting, User_on_meeting } = require('../../db/models');
 
 route.post('/', async (req, res) => {
   const meeting = await Meeting.create({
     ...req.body, user_id_creator: req.session.user.id,
   });
+  console.log(meeting);
+  await User_on_meeting.create({ meeting_id: meeting.id, user_id: req.session.user.id });
 
   res.json(meeting);
 });
@@ -34,10 +36,10 @@ route.delete('/:id/:meetingId', async (req, res) => {
 });
 route.post('/addUser', async (req, res) => {
   try {
-    const { user_id, meeting_id, dog_id } = req.body;
+    const { user_id, meeting_id } = req.body;
     const result = await User_on_meeting.create(req.body);
     if (result) {
-      const addedUser = User_on_meeting.findOne({ where: { user_id, meeting_id, dog_id } });
+      const addedUser = User_on_meeting.findOne({ where: { user_id, meeting_id } });
       res.json(addedUser);
     } else {
       res.sendStatus(400);
@@ -50,13 +52,38 @@ route.post('/addUser', async (req, res) => {
 route.delete('/delUser', async (req, res) => {
   try {
     const { user_id, meeting_id } = req.body;
-    const deletedUser = User_on_meeting.findAll({ where: { user_id, meeting_id } });
+    const deletedUser = User_on_meeting.findOne({ where: { user_id, meeting_id } });
     const result = await User_on_meeting.destroy({ where: { user_id, meeting_id } });
     if (result) {
       res.json(deletedUser);
     } else {
       res.sendStatus(400);
     }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+route.get('/getUserEvent/:meetingId', async (req, res) => {
+  try {
+    const { meetingId } = req.params;
+    const events = await User_on_meeting.findAll({ where: { meeting_id: meetingId } });
+    console.log(meetingId, events);
+    res.json(events);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+route.get('/getEventUser/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const events = await User_on_meeting.findAll({
+      where: { user_id: userId },
+      include: { all: true },
+    });
+    console.log(userId, events);
+    res.json(events);
   } catch (err) {
     console.error(err);
   }

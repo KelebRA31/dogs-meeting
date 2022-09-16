@@ -58,7 +58,7 @@ export default function Login() {
       <div className="form">
         <form onSubmit={submitHandler}>
           <h1>Вход</h1>
-          {badAuth && <h2 style={{ color: '#bf1650' }}>Email или пароль неверны</h2>}
+          {/* {badAuth && <h2 style={{ color: '#bf1650' }}>Email или пароль неверны</h2>} */}
           <label htmlFor="usr">
             <p className="label-txt">Введите свой email</p>
             <input onChange={inputHandler} value={inputs.email} name="email" className="input" id="usr" />

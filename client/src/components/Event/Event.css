@@ -224,3 +224,10 @@ margin-top: 15px !important;
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
     position: absolute !important;
 }
+
+.chat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

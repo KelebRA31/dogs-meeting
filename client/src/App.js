@@ -20,6 +20,7 @@ import { getUserInfoTHUNK } from './redux/actions/userAction';
 import { socketInit } from './redux/actions/wsActions';
 import { userCheck } from './redux/actions/userActions';
 import { getFriendTHUNK } from './redux/actions/friendAction';
+import MyOpenEvents from './components/MyOpenEvents/MyOpenEvents';
 
 function App() {
   const auth = useSelector((state) => state.auth);
@@ -70,6 +71,7 @@ function App() {
         <Route path="/myevents/:id" element={<MyEvents />} />
         <Route path="/profile/:id" element={<Profile avatar={avatar} setAvatar={setAvatar} isEdit={isEdit} setIsEdit={setIsEdit} />} />
         <Route path="/mydogs/:id" element={<MyDogs />} />
+        <Route path="/myOpenEvents/:id" element={<MyOpenEvents />} />
         <Route path="/myfriends/:id" element={<MyFriends />} />
 
       </Routes>

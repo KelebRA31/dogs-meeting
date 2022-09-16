@@ -6,6 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import './Map.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import BlogPosts from '../BlogPosts/BlogPosts';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import { getEventTHUNK } from '../../redux/actions/eventAction';
@@ -18,6 +19,7 @@ export default function Map() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  // const navigate = useNavigate;
 
   const events = useSelector((state) => state.event);
   const dispatch = useDispatch();

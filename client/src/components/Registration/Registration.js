@@ -67,7 +67,8 @@ export default function Registration() {
       <div className="form">
         <form onSubmit={handleSubmit(submitHandler)}>
           <h1>Регистрация</h1>
-          {badReg && <h2 style={{ color: '#BF1650' }}>Такой email или nickName уже существует</h2>}
+          {/* {badReg && <h2 style={{ color: '#BF1650' }}>Такой
+          email или nickName уже существует</h2>} */}
           <label htmlFor="usr">
             <p className="label-txt">Введите свое имя</p>
             <input {...register('name')} onChange={inputHandler} value={inputs.name} className="input" id="usr" />

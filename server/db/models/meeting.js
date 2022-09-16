@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User, { foreignKey: 'user_id_creator' });
       this.hasMany(models.Message, { foreignKey: 'meeting_id' });
       // this.belongsToMany(models.User, { foreignKey: 'meeting_id', through: 'Messages' });
-      this.belongsToMany(models.User, { foreignKey: 'meeting_id', through: 'Users_on_meeting' });
+      // this.belongsToMany(models.User, { foreignKey: 'meeting_id', through: 'Users_on_meeting' });
+      this.hasMany(models.User_on_meeting, { foreignKey: 'meeting_id' });
     }
   }
   Meeting.init({
@@ -27,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     private: DataTypes.BOOLEAN,
     password: DataTypes.STRING,
     user_id_creator: DataTypes.INTEGER,
-    dog_id_creator: DataTypes.INTEGER,
+    // dog_id_creator: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Meeting',
