@@ -208,3 +208,10 @@ margin-top: 15px !important;
 .row {
     margin-right: 0;
 }
+
+.chat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Carousel from 'react-material-ui-carousel';
 import { Row } from 'reactstrap';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import { getDogInfoTHUNK } from '../../redux/actions/dogAction';
 import DogCard from '../DogCard/DogCard';
 import Profile from '../Profile/Profile';
@@ -13,6 +15,7 @@ import UsersList from '../UsersList/UsersList';
 import ChatWrapper from '../ChatWrapper/ChatWrapper';
 import '../chatStyles.css';
 import { getUserInfoTHUNK } from '../../redux/actions/userAction';
+import { addUserEventTHUNK, getUserEventTHUNK } from '../../redux/actions/usersMeetingAction';
 
 export default function Event() {
   const [currentEvent, setCurrentEvent] = useState({});
@@ -29,22 +32,59 @@ export default function Event() {
   useEffect(() => {
     dispatch(getEventTHUNK());
     // dispatch(getDogInfoTHUNK(auth?.id));
-  }, []);
+    dispatch(getUserEventTHUNK(meetingId));
+  }, [usersMeeting.length]);
+  console.log('ggg ', usersMeeting);
 
   // useEffect(() => {
   //   setUserState(auth);
   // }, []);
 
+  const enterEvent = () => {
+    dispatch(addUserEventTHUNK(auth.id, meetingId));
+  };
+
+  const passwordCheck = (e) => {
+    if (e.target.value === event.eventData.filter((el) => el.id === +meetingId)[0].password) {
+      dispatch(addUserEventTHUNK(auth.id, meetingId));
+    }
+  };
+
   useEffect(() => {
     setCurrentEvent(event.eventData.filter((el) => el.id === +meetingId));
   }, [event]);
+  console.log(event.eventData.filter((el) => el.id === +meetingId));
 
   // console.log(event.eventData[0].User);
 
   return (
     <div className="super-container-event">
       <div className="chat-event">
-        {auth ? (
+        {!(usersMeeting?.filter((el) => el?.user_id === auth?.id).length) && auth && (
+          <div className="chat-btn">
+            {' '}
+            {event.eventData.filter((el) => el.id === +meetingId)[0].password
+              ? (
+                <div className="mb-3">
+                  <p>Веедите пароль от комнаты:</p>
+                  <input
+                    name="password"
+                      // value={inputValue.password}
+                      // onChange={changeHandler}
+                    type="password"
+                    onChange={passwordCheck}
+                  />
+                </div>
+              )
+              : (
+                <Button variant="contained" disableElevation onClick={enterEvent}>
+                  Присоединиться к прогулке
+                </Button>
+              ) }
+          </div>
+
+        )}
+        {auth && usersMeeting?.filter((el) => el?.user_id === auth?.id).length ? (
           <>
             <div className="info-of-meeting">
               <div className="container-key-in-meeting">
@@ -93,7 +133,8 @@ export default function Event() {
               </Row>
             </div>
           </>
-        ) : <h1>Зарегистрируйтесь или войдите в аккаунт, чтобы присоединиться к прогулке</h1>}
+        ) : (!auth
+        && <h1>Зарегистрируйтесь или войдите в аккаунт, чтобы присоединиться к прогулке</h1>)}
 
       </div>
       {auth && (

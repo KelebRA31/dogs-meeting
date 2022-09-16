@@ -6,12 +6,12 @@ export const addUserEvent = (data) => ({ type: ADD_USER_EVENT, payload: data });
 export const removeUserEvent = (data) => ({ type: REMOVE_USER_EVENT, payload: data });
 export const getUserEvent = (data) => ({ type: GET_USER_EVENT, payload: data });
 
-export const addUserEventTHUNK = (inputs) => (dispatch) => {
+export const addUserEventTHUNK = (user_id, meeting_id) => (dispatch) => {
   fetch('http://localhost:3001/api/event/addUser', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
-    body: JSON.stringify(inputs),
+    body: JSON.stringify({ user_id, meeting_id }),
 
   })
     .then((res) => res.json())
@@ -20,10 +20,11 @@ export const addUserEventTHUNK = (inputs) => (dispatch) => {
     });
 };
 
-export const getUserEventTHUNK = (data) => (dispatch) => {
-  fetch('http://localhost:3001/api/event/getUserEvent')
+export const getUserEventTHUNK = (meetingId) => (dispatch) => {
+  fetch(`http://localhost:3001/api/event/getUserEvent/${meetingId}`)
     .then((res) => res.json())
     .then((res) => {
+      console.log(res);
       dispatch(getUserEvent(res));
     });
 };

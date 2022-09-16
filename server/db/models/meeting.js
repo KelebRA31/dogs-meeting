@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     private: DataTypes.BOOLEAN,
     password: DataTypes.STRING,
     user_id_creator: DataTypes.INTEGER,
-    dog_id_creator: DataTypes.INTEGER,
+    // dog_id_creator: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Meeting',

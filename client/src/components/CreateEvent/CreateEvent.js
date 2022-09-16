@@ -78,6 +78,7 @@ export default function CreateEvent({
       end,
     };
     dispatch(createEventTHUNK(eventData));
+    handleClose();
   };
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -131,22 +132,6 @@ export default function CreateEvent({
                     type="text"
                     className="textfield"
                   />
-                  <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                    <Select
-                      labelId="demo-simple-select-filled-label"
-                      id="demo-simple-select-filled"
-// value={dog_id_creator}
-                    // onChange={changeHandler}
-                      name="dog_id_creator"
-                    >
-                      {/* тут должен быть map по собакам */}
-                      {dog?.map((el) => (<MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>))}
-
-                      {/* <MenuItem value={1}>Мухтар</MenuItem>
-                    <MenuItem value={2}>Рэкс</MenuItem> */}
-
-                    </Select>
-                  </FormControl>
                   <div className="timeContainer">
 
                     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>

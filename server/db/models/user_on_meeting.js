@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   User_on_meeting.init({
     user_id: DataTypes.INTEGER,
     meeting_id: DataTypes.INTEGER,
-    dog_id: DataTypes.INTEGER,
+    // dog_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'User_on_meeting',

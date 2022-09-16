@@ -41,15 +41,15 @@ module.exports = {
         onDelete: 'cascade',
         allowNull: false,
       },
-      dog_id_creator: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Dogs',
-          key: 'id',
-        },
-        onDelete: 'cascade',
-        allowNull: false,
-      },
+      // dog_id_creator: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Dogs',
+      //     key: 'id',
+      //   },
+      //   onDelete: 'cascade',
+      //   allowNull: false,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
