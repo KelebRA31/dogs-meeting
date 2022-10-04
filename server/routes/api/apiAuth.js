@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 const bcrypt = require('bcrypt');
 const express = require('express');
 const { check, validationResult } = require('express-validator');
@@ -7,7 +8,7 @@ const route = express.Router();
 
 route.get('/check', async (req, res) => {
   try {
-    const result = await User.findByPk(req.session.userId);
+    const result = await User.findByPk(req.session.user.id);
     res.json(result);
   } catch (error) {
     res.json(error);
@@ -16,8 +17,14 @@ route.get('/check', async (req, res) => {
 
 route.get('/logout', async (req, res) => {
   try {
+    res.app.locals.ws.delete(req.session.user.id);
+    for (const [, wsClient] of res.app.locals.ws) {
+      wsClient.ws.send(JSON.stringify(
+        { type: 'ADD_CHAT_USER', payload: Array.from(res.app.locals.ws.values()).map((el) => el.user) },
+      ));
+    }
     req.session.destroy();
-    res.clearCookie('mega-cookie');
+    res.clearCookie('sid');
     res.sendStatus(200);
   } catch (error) {
     res.json(error);
@@ -36,8 +43,6 @@ route.post('/register', [
     const {
       email, password, name, nickName, gender_id,
     } = req.body;
-    console.log(typeof (gender_id));
-    console.log(process.env.CRYPT_ROUNDS);
 
     const candidateByEmail = await User.findOne({ where: { email } });
     if (candidateByEmail) {
@@ -56,8 +61,11 @@ route.post('/register', [
       gender_id,
     });
     if (result.id && result.name !== 'SequelizeDatabaseError') {
-      req.session.userName = result.nickName;
-      req.session.userId = result.id;
+      // req.session.userName = result.nickName;
+      // req.session.userId = result.id;
+      req.session.user = { name: result.nickName, id: result.id };
+      // console.log(result);
+      // console.log(req.session);
       return res.json(result);
     }
     res.sendStatus(404);
@@ -73,10 +81,14 @@ route.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await User.findOne({ where: { email } });
+    if (!result) {
+      return res.sendStatus(400);
+    }
     if (await bcrypt.compare(password, result.password)) {
-      req.session.userName = result.name;
-      req.session.userId = result.id;
-      console.log(req.session);
+      // req.session.userName = result.name;
+      // req.session.userId = result.id;
+      // console.log(req.session);
+      req.session.user = { name: result.nickName, id: result.id };
       return res.json(result);
     }
     throw Error(result);

@@ -1,0 +1,233 @@
+.container-event {
+    width: 500px;
+    height: 285px;
+    background-color: rgba(2, 1, 0, 0.700);
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    margin: auto;
+    margin-right: 50px;
+    justify-content: center;
+    margin-top: 3%;
+    position: relative;
+    border: 3px solid rgba(230, 151, 23, 0.323);
+}
+
+.inner-event {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    /* position: relative; */
+    top: 25px;
+    left: 85px;
+}
+
+.text-event {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    /* border: 1px solid rgba(239,172,63, 0.3); */
+}
+
+.line-profile-in-meeting {
+    /* width: 75%;
+    border-bottom: 1px solid white; */
+}
+
+.text-profile-in-meeting {
+    margin-top: 3px;
+    /* display: flex; */
+    justify-content: center;
+    width: 100%;
+    font-size: 10px;
+    color: white;
+}
+
+.super-container-event {
+}
+
+.chat-event {
+    width: 50rem;
+    height: 37.5em;
+    background-color: rgba(255,245, 238, 0.900);
+    margin-top: 2%;
+    position: absolute;
+    margin: auto;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    margin-left: 50px;
+    border: 3px solid rgba(230, 151, 23, 0.323);
+}
+
+.Name-in-event {
+    color: rgb(252, 252, 252);
+    padding: 0;
+    margin: -25px;
+}
+.text-title-profile-in-meeting {
+    display: flex;
+    justify-content: center;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    font-size: 15px;
+    color: rgb(252, 252, 252);
+    
+
+}
+
+.text-body-profile-in-meeting {
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(252, 252, 252, 0.7);
+}
+
+.img-profile-in-meeting {
+    border-Radius: 50%;
+    border: 1px solid rgba(230, 151, 23, 0.323);
+    margin-top: 20px;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+}
+
+.container-dog-in-meeting{
+    /* width: 600px; */
+    height: 238px;
+    margin-top: 58px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dog-profile-in-meeting {
+    width: 600px;
+    height: 289px;
+    background-color: seashell;
+    box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    margin: auto;
+    justify-content: center;
+    margin-top: 3.4%;
+    flex-direction: row;
+}
+
+.dog-profile-in-meeting_2 {
+    width: 280px;
+    height: 289px;
+    background-color: seashell;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    margin: auto;
+    justify-content: center;
+    margin-top: 9%;
+    margin-right: 0;
+    font-size: 11px;
+}
+
+.css-ohwg9z {
+    overflow: unset !important;
+}
+
+.css-1ps6pg7-MuiPaper-root {
+    background-color: rgba(76, 175, 80, 0) !important;
+}
+
+.css-1abc02a {
+margin-top: 15px !important;
+}
+
+.css-hn784z {
+margin-top: 15px !important;
+}
+
+.info-of-meeting{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(255, 245, 238, 0.6);
+    border-bottom: 3px solid rgba(230, 151, 23, 0.323);
+    border-radius: 12px 12px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.chat-of-meeting{
+    width: 100%;
+    height: calc(100% - 140px);
+}
+
+.container-key-in-meeting{
+    /* width: 23%; */
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    /* border-right: 3px solid rgba(230, 151, 23, 0.323);; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 60px;
+}
+
+.key-in-meeting {
+
+}
+
+.container-value-in-meeting {
+    /* width: 30%; */
+    font-size: 11px;
+
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(252, 252, 252, 0.7);
+}
+
+.value-in-meeting {
+    color: rgb(0, 0, 0, 0.6);
+    margin-top: 1px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.css-1m9128y {
+    margin-top: 130px !important;
+}
+
+.key-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.button-event {
+    position: absolute !important;
+    margin-left: 10px;
+    margin-left: -230px !important;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+.css-sxix9q-MuiButtonBase-root-MuiButton-root {
+    position: absolute !important;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    position: absolute !important;
+}
+
+.chat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

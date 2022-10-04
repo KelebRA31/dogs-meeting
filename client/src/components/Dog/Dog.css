@@ -1,0 +1,140 @@
+.under-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.container-profile {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 600px;
+  background-color: white;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+  border-radius: 12px;
+}
+
+.button-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.name-profile {
+
+}
+
+.photo-button-profile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-photo-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.line-profile {
+  width: 75%;
+  border-bottom: 1px solid black;
+}
+
+.text-profile {
+display: flex;
+justify-content: center;
+}
+
+.form-profile {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: normal;
+align-items: center;
+}
+
+
+.super-dog-container{
+  width: 366px;
+  height: 566px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(2, 1, 0, 0.800);
+  box-shadow:
+  inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+  border: 3px solid rgba(230, 151, 23, 0.323);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 12px;
+  color: seashell;
+}
+
+.super-dog-container:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+.dog-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.img-onedog {
+  display: flex;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(230, 151, 23, 0.323);
+}
+
+.key-value-mydogs {
+}
+
+.mini-key-value-mydogs {
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.key-mydogs {
+  display: flex;
+  justify-content: center;
+  /* background-color: rgba(255, 255, 255, 0.7); */
+  font-size: 19px;
+  color: rgb(252, 252, 252);
+}
+
+.value-mydogs {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  /* background-color: rgba(255, 255, 255, 0.7); */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(252, 252, 252, 0.7);
+}
+
+.mini-dog-container {
+
+}
+
+.label-mydogs {
+  margin: 0px;
+}
+
+.avatar-mydogs {
+  display: flex;
+  justify-content: center;
+}
+
+.form-dog {
+  display: flex;
+  flex-direction: column;
+}

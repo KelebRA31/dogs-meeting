@@ -1,16 +1,61 @@
+.form-event {
+    margin-left: auto;
+    margin-top: 35px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 600px;
+    background-color: seashell;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+}
 .mainEventContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
+    color: black;
+    margin-top: 100px;
 }
 
-.eventContainer {
+/* .mainBox {
     width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} */
+.textfield {
+    width: 300px;
+    align-self: center;
+    
+}
+/* .eventContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: cadetblue;
+} 
+
+.timeContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+} */
+
+.css-6zwhmx {
+    background-color: seashell !important;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    border: 3px solid rgba(230, 151, 23, 0.323);
 }
+
+.css-1869usk-MuiFormControl-root {
+    margin: 0 0 0 10px !important;
+
+}
+
+

@@ -4,7 +4,7 @@ import './About.css';
 
 export default function About() {
   return (
-    <div>
+    <div className="about-container">
       <h2>Как пользоваться:</h2>
       <h4>Шаг 1:</h4>
       <p>Зарегистрируйтесь что бы вступить или создать прогулку</p>

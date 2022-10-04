@@ -30,6 +30,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     camelcase: 0,
     'default-param-last': 0,
-
+    'no-lone-blocks': 0,
+    'no-param-reassign': 0,
+    'linebreak-style': 0,
   },
 };

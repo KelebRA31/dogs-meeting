@@ -1,0 +1,88 @@
+.super-container-createdEvents {
+    /* width: 100%;
+    height: 100vh; */
+}
+
+.background-line-createdEvents {
+    width: 100%;
+    height: 321px;
+    top: 270px;
+    margin-bottom: 0;
+    background-color: rgba(234, 168, 16, 0.700);
+    position: relative;
+}
+
+.container-createdEvents {
+position: absolute;
+display: flex;
+/* justify-content: center; */
+/* align-items: center; */
+width: 1140px;
+height: 566px;
+/* background-color: aliceblue; */
+margin: -18vh auto;
+margin-left: 380px;
+/* flex-direction: column; */
+flex-wrap: wrap;
+gap: 21px;
+}
+
+
+.mini-container-createdEvents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 366px;
+    height: 566px;
+    text-align: center;
+    background-color: rgba(2, 1, 0, 0.800);
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border: 3px solid rgba(230, 151, 23, 0.323);
+    color: seashell;
+    /* background-position:center center; */
+    /* background-size:cover; */
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+}
+
+.mini-container-createdEvents:hover {
+transform: scale(1.1);
+transition: 1s;
+}
+
+.key-value-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.key-container-createdEvents {
+    color: rgb(252, 252, 252);
+}
+
+.value-container-createdEvents {
+    color: rgb(252, 252, 252, 0.7);
+}
+
+.title-container-createdEvents {
+    display: flex;
+    justify-content: center;
+    margin-left: 860px;
+    margin-top: 60px;
+    position: absolute;
+    width: 10%;
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border: 3px solid rgba(230, 151, 23, 0.323);
+    box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 10%), 0em 0em 1em 0px rgb(0 0 0 / 30%);
+    border-radius: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(2, 1, 0, 0.800);
+    color: seashell;
+}

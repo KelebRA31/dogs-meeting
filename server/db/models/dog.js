@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Gender, { foreignKey: 'gender_id' });
       this.belongsTo(models.Temper, { foreignKey: 'temper_id' });
       this.belongsTo(models.User, { foreignKey: 'user_id' });
-      this.hasMany(models.Meeting, { foreignKey: 'dog_id_creator' });
-      this.hasMany(models.User_on_meeting, { foreignKey: 'dog_id' });
+      // this.hasMany(models.Meeting, { foreignKey: 'dog_id_creator' });
+      // this.hasMany(models.User_on_meeting, { foreignKey: 'dog_id' });
     }
   }
   Dog.init({
