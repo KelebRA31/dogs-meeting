@@ -1,4 +1,4 @@
-# dogs-meeting
+<h1 align='center'>Dogs-To-Dogs</h1>
 <div align='center'>
   <h1>Для начала посмотрите инструкцию для нашего сервиса<h1>
   <img src="https://user-images.githubusercontent.com/108239463/196740495-d86e0c04-ffa6-43be-b44d-497bfbae812b.gif" alt="git"/>
